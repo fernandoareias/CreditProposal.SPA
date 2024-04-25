@@ -7,9 +7,14 @@ const ProposalsItem = () => {
 
     // Função para abrir o modal
     const handleOpenModal = () => {
+        console.log("modal aberto");
       setIsModalOpen(true);
     };
 
+    const handleCloseModal = () => {
+        console.log("modal fechado");
+        setIsModalOpen(false);
+      };
 
   return (
     <div className='pt-5 pb-[.15rem] flex'>
@@ -20,8 +25,8 @@ const ProposalsItem = () => {
                 <p className='text-sm'>Product:<span>Mastercard</span></p>
             </div>
 
-            <div className="flex-grow flex items-center justify-center"> {/* Ajusta para crescer e alinha ao centro */}
-                <div className="flex flex-col items-center"> {/* Aplica flex-direction: column e alinha ao centro */}
+            <div className="flex-grow flex items-center justify-center"> 
+                <div className="flex flex-col items-center"> 
                 <span className="mb-1">Analista: Helene Tavares Vieira</span>  
                 <span className="mb-2">Approved</span>
                 <span className="mb-2">23/04/2024 20:56:00</span>
@@ -35,7 +40,7 @@ const ProposalsItem = () => {
                 </svg>
                 </button>
             </div>
-            <ProposalDetail isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+            <ProposalDetail isOpen={isModalOpen} onClose={() => handleCloseModal()} />
         </div>
     </div>
   )

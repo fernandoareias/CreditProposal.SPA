@@ -21,7 +21,7 @@ const DashboardPage = () => {
             </div>
             <div className="mr-2 ">
               <a href="javascript:void(0)" className="dark:hover:text-primary hover:text-primary transition-colors duration-200 ease-in-out text-[1.075rem] font-medium dark:text-slate-50 hover:text-slate-300">Robert Jason</a>
-              <span className="text-secondary-dark dark:text-stone-500 font-medium block text-[0.85rem]">SEO Manager</span>
+              <span className="text-secondary-dark dark:text-stone-500 font-medium block text-[0.85rem]">Sales Associate</span>
             </div>
           </div>
           <a className="inline-flex relative items-center group justify-end text-base font-medium leading-normal text-center align-middle cursor-pointer rounded-[.95rem] transition-colors duration-150 ease-in-out text-dark bg-transparent shadow-none border-0" href="javascript:void(0)">
@@ -61,9 +61,7 @@ const DashboardPage = () => {
         </div>
       </aside>
       <div className="lg:col-span-3">
-        <div className="flex shrink-0 px-8 items-center justify-between h-[96px]">
-          
-        </div>
+        
           <div className='p-5'>
             <Outlet/>
           </div>
