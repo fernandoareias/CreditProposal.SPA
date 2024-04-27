@@ -1,0 +1,22 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "Atividade04.BFF.Protos.Services";
+
+service ProposalsService {
+    rpc ConsultarProposals(ProposalsConsultaQuery) returns (ProposalsQueryResponse);
+}
+
+message ProposalsConsultaQuery {
+    string cnpj_loja = 1;
+    string usuario_lojista = 2;
+}
+
+message ProposalsQueryResponse {
+    repeated ProposalsResponse proposals = 1;
+}
+
+message ProposalsResponse {
+    string id = 1;
+    string descricao = 2;
+    float valor = 3;
+}

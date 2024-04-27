@@ -58,4 +58,7 @@
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
   </ItemGroup>
+  <!-- <ItemGroup>
+    <Protobuf Include="Protos\Proposals.proto" GrpcServices="Client"/> 
+  </ItemGroup> -->
 </Project>
