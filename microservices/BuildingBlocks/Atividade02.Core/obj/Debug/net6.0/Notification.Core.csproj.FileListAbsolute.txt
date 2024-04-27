@@ -1,0 +1,12 @@
+/Users/f.areias/Documents/portfolio/Notification/src/core/Notification.Core/bin/Debug/net6.0/Notification.Core.deps.json
+/Users/f.areias/Documents/portfolio/Notification/src/core/Notification.Core/bin/Debug/net6.0/Notification.Core.dll
+/Users/f.areias/Documents/portfolio/Notification/src/core/Notification.Core/bin/Debug/net6.0/Notification.Core.pdb
+/Users/f.areias/Documents/portfolio/Notification/src/core/Notification.Core/obj/Debug/net6.0/Notification.Core.csproj.AssemblyReference.cache
+/Users/f.areias/Documents/portfolio/Notification/src/core/Notification.Core/obj/Debug/net6.0/Notification.Core.GeneratedMSBuildEditorConfig.editorconfig
+/Users/f.areias/Documents/portfolio/Notification/src/core/Notification.Core/obj/Debug/net6.0/Notification.Core.AssemblyInfoInputs.cache
+/Users/f.areias/Documents/portfolio/Notification/src/core/Notification.Core/obj/Debug/net6.0/Notification.Core.AssemblyInfo.cs
+/Users/f.areias/Documents/portfolio/Notification/src/core/Notification.Core/obj/Debug/net6.0/Notification.Core.csproj.CoreCompileInputs.cache
+/Users/f.areias/Documents/portfolio/Notification/src/core/Notification.Core/obj/Debug/net6.0/Notification.Core.dll
+/Users/f.areias/Documents/portfolio/Notification/src/core/Notification.Core/obj/Debug/net6.0/refint/Notification.Core.dll
+/Users/f.areias/Documents/portfolio/Notification/src/core/Notification.Core/obj/Debug/net6.0/Notification.Core.pdb
+/Users/f.areias/Documents/portfolio/Notification/src/core/Notification.Core/obj/Debug/net6.0/ref/Notification.Core.dll

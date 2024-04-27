@@ -1,0 +1,517 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Domain.Services/Atividade02.Proposals.Domain.Services.csproj": {}
+  },
+  "projects": {
+    "/Users/f.areias/Documents/faculdade/atividade04/microservices/BuildingBlocks/Atividade02.Core.MessageBus/Atividade02.Core.MessageBus.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/f.areias/Documents/faculdade/atividade04/microservices/BuildingBlocks/Atividade02.Core.MessageBus/Atividade02.Core.MessageBus.csproj",
+        "projectName": "Atividade02.Core.MessageBus",
+        "projectPath": "/Users/f.areias/Documents/faculdade/atividade04/microservices/BuildingBlocks/Atividade02.Core.MessageBus/Atividade02.Core.MessageBus.csproj",
+        "packagesPath": "/Users/f.areias/.nuget/packages/",
+        "outputPath": "/Users/f.areias/Documents/faculdade/atividade04/microservices/BuildingBlocks/Atividade02.Core.MessageBus/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/f.areias/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "/usr/local/share/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/Users/f.areias/Documents/faculdade/atividade04/microservices/BuildingBlocks/Atividade02.Core/Atividade02.Core.csproj": {
+                "projectPath": "/Users/f.areias/Documents/faculdade/atividade04/microservices/BuildingBlocks/Atividade02.Core/Atividade02.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.2.0, )"
+            },
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.1.0, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.8.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.27, 6.0.27]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.27, 6.0.27]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.201/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/f.areias/Documents/faculdade/atividade04/microservices/BuildingBlocks/Atividade02.Core/Atividade02.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/f.areias/Documents/faculdade/atividade04/microservices/BuildingBlocks/Atividade02.Core/Atividade02.Core.csproj",
+        "projectName": "Atividade02.Core",
+        "projectPath": "/Users/f.areias/Documents/faculdade/atividade04/microservices/BuildingBlocks/Atividade02.Core/Atividade02.Core.csproj",
+        "packagesPath": "/Users/f.areias/.nuget/packages/",
+        "outputPath": "/Users/f.areias/Documents/faculdade/atividade04/microservices/BuildingBlocks/Atividade02.Core/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/f.areias/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "/usr/local/share/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.9.0, )"
+            },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[11.3.0, )"
+            },
+            "FluentValidation.DependencyInjectionExtensions": {
+              "target": "Package",
+              "version": "[11.9.0, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.2.0, )"
+            },
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.1.0, )"
+            },
+            "MongoDB.Bson": {
+              "target": "Package",
+              "version": "[2.23.1, )"
+            },
+            "Polly": {
+              "target": "Package",
+              "version": "[8.2.0, )"
+            },
+            "Serilog": {
+              "target": "Package",
+              "version": "[3.1.2-dev-02097, )"
+            },
+            "Serilog.Sinks.Console": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.27, 6.0.27]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.27, 6.0.27]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.201/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Domain.Services/Atividade02.Proposals.Domain.Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Domain.Services/Atividade02.Proposals.Domain.Services.csproj",
+        "projectName": "Atividade02.Proposals.Domain.Services",
+        "projectPath": "/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Domain.Services/Atividade02.Proposals.Domain.Services.csproj",
+        "packagesPath": "/Users/f.areias/.nuget/packages/",
+        "outputPath": "/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Domain.Services/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/f.areias/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "/usr/local/share/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/Users/f.areias/Documents/faculdade/atividade04/microservices/BuildingBlocks/Atividade02.Core/Atividade02.Core.csproj": {
+                "projectPath": "/Users/f.areias/Documents/faculdade/atividade04/microservices/BuildingBlocks/Atividade02.Core/Atividade02.Core.csproj"
+              },
+              "/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Domain/Atividade02.Proposals.Domain.csproj": {
+                "projectPath": "/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Domain/Atividade02.Proposals.Domain.csproj"
+              },
+              "/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Infrastructure/Atividade02.Proposals.Infrastructure.csproj": {
+                "projectPath": "/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Infrastructure/Atividade02.Proposals.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.27, 6.0.27]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.27, 6.0.27]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.201/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Domain/Atividade02.Proposals.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Domain/Atividade02.Proposals.Domain.csproj",
+        "projectName": "Atividade02.Proposals.Domain",
+        "projectPath": "/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Domain/Atividade02.Proposals.Domain.csproj",
+        "packagesPath": "/Users/f.areias/.nuget/packages/",
+        "outputPath": "/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Domain/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/f.areias/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "/usr/local/share/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/Users/f.areias/Documents/faculdade/atividade04/microservices/BuildingBlocks/Atividade02.Core/Atividade02.Core.csproj": {
+                "projectPath": "/Users/f.areias/Documents/faculdade/atividade04/microservices/BuildingBlocks/Atividade02.Core/Atividade02.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.27, 6.0.27]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.27, 6.0.27]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.201/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Infrastructure.ExternalServices.CreditAnalysisEngine/Atividade02.Proposals.Infrastructure.ExternalServices.CreditAnalysisEngine.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Infrastructure.ExternalServices.CreditAnalysisEngine/Atividade02.Proposals.Infrastructure.ExternalServices.CreditAnalysisEngine.csproj",
+        "projectName": "Atividade02.Proposals.Infrastructure.ExternalServices.CreditAnalysisEngine",
+        "projectPath": "/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Infrastructure.ExternalServices.CreditAnalysisEngine/Atividade02.Proposals.Infrastructure.ExternalServices.CreditAnalysisEngine.csproj",
+        "packagesPath": "/Users/f.areias/.nuget/packages/",
+        "outputPath": "/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Infrastructure.ExternalServices.CreditAnalysisEngine/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/f.areias/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "/usr/local/share/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/Users/f.areias/Documents/faculdade/atividade04/microservices/BuildingBlocks/Atividade02.Core.MessageBus/Atividade02.Core.MessageBus.csproj": {
+                "projectPath": "/Users/f.areias/Documents/faculdade/atividade04/microservices/BuildingBlocks/Atividade02.Core.MessageBus/Atividade02.Core.MessageBus.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.27, 6.0.27]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.27, 6.0.27]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.201/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Infrastructure/Atividade02.Proposals.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Infrastructure/Atividade02.Proposals.Infrastructure.csproj",
+        "projectName": "Atividade02.Proposals.Infrastructure",
+        "projectPath": "/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Infrastructure/Atividade02.Proposals.Infrastructure.csproj",
+        "packagesPath": "/Users/f.areias/.nuget/packages/",
+        "outputPath": "/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Infrastructure/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/f.areias/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "/usr/local/share/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Domain/Atividade02.Proposals.Domain.csproj": {
+                "projectPath": "/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Domain/Atividade02.Proposals.Domain.csproj"
+              },
+              "/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Infrastructure.ExternalServices.CreditAnalysisEngine/Atividade02.Proposals.Infrastructure.ExternalServices.CreditAnalysisEngine.csproj": {
+                "projectPath": "/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Infrastructure.ExternalServices.CreditAnalysisEngine/Atividade02.Proposals.Infrastructure.ExternalServices.CreditAnalysisEngine.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.23.1, )"
+            },
+            "MongoDB.Driver.Core": {
+              "target": "Package",
+              "version": "[2.23.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.27, 6.0.27]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.27, 6.0.27]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.201/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

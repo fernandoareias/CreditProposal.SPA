@@ -1,0 +1,68 @@
+﻿<Properties StartupConfiguration="{CA7DCCA4-58E7-4C5A-802A-5BE6C24ECD7A}|Default">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.bff.tests.Atividade04.BFF.Tests FirstBuild="True" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="BuildingBlocks/Atividade02.Core.MessageBus/Services/MessageBus.cs">
+    <Files>
+      <File FileName="../bff/Atividade04.BFF/Program.cs" Line="13" Column="1" />
+      <File FileName="../bff/Atividade04.BFF/Configurations/Serilog/EnricherLog.cs" />
+      <File FileName="../bff/Atividade04.BFF/Configurations/Serilog/SerilogConfigurations.cs" />
+      <File FileName="../bff/Atividade04.BFF/Middlewares/ExceptionMiddleware.cs" />
+      <File FileName="BuildingBlocks/Atividade02.Core.MessageBus/Services/MessageBus.cs" Line="46" Column="7" />
+      <File FileName="../bff/tests/Atividade04.BFF.Tests/UnitTest1.cs" />
+      <File FileName="proposals/src/Atividade02.Proposals.API/Controllers/CommonController.cs" />
+      <File FileName="../bff/Atividade04.BFF/Controllers/AuthenticationController.cs" Line="20" Column="1" />
+      <File FileName="../bff/Atividade04.BFF/Controllers/ProposalController.cs" Line="1" Column="1" />
+      <File FileName="../bff/Atividade04.BFF/Controllers/CommonController.cs" />
+      <File FileName="proposals/src/Atividade02.Proposals.API/Controllers/ProposalController.cs" />
+      <File FileName="../bff/Atividade04.BFF/Hubs/ProposalHub.cs" Line="11" Column="1" />
+      <File FileName="proposals/src/Atividade02.Proposals.API/Program.cs" Line="7" Column="27" />
+      <File FileName="proposals/src/Atividade02.Proposals.API/Configurations/ApiConfiguration.cs" Line="48" Column="19" />
+      <File FileName="../../../../.microsoft/usersecrets/a0a6a8f6-418f-4efa-a364-40751f897298/secrets.json" Line="1" Column="1" />
+      <File FileName="proposals/src/Atividade02.Proposals.API/Protos/Proposals.proto" Line="5" Column="25" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="atividade02" expanded="True">
+            <Node name="bff" expanded="True">
+              <Node name="src" expanded="True" />
+            </Node>
+            <Node name="BuildingBlocks" expanded="True">
+              <Node name="Core" expanded="True" />
+              <Node name="MessageBus" expanded="True">
+                <Node name="Atividade02.Core.MessageBus" expanded="True">
+                  <Node name="Services" expanded="True" />
+                </Node>
+              </Node>
+            </Node>
+            <Node name="microservices" expanded="True">
+              <Node name="proposal" expanded="True">
+                <Node name="src" expanded="True">
+                  <Node name="0 - Apresentation" expanded="True">
+                    <Node name="Atividade02.Proposals.API" selected="True">
+                      <Node name="Controllers" expanded="True" />
+                      <Node name="DTOs" expanded="True">
+                        <Node name="Requests" expanded="True" />
+                      </Node>
+                      <Node name="Middlewares" expanded="True" />
+                      <Node name="Protos">
+                        <Node name="Services" expanded="True" />
+                      </Node>
+                    </Node>
+                  </Node>
+                  <Node name="1 - Application" expanded="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.microservices.proposal.src.0_220-_220Apresentation.Atividade02.Proposals.API PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MultiItemStartupConfigurations />
+</Properties>

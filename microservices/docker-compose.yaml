@@ -1,0 +1,67 @@
+version: "3.8"
+services:
+  proposals-api:
+    image: proposal-api:1.0
+    build:
+      context: .
+      dockerfile: proposals/src/Atividade02.Proposals.API/Dockerfile
+    networks:
+      - common.network
+    ports:
+      - "7001:443"
+      - "5155:80"
+    cpu_shares: 215
+    cpu_quota: 50000
+    mem_limit: 120m
+    env_file: env.conf
+    depends_on:
+      - rabbitmq
+
+  portador-api:
+    image: proponent-api:1.0
+    build:
+      context: .
+      dockerfile: portador/src/Atividade02.Portador.API/Dockerfile
+    networks:
+      - common.network
+    ports:
+      - "5030:80"
+    cpu_shares: 215
+    cpu_quota: 50000
+    mem_limit: 120m
+    env_file: env.conf
+    depends_on:
+      - rabbitmq
+
+  mongo1:
+    image: mongo:7.0
+    command: ["--replSet", "rs0", "--bind_ip_all", "--port", "27017"]
+    ports:
+      - 27017:27017
+    networks:
+      - common.network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    healthcheck:
+      test: echo "try { rs.status() } catch (err) { rs.initiate({_id:'rs0',members:[{_id:0,host:'host.docker.internal:27017'}]}) }" | mongosh --port 27017 --quiet
+      interval: 5s
+      timeout: 30s
+      start_period: 0s
+      start_interval: 1s
+      retries: 30
+
+  rabbitmq:
+    image: rabbitmq:management
+    container_name: rabbitmq
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=admin
+    networks:
+      - common.network
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+networks:
+  common.network:
+    driver: bridge

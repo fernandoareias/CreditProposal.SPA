@@ -1,0 +1,168 @@
+{
+	"info": {
+		"_postman_id": "0fafd7bd-db44-4bd8-b580-f64db78e7c4d",
+		"name": "Atividade02",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12815219"
+	},
+	"item": [
+		{
+			"name": "Proposals",
+			"item": [
+				{
+					"name": "Get by code",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5155/proposals/82235c61-60e2-4141-9c6d-3f5abcffb4a6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5155",
+							"path": [
+								"proposals",
+								"82235c61-60e2-4141-9c6d-3f5abcffb4a6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send APPROVED",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "correlation-id",
+								"value": "82235c61-60e2-4141-9c6d-3f5abcffb4a6"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Fernando Areias\",\n  \"cpf\": \"16421400078\",\n  \"cnpj\": \"18524535000127\",\n  \"ddd\": \"21\",\n  \"cellphone\": \"973181331\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5155/proposals",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5155",
+							"path": [
+								"proposals"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send REJECTED",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "correlation-id",
+								"value": "27ad82e9-5a17-4deb-a2be-53cc8c3e1475"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Fernando Areias\",\n  \"cpf\": \"69771147030\",\n  \"cnpj\": \"18524535000127\",\n  \"ddd\": \"21\",\n  \"cellphone\": \"973181331\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5155/proposals",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5155",
+							"path": [
+								"proposals"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all proposal",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5155/proposals?cnpj=18524535000127",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5155",
+							"path": [
+								"proposals"
+							],
+							"query": [
+								{
+									"key": "cnpj",
+									"value": "18524535000127"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Portador",
+			"item": [
+				{
+					"name": "Get all portador",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5030/portadores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5030",
+							"path": [
+								"portadores"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

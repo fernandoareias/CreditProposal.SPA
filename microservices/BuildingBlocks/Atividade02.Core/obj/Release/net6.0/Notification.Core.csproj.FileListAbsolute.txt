@@ -1,0 +1,15 @@
+/Users/f.areias/Documents/portfolio/Notification/src/core/Notification.Core/obj/Release/net6.0/Notification.Core.csproj.AssemblyReference.cache
+/Users/f.areias/Documents/portfolio/Notification/src/core/Notification.Core/obj/Release/net6.0/Notification.Core.GeneratedMSBuildEditorConfig.editorconfig
+/Users/f.areias/Documents/portfolio/Notification/src/core/Notification.Core/obj/Release/net6.0/Notification.Core.AssemblyInfoInputs.cache
+/Users/f.areias/Documents/portfolio/Notification/src/core/Notification.Core/obj/Release/net6.0/Notification.Core.AssemblyInfo.cs
+/Users/f.areias/Documents/portfolio/Notification/src/core/Notification.Core/obj/Release/net6.0/Notification.Core.csproj.CoreCompileInputs.cache
+/Users/f.areias/Documents/portfolio/Notification/src/core/Notification.Core/obj/Release/net6.0/Notification.Core.dll
+/Users/f.areias/Documents/portfolio/Notification/src/core/Notification.Core/obj/Release/net6.0/refint/Notification.Core.dll
+/Users/f.areias/Documents/portfolio/Notification/src/core/Notification.Core/obj/Release/net6.0/Notification.Core.pdb
+/Users/f.areias/Documents/portfolio/Notification/src/core/Notification.Core/bin/Release/net6.0/Notification.Core.deps.json
+/Users/f.areias/Documents/portfolio/Notification/src/core/Notification.Core/bin/Release/net6.0/Notification.Core.dll
+/Users/f.areias/Documents/portfolio/Notification/src/core/Notification.Core/bin/Release/net6.0/Notification.Core.pdb
+/Users/f.areias/Documents/portfolio/Notification/src/core/Notification.Core/obj/Release/net6.0/ref/Notification.Core.dll
+/Users/f.areias/Documents/portfolio/Notification/src/API/Notification.API/app/build/Notification.Core.deps.json
+/Users/f.areias/Documents/portfolio/Notification/src/API/Notification.API/app/build/Notification.Core.dll
+/Users/f.areias/Documents/portfolio/Notification/src/API/Notification.API/app/build/Notification.Core.pdb

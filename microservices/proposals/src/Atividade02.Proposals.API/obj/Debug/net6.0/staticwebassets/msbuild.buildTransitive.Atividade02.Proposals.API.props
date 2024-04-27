@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../buildMultiTargeting/Atividade02.Proposals.API.props" />
+</Project>
