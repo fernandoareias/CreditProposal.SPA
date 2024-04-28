@@ -1,37 +1,37 @@
 version: "3.8"
 services:
-  proposals-api:
-    image: proposal-api:1.0
-    build:
-      context: .
-      dockerfile: proposals/src/Atividade02.Proposals.API/Dockerfile
-    networks:
-      - common.network
-    ports:
-      - "7001:443"
-      - "5155:80"
-    cpu_shares: 215
-    cpu_quota: 50000
-    mem_limit: 120m
-    env_file: env.conf
-    depends_on:
-      - rabbitmq
+  # proposals-api:
+  #   image: proposal-api:1.0
+  #   build:
+  #     context: .
+  #     dockerfile: proposals/src/Atividade02.Proposals.API/Dockerfile
+  #   networks:
+  #     - common.network
+  #   ports:
+  #     - "7001:443"
+  #     - "5155:80"
+  #   cpu_shares: 215
+  #   cpu_quota: 50000
+  #   mem_limit: 120m
+  #   env_file: env.conf
+  #   depends_on:
+  #     - rabbitmq
 
-  portador-api:
-    image: proponent-api:1.0
-    build:
-      context: .
-      dockerfile: portador/src/Atividade02.Portador.API/Dockerfile
-    networks:
-      - common.network
-    ports:
-      - "5030:80"
-    cpu_shares: 215
-    cpu_quota: 50000
-    mem_limit: 120m
-    env_file: env.conf
-    depends_on:
-      - rabbitmq
+  # portador-api:
+  #   image: proponent-api:1.0
+  #   build:
+  #     context: .
+  #     dockerfile: portador/src/Atividade02.Portador.API/Dockerfile
+  #   networks:
+  #     - common.network
+  #   ports:
+  #     - "5030:80"
+  #   cpu_shares: 215
+  #   cpu_quota: 50000
+  #   mem_limit: 120m
+  #   env_file: env.conf
+  #   depends_on:
+  #     - rabbitmq
 
   mongo1:
     image: mongo:7.0

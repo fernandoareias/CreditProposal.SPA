@@ -1,9 +1,20 @@
-﻿<Properties StartupConfiguration="{CA7DCCA4-58E7-4C5A-802A-5BE6C24ECD7A}|Default">
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.bff.tests.Atividade04.BFF.Tests FirstBuild="True" />
+﻿<Properties StartupConfiguration="{E75ECF52-0DFE-41B4-A7EF-337CE483F810}|Default">
+  <MonoDevelop.Ide.ItemProperties.microservices.proposal.src.0_220-_220Apresentation.Atividade02.Proposals.API PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.microservices.portador.src.Atividade02.Portador.API PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints />
+  <MonoDevelop.Ide.ItemProperties.bff.src.Atividade04.BFF PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MultiItemStartupConfigurations>
+    <MultiItemSolutionRunConfiguration Id="Multiple Projects" Name="Multiple Projects">
+      <Items>
+        <StartupItem ItemId="{38813E7B-4CC0-40B0-AC66-D503AFFF919D}" ItemName="Atividade02.Portador.API" ConfigurationId="Atividade02.Proponent.API" />
+        <StartupItem ItemId="{CA7DCCA4-58E7-4C5A-802A-5BE6C24ECD7A}" ItemName="Atividade02.Proposals.API" ConfigurationId="Default" />
+        <StartupItem ItemId="{E75ECF52-0DFE-41B4-A7EF-337CE483F810}" ItemName="Atividade04.BFF" ConfigurationId="Default" />
+      </Items>
+    </MultiItemSolutionRunConfiguration>
+  </MultiItemStartupConfigurations>
+  <MonoDevelop.Ide.ItemProperties.bff.tests.Atividade04.BFF.Tests FirstBuild="True" />
   <MonoDevelop.Ide.Workbench ActiveDocument="BuildingBlocks/Atividade02.Core.MessageBus/Services/MessageBus.cs">
     <Files>
       <File FileName="../bff/Atividade04.BFF/Program.cs" Line="13" Column="1" />
@@ -62,7 +73,4 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.microservices.proposal.src.0_220-_220Apresentation.Atividade02.Proposals.API PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
-  <MultiItemStartupConfigurations />
 </Properties>

@@ -96,5 +96,4 @@
 /Users/f.areias/Documents/faculdade/atividade04/bff/Atividade04.BFF/bin/Debug/net6.0/runtimes/osx-x64/native/libgrpc_csharp_ext.x64.dylib
 /Users/f.areias/Documents/faculdade/atividade04/bff/Atividade04.BFF/bin/Debug/net6.0/runtimes/win-x64/native/grpc_csharp_ext.x64.dll
 /Users/f.areias/Documents/faculdade/atividade04/bff/Atividade04.BFF/bin/Debug/net6.0/runtimes/win-x86/native/grpc_csharp_ext.x86.dll
-/Users/f.areias/Documents/faculdade/atividade04/bff/Atividade04.BFF/obj/Debug/net6.0/Atividade04.BFF.sourcelink.json
-/Users/f.areias/Documents/faculdade/atividade04/bff/Atividade04.BFF/obj/Debug/net6.0/Atividad.E00D5A78.Up2Date
+/Users/f.areias/Documents/faculdade/atividade04/bff/Atividade04.BFF/obj/Debug/net6.0/Atividade04.BFF.csproj.CopyComplete

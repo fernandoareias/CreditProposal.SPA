@@ -60,6 +60,25 @@ namespace Atividade02.Proposals.Infrastructure.Data.Repositories
 
             return data.FirstOrDefault();
         }
+
+        public async Task<List<Proposal>> GetLasts(string cnpj)
+        {
+            // var filter = Builders<Proposal>.Filter.And(
+            //    Builders<Proposal>.Filter.Eq("Proponent.CPF.Number", cpf),
+            //    Builders<Proposal>.Filter.Eq("Store.cnpj", cnpj)
+            //    );
+
+            // var data = await DbSet.FindAsync(filter, _options);
+            return DbSet
+                    .Find(
+                        x =>
+                            x.CreatedAt >= DateTime.Now.AddDays(-1)
+                            &&
+                            x.Store.CNPJ == cnpj
+                    )
+                    .Limit(10)
+                    .ToList();
+        }
     }
 }
 

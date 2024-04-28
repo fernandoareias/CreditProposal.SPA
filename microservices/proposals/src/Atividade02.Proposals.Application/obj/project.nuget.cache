@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "6QC6bonT3fF2TboUrSs8qESi/LHUEZjhrSaYQyc4Wd/cN1jccjhvSKkWoanyu1Xgg7lmanH6BBuCIwzXfI4Lcw==",
+  "dgSpecHash": "5BjmiJv9Tvt5mf75OSVdKSBn4+btljp5Csqyo78x0i/JWBWPvr/Ssg8lYsrZMw6mbPO7r1e/sbJ6JCEm2UsosQ==",
   "success": true,
   "projectFilePath": "/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Application/Atividade02.Proposals.Application.csproj",
   "expectedPackageFiles": [
@@ -63,9 +63,7 @@
     "/Users/f.areias/.nuget/packages/system.text.encodings.web/6.0.0/system.text.encodings.web.6.0.0.nupkg.sha512",
     "/Users/f.areias/.nuget/packages/system.text.json/6.0.0/system.text.json.6.0.0.nupkg.sha512",
     "/Users/f.areias/.nuget/packages/system.threading.channels/7.0.0/system.threading.channels.7.0.0.nupkg.sha512",
-    "/Users/f.areias/.nuget/packages/zstdsharp.port/0.7.3/zstdsharp.port.0.7.3.nupkg.sha512",
-    "/Users/f.areias/.nuget/packages/microsoft.netcore.app.ref/6.0.27/microsoft.netcore.app.ref.6.0.27.nupkg.sha512",
-    "/Users/f.areias/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.27/microsoft.aspnetcore.app.ref.6.0.27.nupkg.sha512"
+    "/Users/f.areias/.nuget/packages/zstdsharp.port/0.7.3/zstdsharp.port.0.7.3.nupkg.sha512"
   ],
   "logs": [
     {

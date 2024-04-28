@@ -12,7 +12,7 @@ message ProposalsConsultaQuery {
 }
 
 message ProposalsQueryResponse {
-    repeated ProposalsResponse Proposals = 1;
+    repeated ProposalsResponse proposals = 1;
 }
 
 message ProposalsResponse {

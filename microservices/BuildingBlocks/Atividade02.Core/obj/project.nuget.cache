@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "DQve1wVxB7SEpXa5+W8IeQj0K73RUjhVgh7fAIRRnTGVmDbXDzm0SdCQg8PGevR1N4B6z0YL59pT/EtK0OPylQ==",
+  "dgSpecHash": "gClDPaT1rLOBI91Jlnx2SoElbY6dqOiMA7fPy96ObUutiJ+bRCp1Cg0JWkA6VSAYCnNOii7UW81qbdFSylfoaQ==",
   "success": true,
   "projectFilePath": "/Users/f.areias/Documents/faculdade/atividade04/microservices/BuildingBlocks/Atividade02.Core/Atividade02.Core.csproj",
   "expectedPackageFiles": [
@@ -19,9 +19,7 @@
     "/Users/f.areias/.nuget/packages/serilog/3.1.2-dev-02097/serilog.3.1.2-dev-02097.nupkg.sha512",
     "/Users/f.areias/.nuget/packages/serilog.sinks.console/5.0.1/serilog.sinks.console.5.0.1.nupkg.sha512",
     "/Users/f.areias/.nuget/packages/system.memory/4.5.5/system.memory.4.5.5.nupkg.sha512",
-    "/Users/f.areias/.nuget/packages/system.runtime.compilerservices.unsafe/5.0.0/system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
-    "/Users/f.areias/.nuget/packages/microsoft.netcore.app.ref/6.0.27/microsoft.netcore.app.ref.6.0.27.nupkg.sha512",
-    "/Users/f.areias/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.27/microsoft.aspnetcore.app.ref.6.0.27.nupkg.sha512"
+    "/Users/f.areias/.nuget/packages/system.runtime.compilerservices.unsafe/5.0.0/system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
   ],
   "logs": [
     {

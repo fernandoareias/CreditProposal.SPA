@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "YXZ69PZ7dLw5pGgrd8YzOFHJs/dp++ynMsP7eo/xUQI+VB9MNewAv8n/pD/srIpc4pNaq5f+r+AzUdGFoFhgMQ==",
+  "dgSpecHash": "tg97t/7XzkYTnS2ZMjxmyENOrZyTWgjueyNPQnzuYLQA/LV+wga/Iz7Fts73cZns7EhXsGJN6lcoAglA/Y1c5w==",
   "success": true,
   "projectFilePath": "/Users/f.areias/Documents/faculdade/atividade04/microservices/BuildingBlocks/Atividade02.Core.MessageBus/Atividade02.Core.MessageBus.csproj",
   "expectedPackageFiles": [
@@ -21,9 +21,7 @@
     "/Users/f.areias/.nuget/packages/serilog.sinks.console/5.0.1/serilog.sinks.console.5.0.1.nupkg.sha512",
     "/Users/f.areias/.nuget/packages/system.memory/4.5.5/system.memory.4.5.5.nupkg.sha512",
     "/Users/f.areias/.nuget/packages/system.runtime.compilerservices.unsafe/5.0.0/system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
-    "/Users/f.areias/.nuget/packages/system.threading.channels/7.0.0/system.threading.channels.7.0.0.nupkg.sha512",
-    "/Users/f.areias/.nuget/packages/microsoft.netcore.app.ref/6.0.27/microsoft.netcore.app.ref.6.0.27.nupkg.sha512",
-    "/Users/f.areias/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.27/microsoft.aspnetcore.app.ref.6.0.27.nupkg.sha512"
+    "/Users/f.areias/.nuget/packages/system.threading.channels/7.0.0/system.threading.channels.7.0.0.nupkg.sha512"
   ],
   "logs": [
     {

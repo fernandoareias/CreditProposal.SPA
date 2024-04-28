@@ -11,18 +11,32 @@ namespace Atividade04.BFF.Hubs
     {
         private readonly IMessageBus _messageBus;
         private bool _firstTime = false;
-        public ProposalHub(IMessageBus messageBus)
+        private readonly ILogger<ProposalHub> _logger;
+
+        public ProposalHub(IMessageBus messageBus, ILogger<ProposalHub> logger)
         {
             _messageBus = messageBus;
+            _logger = logger;
+
+            _logger.LogInformation("Creating hub...");
         }
-        //IAsyncEnumerable<ProposalsListResponse>
-        public async Task Streaming(ProposalsConsultaQuery request, CancellationToken cancellationToken)
+
+        public async override Task OnConnectedAsync()
         {
+            await base.OnConnectedAsync();
+            _logger.LogInformation("Connected at hub...");
+            await Clients.Caller.SendAsync("Message", "Connected successfully!");
+        }
+
+        //IAsyncEnumerable<ProposalsListResponse>
+        public async Task Streaming(string request)
+        {
+            _logger.LogInformation("Starting straming...");
             await base.OnConnectedAsync();
 
             if (!_firstTime)
             {
-                var channel = GrpcChannel.ForAddress("https://localhost:7044");
+                var channel = GrpcChannel.ForAddress("https://localhost:7001");
 
                 var client = new ProposalsService.ProposalsServiceClient(channel);
 
@@ -38,10 +52,11 @@ namespace Atividade04.BFF.Hubs
             _messageBus.Subscribe<int>("proposals", "", async (x) =>
             {
                 await Clients.All.SendAsync("ReceberPropostas", "message");
-            }, cancellationToken);
+            }, default);
 
             await Task.Delay(1000);
         }
+
     }
 }
 

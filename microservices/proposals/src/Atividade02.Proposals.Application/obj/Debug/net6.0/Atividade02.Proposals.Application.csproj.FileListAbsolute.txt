@@ -68,9 +68,8 @@
 /Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Application/obj/Debug/net6.0/Atividade02.Proposals.Application.AssemblyInfoInputs.cache
 /Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Application/obj/Debug/net6.0/Atividade02.Proposals.Application.AssemblyInfo.cs
 /Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Application/obj/Debug/net6.0/Atividade02.Proposals.Application.csproj.CoreCompileInputs.cache
-/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Application/obj/Debug/net6.0/Atividade02.Proposals.Application.sourcelink.json
-/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Application/obj/Debug/net6.0/Atividad.D6328B3B.Up2Date
 /Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Application/obj/Debug/net6.0/Atividade02.Proposals.Application.dll
 /Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Application/obj/Debug/net6.0/refint/Atividade02.Proposals.Application.dll
 /Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Application/obj/Debug/net6.0/Atividade02.Proposals.Application.pdb
 /Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Application/obj/Debug/net6.0/ref/Atividade02.Proposals.Application.dll
+/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Application/obj/Debug/net6.0/Atividade02.Proposals.Application.csproj.CopyComplete

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "zkea7RVmNCSg6BxCYZ//SHApsfCCLiJOPqwBKc3zpIwJFzkZI/qwzw+IxJfc51q1si+9C9sxeowqsOhqulKGAA==",
+  "dgSpecHash": "VKZFdyqoXXJ5G4AK7ckr2iE24zDhphZT2feS5joO73Y702tpQS7HBy/IH2Ka3z1aREEIXkENg63jkQlZ1svR7w==",
   "success": true,
   "projectFilePath": "/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Infrastructure.ExternalServices.CreditAnalysisEngine/Atividade02.Proposals.Infrastructure.ExternalServices.CreditAnalysisEngine.csproj",
   "expectedPackageFiles": [
@@ -21,9 +21,7 @@
     "/Users/f.areias/.nuget/packages/serilog.sinks.console/5.0.1/serilog.sinks.console.5.0.1.nupkg.sha512",
     "/Users/f.areias/.nuget/packages/system.memory/4.5.5/system.memory.4.5.5.nupkg.sha512",
     "/Users/f.areias/.nuget/packages/system.runtime.compilerservices.unsafe/5.0.0/system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
-    "/Users/f.areias/.nuget/packages/system.threading.channels/7.0.0/system.threading.channels.7.0.0.nupkg.sha512",
-    "/Users/f.areias/.nuget/packages/microsoft.netcore.app.ref/6.0.27/microsoft.netcore.app.ref.6.0.27.nupkg.sha512",
-    "/Users/f.areias/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.27/microsoft.aspnetcore.app.ref.6.0.27.nupkg.sha512"
+    "/Users/f.areias/.nuget/packages/system.threading.channels/7.0.0/system.threading.channels.7.0.0.nupkg.sha512"
   ],
   "logs": [
     {

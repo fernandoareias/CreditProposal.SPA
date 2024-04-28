@@ -38,9 +38,8 @@
 /Users/f.areias/Documents/faculdade/atividade04/microservices/BuildingBlocks/Atividade02.Core.MessageBus/obj/Debug/net6.0/Atividade02.Core.MessageBus.AssemblyInfoInputs.cache
 /Users/f.areias/Documents/faculdade/atividade04/microservices/BuildingBlocks/Atividade02.Core.MessageBus/obj/Debug/net6.0/Atividade02.Core.MessageBus.AssemblyInfo.cs
 /Users/f.areias/Documents/faculdade/atividade04/microservices/BuildingBlocks/Atividade02.Core.MessageBus/obj/Debug/net6.0/Atividade02.Core.MessageBus.csproj.CoreCompileInputs.cache
-/Users/f.areias/Documents/faculdade/atividade04/microservices/BuildingBlocks/Atividade02.Core.MessageBus/obj/Debug/net6.0/Atividade02.Core.MessageBus.sourcelink.json
-/Users/f.areias/Documents/faculdade/atividade04/microservices/BuildingBlocks/Atividade02.Core.MessageBus/obj/Debug/net6.0/Atividad.AF9F94EA.Up2Date
 /Users/f.areias/Documents/faculdade/atividade04/microservices/BuildingBlocks/Atividade02.Core.MessageBus/obj/Debug/net6.0/Atividade02.Core.MessageBus.dll
 /Users/f.areias/Documents/faculdade/atividade04/microservices/BuildingBlocks/Atividade02.Core.MessageBus/obj/Debug/net6.0/refint/Atividade02.Core.MessageBus.dll
 /Users/f.areias/Documents/faculdade/atividade04/microservices/BuildingBlocks/Atividade02.Core.MessageBus/obj/Debug/net6.0/Atividade02.Core.MessageBus.pdb
 /Users/f.areias/Documents/faculdade/atividade04/microservices/BuildingBlocks/Atividade02.Core.MessageBus/obj/Debug/net6.0/ref/Atividade02.Core.MessageBus.dll
+/Users/f.areias/Documents/faculdade/atividade04/microservices/BuildingBlocks/Atividade02.Core.MessageBus/obj/Debug/net6.0/Atividade02.Core.MessageBus.csproj.CopyComplete

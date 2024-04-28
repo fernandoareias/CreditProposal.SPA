@@ -62,9 +62,8 @@
 /Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Domain.Services/obj/Debug/net6.0/Atividade02.Proposals.Domain.Services.AssemblyInfoInputs.cache
 /Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Domain.Services/obj/Debug/net6.0/Atividade02.Proposals.Domain.Services.AssemblyInfo.cs
 /Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Domain.Services/obj/Debug/net6.0/Atividade02.Proposals.Domain.Services.csproj.CoreCompileInputs.cache
-/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Domain.Services/obj/Debug/net6.0/Atividade02.Proposals.Domain.Services.sourcelink.json
-/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Domain.Services/obj/Debug/net6.0/Atividad.8B9A45F4.Up2Date
 /Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Domain.Services/obj/Debug/net6.0/Atividade02.Proposals.Domain.Services.dll
 /Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Domain.Services/obj/Debug/net6.0/refint/Atividade02.Proposals.Domain.Services.dll
 /Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Domain.Services/obj/Debug/net6.0/Atividade02.Proposals.Domain.Services.pdb
 /Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Domain.Services/obj/Debug/net6.0/ref/Atividade02.Proposals.Domain.Services.dll
+/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.Domain.Services/obj/Debug/net6.0/Atividade02.Proposals.Domain.Services.csproj.CopyComplete

@@ -8,6 +8,7 @@ namespace Atividade02.Proposals.Domain.Proposals.Repositories
     {
         Task<Proposal> Get(string cpf, string cnpj);
         Task<List<Proposal>> GetAll(string? cpf, string? cnpj);
+        Task<List<Proposal>> GetLasts(string cnpj);
         Task<Proposal?> GetByAggregateId(string aggregateId);
 
     }
