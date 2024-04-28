@@ -1,22 +1,25 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import Search from '../../../../core/components/Search'
 import ProposalsItem from './components/ProposalsItem'
 import ProposalCreate from './components/ProposalCreate'
+import { ProposalsContext } from '../../contexts/PropostaContext'
 
 const ProposalsPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false); // Estado para controlar a visibilidade do modal
+  // const [proposals, setProposals] = useContext(ProposalsContext);
+  //  console.log(proposals);
 
-    // Função para abrir o modal
-    const handleOpenModal = () => {
-        console.log("modal aberto");
-      setIsModalOpen(true);
+  // Função para abrir o modal
+  const handleOpenModal = () => {
+      console.log("modal aberto");
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+      console.log("modal fechado");
+      setIsModalOpen(false);
     };
-
-    const handleCloseModal = () => {
-        console.log("modal fechado");
-        setIsModalOpen(false);
-      };
   
   return (
     <>

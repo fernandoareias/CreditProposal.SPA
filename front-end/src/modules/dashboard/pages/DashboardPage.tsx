@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
+import { ProposalContextType, ProposalsContext } from '../contexts/PropostaContext';
 
 const DashboardPage = () => {
+
+  const [proposals, setProposals] = useState<ProposalContextType[]>([]);
+
+  
   return (
     <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
       <aside className="bg-gray-900 text-white h-screen lg:col-span-1 border-r border-r-dashed border-r-neutral-200 shadow transition-all duration-300 ease-in-out" id="sidenav-main">
@@ -63,7 +68,9 @@ const DashboardPage = () => {
       <div className="lg:col-span-3">
         
           <div className='p-5'>
-            <Outlet/>
+            <ProposalsContext.Provider value={proposals}>
+              <Outlet/>
+            </ProposalsContext.Provider>
           </div>
       </div>
     </div>
