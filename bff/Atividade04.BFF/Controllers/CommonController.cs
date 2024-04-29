@@ -4,6 +4,7 @@ using Atividade02.Core.Common.Enums;
 using Atividade02.Core.Common.Validators.Interfaces;
 using Atividade02.Core.Mediator.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Web;
 
 namespace Atividade04.BFF.Controllers
 {
@@ -14,6 +15,12 @@ namespace Atividade04.BFF.Controllers
             IValidatorServices validatorServices)
         {
             _mediatorHandler = mediatorHandler;
+            _validatorServices = validatorServices;
+        }
+
+        public CommonController(
+            IValidatorServices validatorServices)
+        {
             _validatorServices = validatorServices;
         }
 
@@ -53,6 +60,21 @@ namespace Atividade04.BFF.Controllers
              => new BadRequestObjectResult(new BaseResponse<T>(System.Net.HttpStatusCode.BadRequest, _validatorServices.ValidationResult.Errors.Select(c => new ResponseErroView(EBaseErro.INVALID_FIELD.ToString(), "BAD_REQUEST", c.ErrorMessage)).ToList()));
 
         #endregion
+
+         
+        protected string GetIpAddress(HttpContext context)
+        {
+            // Verifica se há um proxy de cliente definido no cabeçalho HTTP
+            string? ip = context!.Connection?.RemoteIpAddress?.ToString();
+
+            // Se houver um proxy de cliente, use-o para obter o endereço IP real
+            if (context!.Request.Headers.ContainsKey("X-Forwarded-For"))
+            {
+                ip = context.Request.Headers["X-Forwarded-For"];
+            }
+
+            return ip!;
+        }
     }
 }
 

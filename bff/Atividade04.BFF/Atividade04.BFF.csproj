@@ -39,6 +39,13 @@
     <None Remove="ExternalServices\Proposals\" />
     <None Remove="ExternalServices\Proposals\Responses\" />
     <None Remove="ExternalServices\Proposals\Requests\" />
+    <None Remove="Models\" />
+    <None Remove="Services\" />
+    <None Remove="DTOs\Responses\" />
+    <None Remove="Data\" />
+    <None Remove="Models\Interfaces\" />
+    <None Remove="Models\Interfaces\Repositories\" />
+    <None Remove="Models\Interfaces\Services\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
@@ -49,6 +56,13 @@
     <Folder Include="ExternalServices\Proposals\" />
     <Folder Include="ExternalServices\Proposals\Responses\" />
     <Folder Include="ExternalServices\Proposals\Requests\" />
+    <Folder Include="Models\" />
+    <Folder Include="Services\" />
+    <Folder Include="DTOs\Responses\" />
+    <Folder Include="Data\" />
+    <Folder Include="Models\Interfaces\" />
+    <Folder Include="Models\Interfaces\Repositories\" />
+    <Folder Include="Models\Interfaces\Services\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\microservices\BuildingBlocks\Atividade02.Core.MessageBus\Atividade02.Core.MessageBus.csproj">

@@ -1,13 +1,23 @@
-﻿using Atividade04.BFF.Hubs;
+﻿using Atividade02.BFF.Data;
+using Atividade02.BFF.Data.Common.Interfaces;
+using Atividade02.Core.Common.Validators;
+using Atividade02.Core.Common.Validators.Interfaces;
+using Atividade02.Core.MessageBus.Configurations;
+using Atividade02.Core.MessageBus.Services;
+using Atividade02.Core.MessageBus.Services.Interfaces;
+using Atividade04.BFF.Configurations;
+using Atividade04.BFF.Data.Repositories;
+using Atividade04.BFF.Hubs;
+using Atividade04.BFF.Models.Interfaces;
+using Atividade04.BFF.Services;
 using Elastic.CommonSchema;
 using Microsoft.AspNetCore.SignalR;
+using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSignalR(e => {
@@ -15,7 +25,21 @@ builder.Services.AddSignalR(e => {
 });
 builder.Services.AddGrpc();
 
- 
+builder.Services.Configure<RsaAppConfiguration>(
+                    builder.Configuration.GetSection(nameof(RsaAppConfiguration)));
+
+
+builder.Services.Configure<MessageBusConfigs>(
+                   builder.Configuration.GetSection(nameof(MessageBusConfigs)));
+
+builder.Services.AddScoped<IAuthenticationServices, AuthenticationServices>();
+builder.Services.AddScoped<ISessionRepository, SessionRepository>();
+builder.Services.AddScoped<IValidatorServices, ValidatorServices>();
+builder.Services.AddScoped<IMongoContext, MongoContext>();
+builder.Services.AddScoped<IUnitOfWork, MongoContext>();
+builder.Services.AddSingleton<IMessageBus, MessageBus>();
+
+
 builder.Services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
 {
     builder.AllowAnyMethod()
