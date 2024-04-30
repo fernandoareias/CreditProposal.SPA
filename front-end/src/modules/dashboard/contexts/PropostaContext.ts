@@ -6,36 +6,36 @@ export class ProposalContextType {
   code: string = null!;
 }
 // Builds the SignalR connection, mapping it to /proposals
-const hubConnection = new signalR.HubConnectionBuilder()
-  .withUrl("https://localhost:7222/proposals", {
-    withCredentials: true, // Enviar credenciais
-  })
-  .configureLogging(signalR.LogLevel.Debug)
-  .build();
+// const hubConnection = new signalR.HubConnectionBuilder()
+//   .withUrl("https://localhost:7222/proposals", {
+//     withCredentials: true, // Enviar credenciais
+//   })
+//   .configureLogging(signalR.LogLevel.Debug)
+//   .build();
 
-hubConnection.on("ReceberPropostas", (x) => {
-  console.log("Recebdno proposta");
-  console.log(x);
-});
+// hubConnection.on("ReceberPropostas", (x) => {
+//   console.log("Recebdno proposta");
+//   console.log(x);
+// });
 
-// Inicia a conexão
-hubConnection
-  .start()
-  .then(() => {
-    console.log("SignalR connection established.");
+// // Inicia a conexão
+// hubConnection
+//   .start()
+//   .then(() => {
+//     console.log("SignalR connection established.");
 
-    // if (hubConnection.connectionId) {
-    //   hubConnection.invoke("sendConnectionId", hubConnection.connectionId);
-    // }
-    //hubConnection.invoke("Streaming", "teste");
-    hubConnection.send("Streaming", "teste").then((x) => {
-      console.log("Invocou streaming");
-      console.log(x);
-    });
-  })
-  .catch((error) => {
-    console.error("SignalR connection failed: ", error);
-  });
+//     // if (hubConnection.connectionId) {
+//     //   hubConnection.invoke("sendConnectionId", hubConnection.connectionId);
+//     // }
+//     //hubConnection.invoke("Streaming", "teste");
+//     hubConnection.send("Streaming", "teste").then((x) => {
+//       console.log("Invocou streaming");
+//       console.log(x);
+//     });
+//   })
+//   .catch((error) => {
+//     console.error("SignalR connection failed: ", error);
+//   });
 
 let proposals = [];
 // hubConnection.on("", (m: ProposalContextType[]) => {
