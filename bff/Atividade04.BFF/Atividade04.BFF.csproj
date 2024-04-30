@@ -28,6 +28,8 @@
         </PackageReference>
         <PackageReference Include="Grpc.Net.Common" Version="2.62.0" />
         <PackageReference Include="Grpc.AspNetCore" Version="2.62.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.2.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.29" />
   </ItemGroup>
 
   <ItemGroup>
@@ -46,6 +48,8 @@
     <None Remove="Models\Interfaces\" />
     <None Remove="Models\Interfaces\Repositories\" />
     <None Remove="Models\Interfaces\Services\" />
+    <None Remove="Models\ValueObjects\" />
+    <None Remove="Models\ValueObjects\Common\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
@@ -63,6 +67,8 @@
     <Folder Include="Models\Interfaces\" />
     <Folder Include="Models\Interfaces\Repositories\" />
     <Folder Include="Models\Interfaces\Services\" />
+    <Folder Include="Models\ValueObjects\" />
+    <Folder Include="Models\ValueObjects\Common\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\microservices\BuildingBlocks\Atividade02.Core.MessageBus\Atividade02.Core.MessageBus.csproj">

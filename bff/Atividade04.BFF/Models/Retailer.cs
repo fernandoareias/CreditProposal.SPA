@@ -12,9 +12,9 @@ namespace Atividade04.BFF.Models
         public Retailer(string name, string email, string password, string cnpj, ERole role)
         {
             Name = name;
-            Email = email;
-            Password = password;
-            CNPJ = cnpj;
+            Email = new Email(email);
+            Password = new Password(password);
+            CNPJ = new CNPJ(cnpj);
             Role = role;
         }
 
@@ -23,17 +23,17 @@ namespace Atividade04.BFF.Models
             private set;
         }
 
-        public string Email{
+        public Email Email{
             get;
             private set;
         }
 
-        public string Password {
+        public Password Password {
             get;
             private set;
         }
 
-        public string CNPJ{
+        public CNPJ CNPJ{
             get;
             private set;
         }
@@ -48,6 +48,12 @@ namespace Atividade04.BFF.Models
         {
             get;
             private set;
+        }
+
+
+        public void Authenticated(Session session)
+        {
+            Sessions.Add(session);
         }
     }
 }

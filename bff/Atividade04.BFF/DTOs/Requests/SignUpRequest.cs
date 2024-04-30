@@ -12,12 +12,13 @@ namespace Atividade04.BFF.DTOs.Requests
 
         }
 
-        public SignUpRequest(string name, string email, string password, string confirmPassword)
+        public SignUpRequest(string name, string email, string password, string confirmPassword, string cnpj)
         {
             Name = name;
             Email = email;
             Password = password;
             ConfirmPassword = confirmPassword;
+            CNPJ = cnpj;
         }
 
         [DataMember]
@@ -41,6 +42,13 @@ namespace Atividade04.BFF.DTOs.Requests
 
         [DataMember]
         public string ConfirmPassword
+        {
+            get;
+            set;
+        }
+
+        [DataMember]
+        public string CNPJ
         {
             get;
             set;

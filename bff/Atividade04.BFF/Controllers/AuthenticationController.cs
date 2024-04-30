@@ -19,14 +19,14 @@ namespace Atividade04.BFF.Controllers
     public class AuthenticationController : CommonController
     {
         private readonly IConfiguration _configuration;
-        private readonly RsaAppConfiguration _rsaConfiguration;
+        private readonly AuthenticationConfiguration _rsaConfiguration;
         private readonly ISessionRepository _sessionRepository;
         private readonly IAuthenticationServices _authenticationServices;
 
         public AuthenticationController(
             IValidatorServices validatorServices,
             IConfiguration configuration,
-            IOptions<RsaAppConfiguration> rsaConfiguration
+            IOptions<AuthenticationConfiguration> rsaConfiguration
 ,
             ISessionRepository sessionRepository,
             IAuthenticationServices authenticationServices)
@@ -57,8 +57,13 @@ namespace Atividade04.BFF.Controllers
             return Ok(new GetConfigurationsResponse(session.Version, publicKey));
         }
 
-
-        [HttpPost]
+        /// <summary>
+        /// Login
+        /// </summary>
+        /// <param name="sessionId"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost("sign-in")]
         public async Task<IActionResult> Login([FromHeader] Guid sessionId, [FromBody] string request)
         {
             var session = await _sessionRepository.GetByAggregateId(sessionId.ToString());
@@ -71,7 +76,40 @@ namespace Atividade04.BFF.Controllers
             if(requestObject is null)
                 return Unauthorized();
 
+            var response = await _authenticationServices.SignIn(session, requestObject);
 
+            if (requestObject is null)
+                return Unauthorized();
+
+            return Ok(response);
+        }
+
+
+        /// <summary>
+        /// SignUp
+        /// </summary>
+        /// <param name="sessionId"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost("sign-up")]
+        public async Task<IActionResult> SignUp([FromHeader] Guid sessionId, [FromBody] string request)
+        {
+            var session = await _sessionRepository.GetByAggregateId(sessionId.ToString());
+
+            if (session is null)
+                return Unauthorized();
+
+            var requestObject = _authenticationServices.DecryptMessage<SignUpRequest>(request, session.PublicKey, session.PrivateKey);
+
+            if (requestObject is null)
+                return Unauthorized();
+
+            var response = await _authenticationServices.SignUp(session, requestObject);
+
+            if (requestObject is null)
+                return Unauthorized();
+
+            return Ok(response);
         }
     }
 }

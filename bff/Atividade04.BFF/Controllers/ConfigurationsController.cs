@@ -13,13 +13,13 @@ namespace Atividade04.BFF.Controllers
     public class ConfigurationsController : CommonController
     {
         private readonly IConfiguration _configuration;
-        private readonly RsaAppConfiguration _rsaConfiguration;
+        private readonly AuthenticationConfiguration _rsaConfiguration;
 
         public ConfigurationsController(
             IMediatorHandler mediatorHandler,
             IValidatorServices validatorServices,
             IConfiguration configuration,
-            IOptions<RsaAppConfiguration> rsaConfiguration
+            IOptions<AuthenticationConfiguration> rsaConfiguration
         )
             : base(mediatorHandler, validatorServices)
         {
