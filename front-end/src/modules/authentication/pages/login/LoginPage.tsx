@@ -1,8 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { SessionContext } from '../../../../core/contexts/SessionContext';
+import JSEncrypt from 'jsencrypt';
+
 // import jwt from 'jsonwebtoken';
-// import CryptoJS from 'crypto-js';
+import CryptoJS from 'crypto-js';
 
 
 const LoginPage = () => {
@@ -16,21 +18,27 @@ const LoginPage = () => {
     event.preventDefault();
 
     // Calcule o hash dos dados
-    const data = { "email": email, "password": password };
-    // const token = jwt.sign(data, privateKey, { algorithm: 'RS256' });
+    const encrypt = new JSEncrypt();
+    //console.log(`ID Sessao ${sessionId}`);
+    //console.log(`Chave privada utilizada na assinatura${privateKey}`);
+    encrypt.setPrivateKey(privateKey);
 
-    // console.log(`Data: ${data}`)
-    // const hashValue = CryptoJS.SHA256(JSON.stringify(data)).toString(CryptoJS.enc.Base64);
+    const valorAssinado = sessionId + email + password;
+    const data = JSON.stringify({ email : email, password: password});
+    const signature = encrypt.sign(valorAssinado, CryptoJS.SHA256, "sha256");
+    //console.log(`Assinatura ${signature}`);
+    //console.log(`Data ${data}`)
+    
 
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    // headers.append('Authorization', `Bearer ${token}`);
+     headers.append('Authorization', `Bearer ${signature}`);
     headers.append('sessionId', sessionId);
 
     const requestOptions: RequestInit = {
       method: 'POST',
       headers: headers,
-      body: JSON.stringify(data),
+      body: data,
       redirect: 'follow'
   };
   
@@ -40,9 +48,9 @@ const LoginPage = () => {
   .catch(error => console.log('error', error));
   
 
-    console.log(email, password, privateKey);
+   // console.log(email, password, privateKey);
 
-    //navigate("/dashboard");
+    navigate("/dashboard");
   }
 
 

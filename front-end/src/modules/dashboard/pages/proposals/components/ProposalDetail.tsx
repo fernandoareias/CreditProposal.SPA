@@ -9,7 +9,7 @@ const ProposalDetail: React.FC<ModalProps> = ({ isOpen, onClose }) => {
     if (!isOpen) return null;
 
     const handleClose = () => {
-      console.log("dentro do details, clicou para fechar");
+      //console.log("dentro do details, clicou para fechar");
       onClose();
     }
 

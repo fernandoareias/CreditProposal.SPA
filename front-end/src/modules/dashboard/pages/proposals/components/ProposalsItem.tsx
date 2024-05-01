@@ -3,16 +3,13 @@ import ProposalDetail from './ProposalDetail';
 
 const ProposalsItem = () => {
 
-    const [isModalOpen, setIsModalOpen] = useState(false); // Estado para controlar a visibilidade do modal
+    const [isModalOpen, setIsModalOpen] = useState(false); 
 
-    // Função para abrir o modal
     const handleOpenModal = () => {
-        console.log("modal aberto");
       setIsModalOpen(true);
     };
 
     const handleCloseModal = () => {
-        console.log("modal fechado");
         setIsModalOpen(false);
       };
 

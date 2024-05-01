@@ -21,17 +21,17 @@ const ProposalCreate : React.FC<ModalProps> = ({ isOpen, onClose }) => {
 
 
     const handleClose = () => {
-      console.log("dentro do details, clicou para fechar");
+      //console.log("dentro do details, clicou para fechar");
       onClose();
     }
 
     const handleSubmit = (event: any) => {
         event.preventDefault();
 
-        console.log(fullName);
-        console.log(cpf);
-        console.log(cellphone);
-        console.log(produtoSelecionado);
+        //console.log(fullName);
+        //console.log(cpf);
+        //console.log(cellphone);
+        //console.log(produtoSelecionado);
     };
 
     return isOpen ? (

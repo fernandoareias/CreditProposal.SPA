@@ -14,6 +14,7 @@
     "@types/react-router-dom": "^5.3.3",
     "ajv": "^8.13.0",
     "axios": "^1.6.8",
+    "crypto-js": "^4.2.0",
     "jsencrypt": "^3.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
