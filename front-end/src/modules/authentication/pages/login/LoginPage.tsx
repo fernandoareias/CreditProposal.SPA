@@ -1,22 +1,48 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
+import { SessionContext } from '../../../../core/contexts/SessionContext';
+// import jwt from 'jsonwebtoken';
+// import CryptoJS from 'crypto-js';
+
 
 const LoginPage = () => {
-  
+  const { privateKey, version, sessionId, setToken } = useContext(SessionContext);
   const [email, setEmail] = useState(""); 
   const [password, setPassword] = useState("");
-  // useEffect  
-  // executa baseado em algo
-  // mudanca de valor
-  // carregamento da pagina
+  
   const navigate = useNavigate();
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
 
-    console.log(email, password)
+    // Calcule o hash dos dados
+    const data = { "email": email, "password": password };
+    // const token = jwt.sign(data, privateKey, { algorithm: 'RS256' });
 
-    navigate("/dashboard");
+    // console.log(`Data: ${data}`)
+    // const hashValue = CryptoJS.SHA256(JSON.stringify(data)).toString(CryptoJS.enc.Base64);
+
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    // headers.append('Authorization', `Bearer ${token}`);
+    headers.append('sessionId', sessionId);
+
+    const requestOptions: RequestInit = {
+      method: 'POST',
+      headers: headers,
+      body: JSON.stringify(data),
+      redirect: 'follow'
+  };
+  
+  fetch("https://localhost:7222/authentication/sign-in", requestOptions)
+  .then(response => response.json())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+  
+
+    console.log(email, password, privateKey);
+
+    //navigate("/dashboard");
   }
 
 
@@ -58,7 +84,7 @@ const LoginPage = () => {
           </div>
         
         <div className='flex flex-col items-center justify-center px-1 py-1 mx-auto pt-3'> 
-          <span className='text-sm text-slate-500'>v1.0.0</span>
+          <span className='text-sm text-slate-500'>v{version}</span>
         </div>
       </div>
 
