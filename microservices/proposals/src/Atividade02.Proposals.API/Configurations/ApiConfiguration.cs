@@ -7,6 +7,7 @@ using Atividade02.Proposals.Application;
 using Atividade02.Core.MessageBus.Configurations;
 using Atividade02.Proposals.API.Configurations.Serilog;
 using Atividade02.Proposals.API.BackgroundServices;
+using Atividade02.Proposals.API.Protos.Services;
 
 namespace Atividade02.Proposals.API.Configurations
 {
@@ -45,7 +46,7 @@ namespace Atividade02.Proposals.API.Configurations
 
             app.UseEndpoints(endpoints =>
             {
-                //endpoints.MapGrpcService<BaseProposalsService>();
+                endpoints.MapGrpcService<ProposalServices>();
 
                 // Outros endpoints REST...
 

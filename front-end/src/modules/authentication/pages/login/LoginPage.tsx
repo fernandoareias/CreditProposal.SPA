@@ -18,16 +18,12 @@ const LoginPage = () => {
     event.preventDefault();
 
     // Calcule o hash dos dados
-    const encrypt = new JSEncrypt();
-    //console.log(`ID Sessao ${sessionId}`);
-    //console.log(`Chave privada utilizada na assinatura${privateKey}`);
+    const encrypt = new JSEncrypt(); 
     encrypt.setPrivateKey(privateKey);
 
     const valorAssinado = sessionId + email + password;
     const data = JSON.stringify({ email : email, password: password});
-    const signature = encrypt.sign(valorAssinado, CryptoJS.SHA256, "sha256");
-    //console.log(`Assinatura ${signature}`);
-    //console.log(`Data ${data}`)
+    const signature = encrypt.sign(valorAssinado, CryptoJS.SHA256, "sha256"); 
     
 
     const headers = new Headers();
@@ -44,13 +40,20 @@ const LoginPage = () => {
   
   fetch("https://localhost:7222/authentication/sign-in", requestOptions)
   .then(response => response.json())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
-  
-
-   // console.log(email, password, privateKey);
+  .then(result => {
+    
+    setToken(result.token);
+    console.log(result);
+    sessionStorage.setItem("name", result.name);
+    sessionStorage.setItem("token", result.token);
+    sessionStorage.setItem("role", result.role);
+    sessionStorage.setItem("store", result.store);
 
     navigate("/dashboard");
+
+  })
+  .catch(error => console.log('error', error));
+  
   }
 
 

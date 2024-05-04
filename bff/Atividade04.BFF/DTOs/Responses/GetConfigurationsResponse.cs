@@ -11,10 +11,10 @@ namespace Atividade04.BFF.DTOs.Responses
 
         }
 
-        public GetConfigurationsResponse(string version, string publicKey)
+        public GetConfigurationsResponse(string version, List<string> privateKey)
         {
             Version = version;
-            PublicKey = publicKey;
+            PrivateKey = privateKey;
         }
 
         [DataMember]
@@ -24,7 +24,7 @@ namespace Atividade04.BFF.DTOs.Responses
         }
 
         [DataMember]
-        public string PublicKey{
+        public List<string> PrivateKey{
             get;
             private set;
         }

@@ -5,6 +5,7 @@ export class ProposalContextType {
   id: string = null!;
   code: string = null!;
 }
+
 // Builds the SignalR connection, mapping it to /proposals
 // const hubConnection = new signalR.HubConnectionBuilder()
 //   .withUrl("https://localhost:7222/proposals", {

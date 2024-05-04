@@ -32,7 +32,6 @@
     <None Remove="Middlewares\" />
     <None Remove="Protos\" />
     <None Remove="Protos\Services\" />
-    <None Remove="Protos\Proposals.proto" />
   </ItemGroup> 
   <ItemGroup>
     <ProjectReference Include="..\..\..\BuildingBlocks\Atividade02.Core\Atividade02.Core.csproj">
@@ -49,7 +48,6 @@
     </ProjectReference>
   </ItemGroup>
   <!-- <ItemGroup>
-    <Protobuf Include="Protos\Proposals.proto" GrpcServices="Server"/> 
+    <Protobuf Include="Protos\Proposals.proto" GrpcServices="Server" /> 
   </ItemGroup> -->
-  
 </Project>

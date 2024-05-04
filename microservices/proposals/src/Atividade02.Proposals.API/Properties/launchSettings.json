@@ -12,8 +12,7 @@
     "Atividade02.Proposals.API": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "swagger",
-      "applicationUrl": "https://localhost:7001;http://localhost:5155",
+      "applicationUrl": "https://localhost:7001;http://localhost:53491",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

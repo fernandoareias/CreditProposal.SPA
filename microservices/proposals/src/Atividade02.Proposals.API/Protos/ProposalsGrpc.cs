@@ -7,7 +7,7 @@
 
 using grpc = global::Grpc.Core;
 
-namespace Atividade04.Proposals.API.Protos.Services {
+namespace Atividade04.BFF.Protos.Services {
   public static partial class ProposalsService
   {
     static readonly string __ServiceName = "ProposalsService";
@@ -46,12 +46,12 @@ namespace Atividade04.Proposals.API.Protos.Services {
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Atividade04.Proposals.API.Protos.Services.ProposalsConsultaQuery> __Marshaller_ProposalsConsultaQuery = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Atividade04.Proposals.API.Protos.Services.ProposalsConsultaQuery.Parser));
+    static readonly grpc::Marshaller<global::Atividade04.BFF.Protos.Services.ProposalsConsultaQuery> __Marshaller_ProposalsConsultaQuery = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Atividade04.BFF.Protos.Services.ProposalsConsultaQuery.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Atividade04.Proposals.API.Protos.Services.ProposalsQueryResponse> __Marshaller_ProposalsQueryResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Atividade04.Proposals.API.Protos.Services.ProposalsQueryResponse.Parser));
+    static readonly grpc::Marshaller<global::Atividade04.BFF.Protos.Services.ProposalsQueryResponse> __Marshaller_ProposalsQueryResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Atividade04.BFF.Protos.Services.ProposalsQueryResponse.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::Atividade04.Proposals.API.Protos.Services.ProposalsConsultaQuery, global::Atividade04.Proposals.API.Protos.Services.ProposalsQueryResponse> __Method_ConsultarProposals = new grpc::Method<global::Atividade04.Proposals.API.Protos.Services.ProposalsConsultaQuery, global::Atividade04.Proposals.API.Protos.Services.ProposalsQueryResponse>(
+    static readonly grpc::Method<global::Atividade04.BFF.Protos.Services.ProposalsConsultaQuery, global::Atividade04.BFF.Protos.Services.ProposalsQueryResponse> __Method_ConsultarProposals = new grpc::Method<global::Atividade04.BFF.Protos.Services.ProposalsConsultaQuery, global::Atividade04.BFF.Protos.Services.ProposalsQueryResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
         "ConsultarProposals",
@@ -61,7 +61,7 @@ namespace Atividade04.Proposals.API.Protos.Services {
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
-      get { return global::Atividade04.Proposals.API.Protos.Services.ProposalsReflection.Descriptor.Services[0]; }
+      get { return global::Atividade04.BFF.Protos.Services.ProposalsReflection.Descriptor.Services[0]; }
     }
 
     /// <summary>Base class for server-side implementations of ProposalsService</summary>
@@ -69,7 +69,7 @@ namespace Atividade04.Proposals.API.Protos.Services {
     public abstract partial class ProposalsServiceBase
     {
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::Atividade04.Proposals.API.Protos.Services.ProposalsQueryResponse> ConsultarProposals(global::Atividade04.Proposals.API.Protos.Services.ProposalsConsultaQuery request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Atividade04.BFF.Protos.Services.ProposalsQueryResponse> ConsultarProposals(global::Atividade04.BFF.Protos.Services.ProposalsConsultaQuery request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -92,7 +92,7 @@ namespace Atividade04.Proposals.API.Protos.Services {
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     public static void BindService(grpc::ServiceBinderBase serviceBinder, ProposalsServiceBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_ConsultarProposals, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Atividade04.Proposals.API.Protos.Services.ProposalsConsultaQuery, global::Atividade04.Proposals.API.Protos.Services.ProposalsQueryResponse>(serviceImpl.ConsultarProposals));
+      serviceBinder.AddMethod(__Method_ConsultarProposals, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Atividade04.BFF.Protos.Services.ProposalsConsultaQuery, global::Atividade04.BFF.Protos.Services.ProposalsQueryResponse>(serviceImpl.ConsultarProposals));
     }
 
   }

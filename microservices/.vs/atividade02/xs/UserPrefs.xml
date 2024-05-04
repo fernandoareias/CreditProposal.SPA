@@ -1,67 +1,51 @@
-﻿<Properties StartupConfiguration="{E75ECF52-0DFE-41B4-A7EF-337CE483F810}|Default">
-  <MultiItemStartupConfigurations>
-    <MultiItemSolutionRunConfiguration Id="Multiple Projects" Name="Multiple Projects">
-      <Items>
-        <StartupItem ItemId="{38813E7B-4CC0-40B0-AC66-D503AFFF919D}" ItemName="Atividade02.Portador.API" ConfigurationId="Atividade02.Proponent.API" />
-        <StartupItem ItemId="{CA7DCCA4-58E7-4C5A-802A-5BE6C24ECD7A}" ItemName="Atividade02.Proposals.API" ConfigurationId="Default" />
-        <StartupItem ItemId="{E75ECF52-0DFE-41B4-A7EF-337CE483F810}" ItemName="Atividade04.BFF" ConfigurationId="Default" />
-      </Items>
-    </MultiItemSolutionRunConfiguration>
-  </MultiItemStartupConfigurations>
-  <MonoDevelop.Ide.ItemProperties.bff.tests.Atividade04.BFF.Tests FirstBuild="True" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.microservices.proposal.src.0_220-_220Apresentation.Atividade02.Proposals.API PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
-  <MonoDevelop.Ide.ItemProperties.microservices.portador.src.Atividade02.Portador.API PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
-  <MonoDevelop.Ide.ItemProperties.bff.src.Atividade04.BFF PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/f.areias/Documents/faculdade/atividade04/bff/Atividade04.BFF/Hubs/ProposalHub.cs" line="33" column="1" />
-      <Breakpoint file="/Users/f.areias/Documents/faculdade/atividade04/bff/Atividade04.BFF/Hubs/ProposalHub.cs" line="38" column="1" />
-      <Breakpoint file="/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.API/Protos/Services/ProposalServices.cs" relfile="proposals/src/Atividade02.Proposals.API/Protos/Services/ProposalServices.cs" line="25" column="1" />
-      <Breakpoint file="/Users/f.areias/Documents/faculdade/atividade04/bff/Atividade04.BFF/Hubs/ProposalHub.cs" line="53" column="1" />
-      <Breakpoint file="/Users/f.areias/Documents/faculdade/atividade04/bff/Atividade04.BFF/Hubs/ProposalHub.cs" line="17" column="1" />
-      <Breakpoint file="/Users/f.areias/Documents/faculdade/atividade04/bff/Atividade04.BFF/Services/AuthenticationServices.cs" line="27" column="1" />
-      <Breakpoint file="/Users/f.areias/Documents/faculdade/atividade04/bff/Atividade04.BFF/Data/Repositories/RetailerRepository.cs" line="23" column="1" />
-    </BreakpointStore>
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="../bff/Atividade04.BFF/Services/AuthenticationServices.cs">
+﻿<Properties StartupConfiguration="{CA7DCCA4-58E7-4C5A-802A-5BE6C24ECD7A}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="proposals/src/Atividade02.Proposals.API/Program.cs">
     <Files>
-      <File FileName="../bff/Atividade04.BFF/Services/AuthenticationServices.cs" Line="62" Column="80" IsPinned="True" />
-      <File FileName="../bff/Atividade04.BFF/Controllers/AuthenticationController.cs" Line="24" Column="43" IsPinned="True" />
-      <File FileName="../bff/Atividade04.BFF/Services/Interfaces/IAuthenticationServices.cs" Line="8" Column="31" IsPinned="True" />
-      <File FileName="../bff/Atividade04.BFF/Data/Repositories/SessionRepository.cs" Line="24" Column="12" IsPinned="True" />
-      <File FileName="proposals/src/Atividade02.Proposals.Infrastructure/Data/Repositories/StoreRepository.cs" Line="1" Column="1" />
-      <File FileName="../bff/Atividade04.BFF/Properties/launchSettings.json" Line="16" Column="70" />
-      <File FileName="portador/src/Atividade02.Portador.API/Properties/launchSettings.json" Line="1" Column="1" />
-      <File FileName="proposals/src/Atividade02.Proposals.API/Properties/launchSettings.json" Line="16" Column="48" />
+      <File FileName="../bff/Atividade04.BFF/Services/AuthenticationServices.cs" Line="87" Column="1" IsPinned="True" />
+      <File FileName="../bff/Atividade04.BFF/Controllers/AuthenticationController.cs" Line="125" Column="1" IsPinned="True" />
+      <File FileName="../bff/Atividade04.BFF/Data/Repositories/SessionRepository.cs" Line="24" Column="1" IsPinned="True" />
+      <File FileName="proposals/src/Atividade02.Proposals.API/Protos/Services/ProposalServices.cs" Line="15" Column="25" IsPinned="True" />
+      <File FileName="proposals/src/Atividade02.Proposals.API/Protos/Proposals.proto" Line="1" Column="1" IsPinned="True" />
+      <File FileName="proposals/src/Atividade02.Proposals.Infrastructure/Data/Repositories/StoreRepository.cs" />
+      <File FileName="../bff/Atividade04.BFF/Properties/launchSettings.json" Line="15" Column="49" />
+      <File FileName="proposals/src/Atividade02.Proposals.API/Properties/launchSettings.json" Line="15" Column="48" />
       <File FileName="../bff/Atividade04.BFF/Configurations/Serilog/EnricherLog.cs" />
       <File FileName="../bff/Atividade04.BFF/Middlewares/ExceptionMiddleware.cs" />
-      <File FileName="BuildingBlocks/Atividade02.Core.MessageBus/Services/MessageBus.cs" Line="25" Column="1" />
+      <File FileName="BuildingBlocks/Atividade02.Core.MessageBus/Services/MessageBus.cs" />
       <File FileName="../bff/tests/Atividade04.BFF.Tests/UnitTest1.cs" />
       <File FileName="proposals/src/Atividade02.Proposals.API/Controllers/CommonController.cs" />
       <File FileName="proposals/src/Atividade02.Proposals.API/Controllers/ProposalController.cs" />
-      <File FileName="proposals/src/Atividade02.Proposals.API/Program.cs" Line="7" Column="22" />
+      <File FileName="proposals/src/Atividade02.Proposals.API/Program.cs" Line="12" Column="1" />
       <File FileName="../../../../.microsoft/usersecrets/a0a6a8f6-418f-4efa-a364-40751f897298/secrets.json" />
-      <File FileName="proposals/src/Atividade02.Proposals.API/Protos/Proposals.proto" />
-      <File FileName="proposals/src/Atividade02.Proposals.API/Protos/Proposals.cs" />
-      <File FileName="proposals/src/Atividade02.Proposals.API/Protos/ProposalsGrpc.cs" />
-      <File FileName="proposals/src/Atividade02.Proposals.API/Protos/Services/ProposalServices.cs" />
       <File FileName="proposals/src/Atividade02.Proposals.Domain/Proposals/Proposal.cs" />
-      <File FileName="../bff/Atividade04.BFF/Protos/Services/Proposals.cs" />
-      <File FileName="../bff/Atividade04.BFF/Protos/Proposals.proto" />
-      <File FileName="../bff/Atividade04.BFF/Hubs/ProposalHub.cs" Line="27" Column="50" />
-      <File FileName="../bff/Atividade04.BFF/DTOs/Requests/GetProposalListQuery.cs" Line="1" Column="1" />
-      <File FileName="../bff/Atividade04.BFF/Controllers/ConfigurationsController.cs" Line="30" Column="1" />
-      <File FileName="../bff/Atividade04.BFF/Data/Repositories/Common/IUnitOfWork.cs" Line="2" Column="26" />
-      <File FileName="portador/src/Atividade02.Portador.API/Program.cs" Line="1" Column="1" />
-      <File FileName="portador/src/Atividade02.Portador.API/appsettings.json" Line="9" Column="4" />
-      <File FileName="portador/src/Atividade02.Portador.API/Models/Portador.cs" Line="9" Column="15" />
-      <File FileName="../bff/Atividade04.BFF/DTOs/Responses/GetConfigurationsResponse.cs" Line="12" Column="7" />
-      <File FileName="../bff/Atividade04.BFF/Data/Repositories/UserRepository.cs" Line="11" Column="84" />
-      <File FileName="../bff/Atividade04.BFF/Data/Repositories/BaseRepository.cs" Line="1" Column="1" />
-      <File FileName="proposals/src/Atividade02.Proposals.Infrastructure/Data/Repositories/ProposalRepository.cs" Line="1" Column="1" />
-      <File FileName="../bff/Atividade04.BFF/Models/Interfaces/Repositories/IRetailerRepository.cs" Line="7" Column="36" />
-      <File FileName="../bff/Atividade04.BFF/Models/Interfaces/Repositories/ISessionRepository.cs" Line="9" Column="9" />
+      <File FileName="../bff/Atividade04.BFF/Hubs/ProposalHub.cs" Line="45" Column="1" />
+      <File FileName="../bff/Atividade04.BFF/DTOs/Requests/GetProposalListQuery.cs" />
+      <File FileName="../bff/Atividade04.BFF/Controllers/ConfigurationsController.cs" />
+      <File FileName="../bff/Atividade04.BFF/Data/Repositories/Common/IUnitOfWork.cs" />
+      <File FileName="portador/src/Atividade02.Portador.API/Program.cs" />
+      <File FileName="portador/src/Atividade02.Portador.API/appsettings.json" />
+      <File FileName="portador/src/Atividade02.Portador.API/Models/Portador.cs" />
+      <File FileName="../bff/Atividade04.BFF/Data/Repositories/BaseRepository.cs" />
+      <File FileName="proposals/src/Atividade02.Proposals.Infrastructure/Data/Repositories/ProposalRepository.cs" />
+      <File FileName="../bff/Atividade04.BFF/Models/Interfaces/Repositories/IRetailerRepository.cs" />
+      <File FileName="../bff/Atividade04.BFF/Models/ValueObjects/Common/Document.cs" />
+      <File FileName="../bff/Atividade04.BFF/Models/ValueObjects/Password.cs" />
+      <File FileName="../bff/Atividade04.BFF/Models/ValueObjects/Email.cs" />
+      <File FileName="../bff/Atividade04.BFF/Configurations/AuthenticationConfiguration.cs" />
+      <File FileName="../bff/Atividade04.BFF/Program.cs" Line="1" Column="1" />
+      <File FileName="../bff/Atividade04.BFF/Data/MongoContext.cs" />
+      <File FileName="../bff/Atividade04.BFF/Models/Retailer.cs" />
+      <File FileName="BuildingBlocks/Atividade02.Core/Common/Validators/ValidatorServices.cs" />
+      <File FileName="../bff/Atividade04.BFF/Models/Session.cs" />
+      <File FileName="../bff/Atividade04.BFF/appsettings.json" />
+      <File FileName="../front-end/package.json" />
+      <File FileName="../bff/Atividade04.BFF/DTOs/Requests/SignInRequest.cs" />
+      <File FileName="../bff/Atividade04.BFF/Data/Repositories/RetailerRepository.cs" />
+      <File FileName="proposals/src/Atividade02.Proposals.API/Configurations/ApiConfiguration.cs" Line="49" Column="17" />
+      <File FileName="proposals/src/Atividade02.Proposals.API/Configurations/Serilog/EnricherLog.cs" />
+      <File FileName="../bff/Atividade04.BFF/Protos/Proposals.proto" Line="20" Column="22" />
+      <File FileName="../bff/Atividade04.BFF/Protos/ProposalsGrpc.cs" Line="1" Column="1" />
+      <File FileName="proposals/src/Atividade02.Proposals.API/Protos/Proposals.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -70,35 +54,31 @@
             <Node name="bff" expanded="True">
               <Node name="src" expanded="True">
                 <Node name="Atividade04.BFF">
-                  <Node name="Data" expanded="True">
-                    <Node name="Repositories" expanded="True" />
-                  </Node>
-                  <Node name="Models" expanded="True">
-                    <Node name="Interfaces" expanded="True">
-                      <Node name="Repositories" expanded="True" />
-                      <Node name="Services" expanded="True" />
-                    </Node>
-                  </Node>
-                  <Node name="Services" expanded="True">
-                    <Node name="AuthenticationServices.cs" selected="True" />
-                  </Node>
-                </Node>
-              </Node>
-            </Node>
-            <Node name="BuildingBlocks" expanded="True">
-              <Node name="MessageBus" expanded="True">
-                <Node name="Atividade02.Core.MessageBus" expanded="True">
-                  <Node name="Services" expanded="True" />
+                  <Node name="Hubs" expanded="True" />
+                  <Node name="Properties" expanded="True" />
                 </Node>
               </Node>
             </Node>
             <Node name="microservices" expanded="True">
-              <Node name="portador" expanded="True" />
+              <Node name="portador" expanded="True">
+                <Node name="src" expanded="True">
+                  <Node name="Atividade02.Portador.API" expanded="True">
+                    <Node name="Properties" expanded="True" />
+                  </Node>
+                </Node>
+              </Node>
               <Node name="proposal" expanded="True">
-                <Node name="src">
+                <Node name="src" expanded="True">
                   <Node name="0 - Apresentation" expanded="True">
-                    <Node name="Atividade02.Proposals.API" expanded="True">
-                      <Node name="Configurations" expanded="True" />
+                    <Node name="Atividade02.Proposals.API">
+                      <Node name="Configurations" expanded="True">
+                        <Node name="Serilog" expanded="True" />
+                      </Node>
+                      <Node name="Properties" expanded="True" />
+                      <Node name="Protos" expanded="True">
+                        <Node name="Services" expanded="True" />
+                      </Node>
+                      <Node name="Program.cs" selected="True" />
                     </Node>
                   </Node>
                 </Node>
@@ -109,5 +89,26 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.microservices.portador.src.Atividade02.Portador.API PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <Breakpoint file="/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.API/Protos/Services/ProposalServices.cs" relfile="proposals/src/Atividade02.Proposals.API/Protos/Services/ProposalServices.cs" line="19" column="1" />
+    <Breakpoint file="/Users/f.areias/Documents/faculdade/atividade04/bff/Atividade04.BFF/Services/AuthenticationServices.cs" line="32" column="1" />
+    <Breakpoint file="/Users/f.areias/Documents/faculdade/atividade04/bff/Atividade04.BFF/Controllers/AuthenticationController.cs" line="152" column="1" />
+    <Breakpoint file="/Users/f.areias/Documents/faculdade/atividade04/bff/Atividade04.BFF/Services/AuthenticationServices.cs" line="108" column="1" />
+    <Breakpoint file="/Users/f.areias/Documents/faculdade/atividade04/bff/Atividade04.BFF/Hubs/ProposalHub.cs" line="33" column="1" />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations>
+    <MultiItemSolutionRunConfiguration Id="Multiple Projects" Name="Multiple Projects">
+      <Items>
+        <StartupItem ItemId="{38813E7B-4CC0-40B0-AC66-D503AFFF919D}" ItemName="Atividade02.Portador.API" ConfigurationId="Default" />
+        <StartupItem ItemId="{CA7DCCA4-58E7-4C5A-802A-5BE6C24ECD7A}" ItemName="Atividade02.Proposals.API" ConfigurationId="Default" />
+        <StartupItem ItemId="{E75ECF52-0DFE-41B4-A7EF-337CE483F810}" ItemName="Atividade04.BFF" ConfigurationId="Default" />
+      </Items>
+    </MultiItemSolutionRunConfiguration>
+  </MultiItemStartupConfigurations>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.microservices.proposal.src.0_220-_220Apresentation.Atividade02.Proposals.API PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MonoDevelop.Ide.ItemProperties.bff.src.Atividade04.BFF PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MonoDevelop.Ide.ItemProperties.bff.tests.Atividade04.BFF.Tests FirstBuild="True" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

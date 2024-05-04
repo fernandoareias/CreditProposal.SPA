@@ -5,18 +5,20 @@ namespace Atividade04.BFF.Models
 {
     public class Retailer : AggregateRoot
     {
-        protected Retailer()
+        public Retailer()
         {
         }
 
         public Retailer(string name, string email, string password, string cnpj, ERole role)
         {
+            AggregateId = Guid.NewGuid().ToString();
             Name = name;
             Email = new Email(email);
             Password = new Password(password);
             CNPJ = new CNPJ(cnpj);
             Role = role;
         }
+
 
         public string Name{
             get;
@@ -48,7 +50,7 @@ namespace Atividade04.BFF.Models
         {
             get;
             private set;
-        }
+        } = new List<Session>();
 
 
         public void Authenticated(Session session)

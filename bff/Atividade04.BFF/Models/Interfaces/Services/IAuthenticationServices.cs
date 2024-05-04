@@ -9,8 +9,10 @@ namespace Atividade04.BFF.Services
     {
         Output? DecryptMessage<Output>(string encryptedMessage, string publicKey, string privateKey) where Output : class;
         (string privateKey, string publicKey) GenerateKeys();
-        Task<SignResponse> SignIn(Session session, SignInRequest request);
+        Task<SignResponse> SignIn(Session session, SignInRequest request, string signature);
         Task<SignUpResponse> SignUp(Session session, SignUpRequest request);
+        string GenerateJwt(Session session, Retailer retailer);
+
     }
 }
 

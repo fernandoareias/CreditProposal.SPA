@@ -1,6 +1,7 @@
 ﻿syntax = "proto3";
+import "google/protobuf/timestamp.proto";
 
-option csharp_namespace = "Atividade04.Proposals.API.Protos.Services";
+option csharp_namespace = "Atividade04.BFF.Protos.Services";
 
 service ProposalsService {
     rpc ConsultarProposals(ProposalsConsultaQuery) returns (ProposalsQueryResponse);
@@ -10,13 +11,16 @@ message ProposalsConsultaQuery {
     string cnpj_loja = 1;
     string usuario_lojista = 2;
 }
+ 
+message ProposalsResponse {
+    string id = 1;
+    string cpf = 2;
+    string nome = 3;
+    int32 product = 4;
+    int32 status = 5;
+    google.protobuf.Timestamp ultima_atualizacao = 6;
+}
 
 message ProposalsQueryResponse {
     repeated ProposalsResponse proposals = 1;
-}
-
-message ProposalsResponse {
-    string id = 1;
-    string descricao = 2;
-    float valor = 3;
 }

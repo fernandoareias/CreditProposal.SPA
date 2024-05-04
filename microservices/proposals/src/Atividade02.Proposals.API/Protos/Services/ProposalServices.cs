@@ -1,13 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using Atividade02.Proposals.Domain.Proposals.Repositories;
-using Atividade04.Proposals.API.Protos;
-using Atividade04.Proposals.API.Protos.Services;
+using Atividade04.BFF.Protos.Services;
 using Grpc.Core;
-using static Atividade04.Proposals.API.Protos.Services.ProposalsService;
+using static Atividade04.BFF.Protos.Services.ProposalsService;
 
 namespace Atividade02.Proposals.API.Protos.Services
 {
@@ -21,10 +15,27 @@ namespace Atividade02.Proposals.API.Protos.Services
             _proposalRepository = proposalRepository;
         }
 
-        public override Task<ProposalsQueryResponse> ConsultarProposals(ProposalsConsultaQuery request, ServerCallContext context)
+        public override async Task<ProposalsQueryResponse> ConsultarProposals(ProposalsConsultaQuery request, ServerCallContext context)
         {
 
-            return null;
+            var proposals = await _proposalRepository.GetLasts(request.CnpjLoja);
+            var response = new ProposalsQueryResponse();
+
+            foreach (var proposal in proposals)
+            {
+                response.Proposals.Add(new ProposalsResponse
+                {
+                    Id = proposal.AggregateId,
+                    Cpf = proposal.Proponent.CPF.Number,
+                    Nome = proposal.Proponent.Name.Value,
+                    Product = 1,
+                    Status = (int)proposal.Status
+                });
+            }
+
+
+            return response;
+
         }
     }
 }

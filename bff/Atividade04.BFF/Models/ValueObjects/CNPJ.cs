@@ -4,34 +4,29 @@ using Atividade04.BFF.Models.Common;
 namespace Atividade04.BFF.Models
 {
     public class CNPJ : Document
-    {
-        public string Numero
+    { 
+        public CNPJ(string number) 
         {
-            get;
-            private set;
-        }
-        public CNPJ(string numero) : base(numero)
-        {
-            if (string.IsNullOrWhiteSpace(numero))
-                throw new ArgumentException("CNPJ number cannot be null or empty.", nameof(numero));
+            if (string.IsNullOrWhiteSpace(number))
+                throw new ArgumentException("CNPJ number cannot be null or empty.", nameof(Number));
 
-            Numero = new string(numero.Where(char.IsDigit).ToArray());
+            Number = new string(number.Where(char.IsDigit).ToArray());
 
-            if (Numero.Length != 14)
-                throw new ArgumentException("CNPJ number must contain 14 numeric digits.", nameof(numero));
+            if (Number.Length != 14)
+                throw new ArgumentException("CNPJ number must contain 14 numeric digits.", nameof(Number));
 
             if (!IsValid())
-                throw new ArgumentException("The Informed CNPJ is invalid.", nameof(numero));
+                throw new ArgumentException("The Informed CNPJ is invalid.", nameof(Number));
         }
 
         public override string GetNumberWithMask()
         {
             return string.Format("{0}.{1}.{2}/{3}-{4}",
-                Numero.Substring(0, 2),
-                Numero.Substring(2, 3),
-                Numero.Substring(5, 3),
-                Numero.Substring(8, 4),
-                Numero.Substring(12, 2));
+                Number.Substring(0, 2),
+                Number.Substring(2, 3),
+                Number.Substring(5, 3),
+                Number.Substring(8, 4),
+                Number.Substring(12, 2));
         }
 
         public override bool IsValid()
@@ -39,7 +34,7 @@ namespace Atividade04.BFF.Models
             int[] multiplicadores1 = { 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
             int[] multiplicadores2 = { 6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
 
-            string tempCnpj = Numero.Substring(0, 12);
+            string tempCnpj = Number.Substring(0, 12);
 
             int soma = 0;
             for (int i = 0; i < 12; i++)
@@ -63,7 +58,7 @@ namespace Atividade04.BFF.Models
 
             tempCnpj += resto;
 
-            return Numero.EndsWith(tempCnpj);
+            return Number.EndsWith(tempCnpj);
         }
     }
 }

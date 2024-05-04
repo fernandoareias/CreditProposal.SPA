@@ -10,15 +10,11 @@ namespace Atividade04.BFF.Models.Common
 
         }
 
-        protected Document(string number)
-        {
-            Number = number;
-        }
 
         public string Number
         {
             get;
-            private set;
+            protected set;
         }
 
         public override string ToString()

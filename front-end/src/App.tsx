@@ -15,18 +15,20 @@ import Loading from './core/components/Loading';
 
 function App() {
 
+  // Session
   const [privateKey, setPrivateKey] = useState<string | null>(null);
-  const [token, setToken] = useState<string | null>(null);
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [version, setVersion] = useState<string | null>(null);
+  const [token, setToken] = useState<string | null>(null);
  
+
   useEffect(() => {
-    const storedSessionId = localStorage.getItem('sessionId');
+    const storedSessionId = sessionStorage.getItem('sessionId');
     if (storedSessionId) {
       setSessionId(storedSessionId);
     } else {
       const newSessionId = generateGUID();
-      localStorage.setItem('sessionId', newSessionId);
+      sessionStorage.setItem('sessionId', newSessionId);
       setSessionId(newSessionId);
     }
   }, []);
@@ -88,20 +90,20 @@ function App() {
     version ?
       <>
       <SessionContext.Provider value={{ privateKey, version, sessionId, token, setToken: updateToken }}>
-      <BrowserRouter>
-            <Routes>
-              <Route path='*' Component={NotExistsPage}/>
-              
-              <Route path="/authentication/login" Component={LoginPage} />
-              <Route path="/authentication/signup" Component={SignUpPage} />
-              <Route path='/authentication/recovery' Component={RecoveryPassword}/>
+        <BrowserRouter>
+              <Routes>
+                <Route path='*' Component={NotExistsPage}/>
+                
+                <Route path="/authentication/login" Component={LoginPage} />
+                <Route path="/authentication/signup" Component={SignUpPage} />
+                <Route path='/authentication/recovery' Component={RecoveryPassword}/>
 
-              <Route path='/dashboard' Component={Dashboard}>
-                <Route path='proposals' Component={ProposalsPage}/>
-                <Route path='credit-cards' Component={CreditCardPage}/>
-              </Route>
-            </Routes>
-        </BrowserRouter>
+                <Route path='/dashboard' Component={Dashboard}>
+                  <Route path='proposals' Component={ProposalsPage}/>
+                  <Route path='credit-cards' Component={CreditCardPage}/>
+                </Route>
+              </Routes>
+          </BrowserRouter>
         </SessionContext.Provider>
       </>
       :

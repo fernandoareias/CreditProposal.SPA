@@ -24,7 +24,7 @@ const ProposalsItem = () => {
 
             <div className="flex-grow flex items-center justify-center"> 
                 <div className="flex flex-col items-center"> 
-                <span className="mb-1">Analista: Helene Tavares Vieira</span>  
+                <span className="mb-1">Analyst: Automático</span>  
                 <span className="mb-2">Approved</span>
                 <span className="mb-2">23/04/2024 20:56:00</span>
                 </div>

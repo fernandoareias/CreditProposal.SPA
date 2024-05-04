@@ -6,27 +6,26 @@ namespace Atividade04.BFF.Models
 {
     public class Email : ValueObjects
     {
-        public Email(string endereco)
+        public Email(string address)
         {
-            if (string.IsNullOrWhiteSpace(endereco))
-                throw new ArgumentException("Email address cannot be null or empty.", nameof(endereco));
+            if (string.IsNullOrWhiteSpace(address))
+                throw new ArgumentException("Email address cannot be null or empty.", nameof(address));
 
-            Endereco = endereco;
-
+            Address = address;
 
             if (!IsValid())
-                throw new ArgumentException("Invalid email address.", nameof(endereco));
-
+                throw new ArgumentException("Invalid email address.", nameof(address));
         }
 
-        public string Endereco { get; private set; }
+        public string Address { get; private set; }
+
 
         public override bool IsValid()
         {
             try
             {
                 var regex = new Regex(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$");
-                return regex.IsMatch(Endereco);
+                return regex.IsMatch(Address);
             }
             catch (RegexMatchTimeoutException)
             {

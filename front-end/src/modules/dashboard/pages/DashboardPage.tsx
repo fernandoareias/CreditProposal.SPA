@@ -2,13 +2,64 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import { ProposalContextType, ProposalsContext } from '../contexts/PropostaContext';
+import * as signalR from "@microsoft/signalr";
+import Loading from '../../../core/components/Loading';
 
 const DashboardPage = () => {
 
   const [proposals, setProposals] = useState<ProposalContextType[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [name, setName] = useState("");
+  const [role, setRole] = useState("");
+
+  useEffect(() => {
+
+    setName(sessionStorage.getItem("name"));
+    setRole(sessionStorage.getItem("role"));
+
+  }, [name, role]);
+
+
+  // Criando a conexão do hub
+  const hubConnection = new signalR.HubConnectionBuilder()
+    .withUrl("https://localhost:7222/proposals", {
+      withCredentials: true, // Enviar credenciais
+    })
+    .configureLogging(signalR.LogLevel.Debug)
+    .build();
+
+// Definindo a função para lidar com as novas propostas recebidas
+hubConnection.on("ReceberPropostas", (receivedProposals) => {
+  console.log("Recebendo propostas");
+  console.log(receivedProposals);
+  setProposals(receivedProposals); // Atualize a lista de propostas com as novas propostas recebidas
+});
+
+// Efeito para iniciar a conexão e enviar a mensagem ao estabelecer a conexão
+useEffect(() => {
+  hubConnection
+    .start()
+    .then(() => {
+      console.log("SignalR connection established.");
+
+      hubConnection.send("Streaming", "teste").then((x) => {
+        console.log("Invocou streaming");
+        console.log(x);
+      });
+
+      setLoading(false);
+    })
+    .catch((error) => {
+      console.error("SignalR connection failed: ", error);
+    });
+
+  }, []);
 
   
   return (
+    loading ? 
+    <Loading/>
+    :
     <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
       <aside className="bg-gray-900 text-white h-screen lg:col-span-1 border-r border-r-dashed border-r-neutral-200 shadow transition-all duration-300 ease-in-out" id="sidenav-main">
         <div className="flex shrink-0 px-8 items-center justify-between h-[96px]">
@@ -21,12 +72,12 @@ const DashboardPage = () => {
           <div className="flex items-center mr-5">
             <div className="mr-5">
               <div className="inline-block relative shrink-0 cursor-pointer rounded-[.95rem]">
-                <img className="w-[40px] h-[40px] shrink-0 inline-block rounded-[.95rem]" src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/avatars/avatar1.jpg" alt="avatar image" />
+                <img className="w-[40px] h-[40px] shrink-0 inline-block rounded-[.95rem]" src="https://avatars.githubusercontent.com/u/87771786?v=4" alt="avatar image" />
               </div>
             </div>
             <div className="mr-2 ">
-              <a href="javascript:void(0)" className="dark:hover:text-primary hover:text-primary transition-colors duration-200 ease-in-out text-[1.075rem] font-medium dark:text-slate-50 hover:text-slate-300">Robert Jason</a>
-              <span className="text-secondary-dark dark:text-stone-500 font-medium block text-[0.85rem]">Sales Associate</span>
+              <a href="javascript:void(0)" className="dark:hover:text-primary hover:text-primary transition-colors duration-200 ease-in-out text-[1.075rem] font-medium dark:text-slate-50 hover:text-slate-300">{name}</a>
+              <span className="text-secondary-dark dark:text-stone-500 font-medium block text-[0.85rem]">{role}</span>
             </div>
           </div>
           <a className="inline-flex relative items-center group justify-end text-base font-medium leading-normal text-center align-middle cursor-pointer rounded-[.95rem] transition-colors duration-150 ease-in-out text-dark bg-transparent shadow-none border-0" href="javascript:void(0)">

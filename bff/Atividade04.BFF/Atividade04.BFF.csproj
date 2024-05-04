@@ -50,6 +50,15 @@
     <None Remove="Models\Interfaces\Services\" />
     <None Remove="Models\ValueObjects\" />
     <None Remove="Models\ValueObjects\Common\" />
+    <None Remove="Protos\Services\" />
+    <None Remove="DTOs\Retailer\" />
+    <None Remove="DTOs\Retailer\v1\" />
+    <None Remove="DTOs\Retailer\v1\Requests\" />
+    <None Remove="DTOs\Retailer\v1\Responses\" />
+    <None Remove="DTOs\Proposals\" />
+    <None Remove="DTOs\Proposals\v1\" />
+    <None Remove="DTOs\Proposals\v1\Requests\" />
+    <None Remove="Models\Events\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
@@ -69,6 +78,15 @@
     <Folder Include="Models\Interfaces\Services\" />
     <Folder Include="Models\ValueObjects\" />
     <Folder Include="Models\ValueObjects\Common\" />
+    <Folder Include="Protos\Services\" />
+    <Folder Include="DTOs\Retailer\" />
+    <Folder Include="DTOs\Retailer\v1\" />
+    <Folder Include="DTOs\Retailer\v1\Requests\" />
+    <Folder Include="DTOs\Retailer\v1\Responses\" />
+    <Folder Include="DTOs\Proposals\" />
+    <Folder Include="DTOs\Proposals\v1\" />
+    <Folder Include="DTOs\Proposals\v1\Requests\" />
+    <Folder Include="Models\Events\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\microservices\BuildingBlocks\Atividade02.Core.MessageBus\Atividade02.Core.MessageBus.csproj">
@@ -79,6 +97,6 @@
     </ProjectReference>
   </ItemGroup>
   <!-- <ItemGroup>
-    <Protobuf Include="Protos\Proposals.proto" GrpcServices="Client"/> 
+    <Protobuf Include="Protos\Proposals.proto" GrpcServices="Client" /> 
   </ItemGroup> -->
 </Project>

@@ -44,17 +44,17 @@ namespace Atividade04.BFF.Hubs
 
                 var resposta = await client.ConsultarProposalsAsync(query);
 
-                await Clients.Caller.SendAsync("ReceberPropostas", resposta.Proposals);
+                await Clients.Caller.SendAsync("ReceberPropostas", null);
 
                 _firstTime = true;
             }
 
             _messageBus.Subscribe<int>("proposals", "", async (x) =>
             {
-                await Clients.All.SendAsync("ReceberPropostas", "message");
+
             }, default);
 
-            await Task.Delay(1000);
+            await Task.Delay(-1);
         }
 
     }

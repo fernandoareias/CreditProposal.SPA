@@ -13,6 +13,7 @@ using Atividade04.BFF.Models.Interfaces.Repositories;
 using Elastic.CommonSchema;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 
 namespace Atividade04.BFF.Services
 {
@@ -43,7 +44,7 @@ namespace Atividade04.BFF.Services
             
             return !string.IsNullOrWhiteSpace(content)
                 ?
-                JsonSerializer.Deserialize<Output>(content) : null;
+                System.Text.Json.JsonSerializer.Deserialize<Output>(content) : null;
             
         }
 
@@ -58,11 +59,14 @@ namespace Atividade04.BFF.Services
             var publicKeyBase64String = CustomConverter.ByteArrayToBase64String(publicKeyBytes);
             var privateKeyBase64String = CustomConverter.ByteArrayToBase64String(privateKeyBytes);
 
-            return (publicKeyBase64String, privateKeyBase64String);
+            return (privateKeyBase64String, publicKeyBase64String);
         }
 
-        public async Task<SignResponse> SignIn(Session session, SignInRequest request)
+        public async Task<SignResponse> SignIn(Session session, SignInRequest request, string signature)
         {
+            if (!VerifySignature(session.PublicKey, session.AggregateId, request, signature))
+                return null;
+
             var retalier = await _retailerRepository.GetByEmail(request.Email);
 
             if (retalier is null) return null;
@@ -71,12 +75,40 @@ namespace Atividade04.BFF.Services
 
             retalier.Authenticated(session);
 
-            _retailerRepository.Add(retalier);
+            _retailerRepository.Update(retalier);
             await _retailerRepository.unitOfWork.Commit();
 
             var token = GenerateJwt(session, retalier);
 
-            return new SignResponse(token, retalier.Email.Endereco, retalier.Role.ToString());
+            return new SignResponse(token, retalier.Name, retalier.Email.Address, retalier.Role, retalier.CNPJ.Number);
+        }
+
+        private static bool VerifySignature(string publicKey, string sessionId, SignInRequest data, string signature)
+        {
+            try
+            {
+                string stringAssinada = sessionId + data.Email + data.Password;
+                // Serializa o objeto SignInRequest em JSON
+                byte[] dataBytes = Encoding.UTF8.GetBytes(stringAssinada);
+
+                // Converte a assinatura de base64 para bytes
+                byte[] signatureBytes = Convert.FromBase64String(signature);
+                byte[] publicKeyBytes = Convert.FromBase64String(publicKey);
+
+                // Cria uma instância da classe RSACryptoServiceProvider
+                using (RSACryptoServiceProvider rsa = new RSACryptoServiceProvider())
+                {
+                    rsa.ImportRSAPublicKey(publicKeyBytes, out _);
+
+                    // Verifica a assinatura
+                    return  rsa.VerifyData(dataBytes, signatureBytes, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
+                }
+            }
+            catch (CryptographicException e)
+            {
+                Console.WriteLine($"Erro ao verificar a assinatura: {e.Message}");
+                return false;
+            }
         }
 
         public async Task<SignUpResponse> SignUp(Session session, SignUpRequest request)
@@ -94,21 +126,11 @@ namespace Atividade04.BFF.Services
 
             var token = GenerateJwt(session, retalier);
 
-            return new SignUpResponse(token, retalier.Email.Endereco, retalier.Role.ToString());
+            return new SignUpResponse(token, retalier.Name, retalier.Email.Address, retalier.Role, retalier.CNPJ.Number);
         }
          
-        private string? GetClaimValue(HttpContext context, string claim)
-        {
-            var identity = context.User.Identity as ClaimsIdentity;
-            if (identity != null)
-                return identity?.FindFirst(claim)?.Value;
-
-            return null;
-
-        }
-
-
-        private string GenerateJwt(Session session, Retailer retailer)
+         
+        public string GenerateJwt(Session session, Retailer retailer)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(authenticationConfiguration.Secret);
@@ -118,8 +140,10 @@ namespace Atividade04.BFF.Services
                 {
                     new Claim(ClaimTypes.NameIdentifier, retailer.AggregateId.ToString()),
                     new Claim("Session", session.AggregateId),
-                    new Claim(ClaimTypes.Name, retailer.Email.Endereco),
+                    new Claim(ClaimTypes.Name, retailer.Name),
+                    new Claim(ClaimTypes.Email, retailer.Email.Address),
                     new Claim(ClaimTypes.Role, retailer.Role.ToString()),
+                    new Claim("Store", retailer.CNPJ.Number)
                 }),
                 Expires = DateTime.UtcNow.AddHours(1),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
@@ -127,6 +151,7 @@ namespace Atividade04.BFF.Services
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
         }
+
     }
     
 }

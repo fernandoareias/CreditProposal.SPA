@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Runtime.Serialization;
+using Atividade02.Core.Common;
+using Atividade04.BFF.Models;
+using Google.Protobuf.WellKnownTypes;
 
 namespace Atividade04.BFF.DTOs.Responses
 {
@@ -7,11 +10,13 @@ namespace Atividade04.BFF.DTOs.Responses
     [DataContract]
     public class SignResponse
     {
-        public SignResponse(string token, string email, string role)
+        public SignResponse(string token, string name, string email, ERole role, string store)
         {
             Token = token;
+            Name = name;
             Email = email;
-            Role = role;
+            Role = Utils.GetEnumDescription(role);
+            Store = store;
         }
 
         protected SignResponse()
@@ -21,6 +26,13 @@ namespace Atividade04.BFF.DTOs.Responses
 
         [DataMember]
         public string Token
+        {
+            get;
+            private set;
+        }
+
+        [DataMember]
+        public string Name
         {
             get;
             private set;
@@ -39,6 +51,9 @@ namespace Atividade04.BFF.DTOs.Responses
             get;
             private set;
         }
+
+        [DataMember]
+        public string Store { get; private set; }
     }
 }
 

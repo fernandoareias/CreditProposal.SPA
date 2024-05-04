@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { SessionContext, generateGUID } from '../../../../../core/contexts/SessionContext';
 
 
 
@@ -8,7 +9,7 @@ interface ModalProps {
   }
 
 const ProposalCreate : React.FC<ModalProps> = ({ isOpen, onClose }) => {
-
+    const { privateKey, version, sessionId, setToken } = useContext(SessionContext);
     const [fullName, setFullName] = useState('');
     const [cpf, setCPF]  = useState('');
     const [cellphone, setCellphone] = useState('');
@@ -16,7 +17,7 @@ const ProposalCreate : React.FC<ModalProps> = ({ isOpen, onClose }) => {
     
 
     const handleChangeProduto = (event: any) => {
-        ;
+        
     };
 
 
@@ -28,10 +29,37 @@ const ProposalCreate : React.FC<ModalProps> = ({ isOpen, onClose }) => {
     const handleSubmit = (event: any) => {
         event.preventDefault();
 
-        //console.log(fullName);
-        //console.log(cpf);
-        //console.log(cellphone);
-        //console.log(produtoSelecionado);
+        event.preventDefault();
+
+        const data = JSON.stringify(
+          { name : fullName, 
+            cpf: cpf,
+            cnpj: sessionStorage.getItem('store'),
+            ddd: cellphone.substring(0, 2),
+            cellphone: cellphone.substring(2)
+          }
+        );
+
+        console.log(data);
+        const headers = new Headers();
+        headers.append('Content-Type', 'application/json'); 
+        headers.append('sessionId', sessionId);
+        headers.append('correlation-id', generateGUID());
+
+        const requestOptions: RequestInit = {
+          method: 'POST',
+          headers: headers,
+          body: data,
+          redirect: 'follow'
+        };
+      
+        fetch("https://localhost:7222/proposals", requestOptions)
+          .then(response => response.json())
+          .then(result => {
+            console.log(result);
+            onClose();
+          })
+          .catch(error => console.log('error', error)); 
     };
 
     return isOpen ? (

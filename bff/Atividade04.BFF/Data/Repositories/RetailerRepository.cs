@@ -22,7 +22,7 @@ namespace Atividade04.BFF.Data.Repositories
         public async Task<Retailer?> GetByEmail(string email)
         { 
 
-            var filter = Builders<Retailer>.Filter.Eq("Email", email);
+            var filter = Builders<Retailer>.Filter.Eq("Email.Address", email);
 
             var data = await DbSet.FindAsync(filter, _options);
 
