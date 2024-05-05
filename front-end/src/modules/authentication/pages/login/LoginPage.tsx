@@ -5,18 +5,33 @@ import JSEncrypt from 'jsencrypt';
 
 // import jwt from 'jsonwebtoken';
 import CryptoJS from 'crypto-js';
+import Alert from '../../../../core/components/Alert';
+import Button from '../../../../core/components/Button';
 
 
 const LoginPage = () => {
   const { privateKey, version, sessionId, setToken } = useContext(SessionContext);
   const [email, setEmail] = useState(""); 
   const [password, setPassword] = useState("");
-  
+  const [submited, setSubmited] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
   const navigate = useNavigate();
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    if (error) {
+      timer = setTimeout(() => {
+        setError(null);
+      }, 5000);
+    }
+
+    return () => clearTimeout(timer);
+  }, [error]);
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-
+    setSubmited(true);
     // Calcule o hash dos dados
     const encrypt = new JSEncrypt(); 
     encrypt.setPrivateKey(privateKey);
@@ -39,7 +54,20 @@ const LoginPage = () => {
   };
   
   fetch("https://localhost:7222/authentication/sign-in", requestOptions)
-  .then(response => response.json())
+  .then(response => {
+
+    if (!response.ok) {
+      // Se a resposta não estiver ok (status 200-299), verifica o status específico
+      if (response.status === 401) {
+        throw new Error("Unauthorized");
+      } else {
+        // Se for um status de erro diferente de 401, lança um erro genérico
+        throw new Error("Something went wrong. Please try again later.");
+      }
+    }
+    return response.json();
+
+  })
   .then(result => {
     
     setToken(result.token);
@@ -52,8 +80,13 @@ const LoginPage = () => {
     navigate("/dashboard");
 
   })
-  .catch(error => console.log('error', error));
-  
+  .catch(error =>{
+    setError(error.message); 
+    console.error('Fetch error:', error);
+  }).finally(() => {
+    // Definir submited como false após o término do envio do formulário
+    setSubmited(false);
+  });
   }
 
 
@@ -61,6 +94,11 @@ const LoginPage = () => {
     <section className="bg-gray-50 dark:bg-gray-900">
       <div>
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+          {error && (
+            <div className='w-full  md:mt-0 sm:max-w-md xl:p-0'>
+              <Alert message={error} setError={setError} type="red" />
+            </div>
+          )}
           <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
               <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                   <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
@@ -86,7 +124,9 @@ const LoginPage = () => {
                           </div>
                           <Link className="text-sm font-medium text-primary-600  text-white" to="/authentication/recovery">Forgot password?</Link>
                       </div>
-                      <button type="submit" className="w-full text-white bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign in</button>
+                      <Button loading={submited} disabled={submited}>
+                        Sign in
+                      </Button>
                       <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                           Don’t have an account yet? <Link className="font-medium text-primary-600 text-white" to="/authentication/signup ">Sign up</Link>
                       </p>

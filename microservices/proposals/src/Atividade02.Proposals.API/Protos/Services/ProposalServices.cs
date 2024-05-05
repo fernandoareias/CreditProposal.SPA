@@ -2,6 +2,7 @@ using Atividade02.Proposals.Domain.Proposals.Repositories;
 using Atividade04.BFF.Protos.Services;
 using Grpc.Core;
 using static Atividade04.BFF.Protos.Services.ProposalsService;
+using Google.Protobuf.WellKnownTypes;
 
 namespace Atividade02.Proposals.API.Protos.Services
 {
@@ -25,11 +26,15 @@ namespace Atividade02.Proposals.API.Protos.Services
             {
                 response.Proposals.Add(new ProposalsResponse
                 {
-                    Id = proposal.AggregateId,
+                    AggregateId = proposal.AggregateId,
+                    CreatedAt = proposal.CreatedAt.ToString(),
+                    UpdatedAt = proposal.UpdatedAt.HasValue ? proposal.UpdatedAt.Value.ToString() : string.Empty,
+                    Code = proposal.Code,
+                    Fullname = proposal.Proponent.Name.Value,
                     Cpf = proposal.Proponent.CPF.Number,
-                    Nome = proposal.Proponent.Name.Value,
-                    Product = 1,
-                    Status = (int)proposal.Status
+                    Cellphone = proposal.Proponent.Cellphone.ToString(),
+                    Status = proposal.Status.ToString(),
+                    CreaditLimit = new Random().Next(100, 1001).ToString()
                 });
             }
 

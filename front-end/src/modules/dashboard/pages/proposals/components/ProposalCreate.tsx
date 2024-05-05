@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { SessionContext, generateGUID } from '../../../../../core/contexts/SessionContext';
-
+import { cpfMask, removeCPFMask } from '../../../../../core/masks/cpfMasks';
+import { phoneMask, removePhoneMask } from '../../../../../core/masks/phoneMasks';
 
 
 interface ModalProps {
@@ -31,12 +32,14 @@ const ProposalCreate : React.FC<ModalProps> = ({ isOpen, onClose }) => {
 
         event.preventDefault();
 
+        let _celphone = removePhoneMask(cellphone);
+
         const data = JSON.stringify(
           { name : fullName, 
-            cpf: cpf,
+            cpf: removeCPFMask(cpf),
             cnpj: sessionStorage.getItem('store'),
-            ddd: cellphone.substring(0, 2),
-            cellphone: cellphone.substring(2)
+            ddd: _celphone.substring(0, 2),
+            cellphone: _celphone.substring(2)
           }
         );
 
@@ -90,12 +93,12 @@ const ProposalCreate : React.FC<ModalProps> = ({ isOpen, onClose }) => {
                         <div className='grid grid-cols-2 gap-6'>
                             <div className='text-left mb-4'>
                                 <label htmlFor="cpf" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">CPF</label>
-                                <input type="text" name="cpf" id="cpf" onChange={(e) => setCPF(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Your cpf" required/>
+                                <input type="text" name="cpf" id="cpf" onChange={(e) => setCPF(cpfMask(e.target.value))} value={cpf}  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Your cpf" required/>
                                 </div>
 
                                 <div className='text-left mb-4'>
                                 <label htmlFor="cellphone" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cellphone</label>
-                                <input type="numb" name="cellphone" id="cellphone" onChange={(e) => setCellphone(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Your cellphone" required/>
+                                <input type="numb" name="cellphone" id="cellphone" onChange={(e) => setCellphone(phoneMask(e.target.value))} value={cellphone} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Your cellphone" required/>
                                 </div>
                         </div>
 
@@ -111,8 +114,6 @@ const ProposalCreate : React.FC<ModalProps> = ({ isOpen, onClose }) => {
                             >
                                 <option value="" disabled selected>Select a product</option>
                                 <option value="produto1">MasterCard</option>
-                                <option value="produto2">Visa</option>
-                                <option value="produto3">Private Label</option>
                             </select>
 
                         </div>

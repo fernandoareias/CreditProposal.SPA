@@ -32,7 +32,7 @@ namespace Atividade02.Proposals.Application.Proposals.Commands.Handlers
             if (store is null)
                 throw new DomainException("Store not exists");
 
-            var proponent = new Proponent(request.Name, request.CPF, request.DDD, request.Name);
+            var proponent = new Proponent(request.Name, request.CPF, request.DDD, request.Cellphone);
             proposal = new Proposal(request.AggregateId, proponent, store!, request?.Notes);
 
             _proposalRepository.Add(proposal);

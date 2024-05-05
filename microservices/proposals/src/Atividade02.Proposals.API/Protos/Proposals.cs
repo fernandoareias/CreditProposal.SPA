@@ -24,22 +24,22 @@ namespace Atividade04.BFF.Protos.Services {
     static ProposalsReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChZQcm90b3MvUHJvcG9zYWxzLnByb3RvGh9nb29nbGUvcHJvdG9idWYvdGlt",
-            "ZXN0YW1wLnByb3RvIkQKFlByb3Bvc2Fsc0NvbnN1bHRhUXVlcnkSEQoJY25w",
-            "al9sb2phGAEgASgJEhcKD3VzdWFyaW9fbG9qaXN0YRgCIAEoCSKTAQoRUHJv",
-            "cG9zYWxzUmVzcG9uc2USCgoCaWQYASABKAkSCwoDY3BmGAIgASgJEgwKBG5v",
-            "bWUYAyABKAkSDwoHcHJvZHVjdBgEIAEoBRIOCgZzdGF0dXMYBSABKAUSNgoS",
-            "dWx0aW1hX2F0dWFsaXphY2FvGAYgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRp",
-            "bWVzdGFtcCI/ChZQcm9wb3NhbHNRdWVyeVJlc3BvbnNlEiUKCXByb3Bvc2Fs",
-            "cxgBIAMoCzISLlByb3Bvc2Fsc1Jlc3BvbnNlMloKEFByb3Bvc2Fsc1NlcnZp",
-            "Y2USRgoSQ29uc3VsdGFyUHJvcG9zYWxzEhcuUHJvcG9zYWxzQ29uc3VsdGFR",
-            "dWVyeRoXLlByb3Bvc2Fsc1F1ZXJ5UmVzcG9uc2VCIqoCH0F0aXZpZGFkZTA0",
-            "LkJGRi5Qcm90b3MuU2VydmljZXNiBnByb3RvMw=="));
+            "ChZQcm90b3MvUHJvcG9zYWxzLnByb3RvIkQKFlByb3Bvc2Fsc0NvbnN1bHRh",
+            "UXVlcnkSEQoJY25wal9sb2phGAEgASgJEhcKD3VzdWFyaW9fbG9qaXN0YRgC",
+            "IAEoCSK4AQoRUHJvcG9zYWxzUmVzcG9uc2USFAoMYWdncmVnYXRlX2lkGAEg",
+            "ASgJEhIKCmNyZWF0ZWRfYXQYAiABKAkSEgoKdXBkYXRlZF9hdBgDIAEoCRIM",
+            "CgRjb2RlGAQgASgJEhAKCGZ1bGxuYW1lGAUgASgJEgsKA2NwZhgGIAEoCRIR",
+            "CgljZWxscGhvbmUYByABKAkSDgoGc3RhdHVzGAggASgJEhUKDWNyZWFkaXRf",
+            "bGltaXQYCSABKAkiPwoWUHJvcG9zYWxzUXVlcnlSZXNwb25zZRIlCglwcm9w",
+            "b3NhbHMYASADKAsyEi5Qcm9wb3NhbHNSZXNwb25zZTJaChBQcm9wb3NhbHNT",
+            "ZXJ2aWNlEkYKEkNvbnN1bHRhclByb3Bvc2FscxIXLlByb3Bvc2Fsc0NvbnN1",
+            "bHRhUXVlcnkaFy5Qcm9wb3NhbHNRdWVyeVJlc3BvbnNlQiKqAh9BdGl2aWRh",
+            "ZGUwNC5CRkYuUHJvdG9zLlNlcnZpY2VzYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
+          new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Atividade04.BFF.Protos.Services.ProposalsConsultaQuery), global::Atividade04.BFF.Protos.Services.ProposalsConsultaQuery.Parser, new[]{ "CnpjLoja", "UsuarioLojista" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Atividade04.BFF.Protos.Services.ProposalsResponse), global::Atividade04.BFF.Protos.Services.ProposalsResponse.Parser, new[]{ "Id", "Cpf", "Nome", "Product", "Status", "UltimaAtualizacao" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Atividade04.BFF.Protos.Services.ProposalsResponse), global::Atividade04.BFF.Protos.Services.ProposalsResponse.Parser, new[]{ "AggregateId", "CreatedAt", "UpdatedAt", "Code", "Fullname", "Cpf", "Cellphone", "Status", "CreaditLimit" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Atividade04.BFF.Protos.Services.ProposalsQueryResponse), global::Atividade04.BFF.Protos.Services.ProposalsQueryResponse.Parser, new[]{ "Proposals" }, null, null, null, null)
           }));
     }
@@ -309,12 +309,15 @@ namespace Atividade04.BFF.Protos.Services {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ProposalsResponse(ProposalsResponse other) : this() {
-      id_ = other.id_;
+      aggregateId_ = other.aggregateId_;
+      createdAt_ = other.createdAt_;
+      updatedAt_ = other.updatedAt_;
+      code_ = other.code_;
+      fullname_ = other.fullname_;
       cpf_ = other.cpf_;
-      nome_ = other.nome_;
-      product_ = other.product_;
+      cellphone_ = other.cellphone_;
       status_ = other.status_;
-      ultimaAtualizacao_ = other.ultimaAtualizacao_ != null ? other.ultimaAtualizacao_.Clone() : null;
+      creaditLimit_ = other.creaditLimit_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -324,20 +327,68 @@ namespace Atividade04.BFF.Protos.Services {
       return new ProposalsResponse(this);
     }
 
-    /// <summary>Field number for the "id" field.</summary>
-    public const int IdFieldNumber = 1;
-    private string id_ = "";
+    /// <summary>Field number for the "aggregate_id" field.</summary>
+    public const int AggregateIdFieldNumber = 1;
+    private string aggregateId_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Id {
-      get { return id_; }
+    public string AggregateId {
+      get { return aggregateId_; }
       set {
-        id_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        aggregateId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "created_at" field.</summary>
+    public const int CreatedAtFieldNumber = 2;
+    private string createdAt_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string CreatedAt {
+      get { return createdAt_; }
+      set {
+        createdAt_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "updated_at" field.</summary>
+    public const int UpdatedAtFieldNumber = 3;
+    private string updatedAt_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string UpdatedAt {
+      get { return updatedAt_; }
+      set {
+        updatedAt_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "code" field.</summary>
+    public const int CodeFieldNumber = 4;
+    private string code_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Code {
+      get { return code_; }
+      set {
+        code_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "fullname" field.</summary>
+    public const int FullnameFieldNumber = 5;
+    private string fullname_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Fullname {
+      get { return fullname_; }
+      set {
+        fullname_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
     /// <summary>Field number for the "cpf" field.</summary>
-    public const int CpfFieldNumber = 2;
+    public const int CpfFieldNumber = 6;
     private string cpf_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -348,51 +399,39 @@ namespace Atividade04.BFF.Protos.Services {
       }
     }
 
-    /// <summary>Field number for the "nome" field.</summary>
-    public const int NomeFieldNumber = 3;
-    private string nome_ = "";
+    /// <summary>Field number for the "cellphone" field.</summary>
+    public const int CellphoneFieldNumber = 7;
+    private string cellphone_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Nome {
-      get { return nome_; }
+    public string Cellphone {
+      get { return cellphone_; }
       set {
-        nome_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "product" field.</summary>
-    public const int ProductFieldNumber = 4;
-    private int product_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int Product {
-      get { return product_; }
-      set {
-        product_ = value;
+        cellphone_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
     /// <summary>Field number for the "status" field.</summary>
-    public const int StatusFieldNumber = 5;
-    private int status_;
+    public const int StatusFieldNumber = 8;
+    private string status_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int Status {
+    public string Status {
       get { return status_; }
       set {
-        status_ = value;
+        status_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
-    /// <summary>Field number for the "ultima_atualizacao" field.</summary>
-    public const int UltimaAtualizacaoFieldNumber = 6;
-    private global::Google.Protobuf.WellKnownTypes.Timestamp ultimaAtualizacao_;
+    /// <summary>Field number for the "creadit_limit" field.</summary>
+    public const int CreaditLimitFieldNumber = 9;
+    private string creaditLimit_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Google.Protobuf.WellKnownTypes.Timestamp UltimaAtualizacao {
-      get { return ultimaAtualizacao_; }
+    public string CreaditLimit {
+      get { return creaditLimit_; }
       set {
-        ultimaAtualizacao_ = value;
+        creaditLimit_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -411,12 +450,15 @@ namespace Atividade04.BFF.Protos.Services {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Id != other.Id) return false;
+      if (AggregateId != other.AggregateId) return false;
+      if (CreatedAt != other.CreatedAt) return false;
+      if (UpdatedAt != other.UpdatedAt) return false;
+      if (Code != other.Code) return false;
+      if (Fullname != other.Fullname) return false;
       if (Cpf != other.Cpf) return false;
-      if (Nome != other.Nome) return false;
-      if (Product != other.Product) return false;
+      if (Cellphone != other.Cellphone) return false;
       if (Status != other.Status) return false;
-      if (!object.Equals(UltimaAtualizacao, other.UltimaAtualizacao)) return false;
+      if (CreaditLimit != other.CreaditLimit) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -424,12 +466,15 @@ namespace Atividade04.BFF.Protos.Services {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Id.Length != 0) hash ^= Id.GetHashCode();
+      if (AggregateId.Length != 0) hash ^= AggregateId.GetHashCode();
+      if (CreatedAt.Length != 0) hash ^= CreatedAt.GetHashCode();
+      if (UpdatedAt.Length != 0) hash ^= UpdatedAt.GetHashCode();
+      if (Code.Length != 0) hash ^= Code.GetHashCode();
+      if (Fullname.Length != 0) hash ^= Fullname.GetHashCode();
       if (Cpf.Length != 0) hash ^= Cpf.GetHashCode();
-      if (Nome.Length != 0) hash ^= Nome.GetHashCode();
-      if (Product != 0) hash ^= Product.GetHashCode();
-      if (Status != 0) hash ^= Status.GetHashCode();
-      if (ultimaAtualizacao_ != null) hash ^= UltimaAtualizacao.GetHashCode();
+      if (Cellphone.Length != 0) hash ^= Cellphone.GetHashCode();
+      if (Status.Length != 0) hash ^= Status.GetHashCode();
+      if (CreaditLimit.Length != 0) hash ^= CreaditLimit.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -448,29 +493,41 @@ namespace Atividade04.BFF.Protos.Services {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Id.Length != 0) {
+      if (AggregateId.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(Id);
+        output.WriteString(AggregateId);
+      }
+      if (CreatedAt.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(CreatedAt);
+      }
+      if (UpdatedAt.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(UpdatedAt);
+      }
+      if (Code.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(Code);
+      }
+      if (Fullname.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(Fullname);
       }
       if (Cpf.Length != 0) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(50);
         output.WriteString(Cpf);
       }
-      if (Nome.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(Nome);
+      if (Cellphone.Length != 0) {
+        output.WriteRawTag(58);
+        output.WriteString(Cellphone);
       }
-      if (Product != 0) {
-        output.WriteRawTag(32);
-        output.WriteInt32(Product);
+      if (Status.Length != 0) {
+        output.WriteRawTag(66);
+        output.WriteString(Status);
       }
-      if (Status != 0) {
-        output.WriteRawTag(40);
-        output.WriteInt32(Status);
-      }
-      if (ultimaAtualizacao_ != null) {
-        output.WriteRawTag(50);
-        output.WriteMessage(UltimaAtualizacao);
+      if (CreaditLimit.Length != 0) {
+        output.WriteRawTag(74);
+        output.WriteString(CreaditLimit);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -482,29 +539,41 @@ namespace Atividade04.BFF.Protos.Services {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Id.Length != 0) {
+      if (AggregateId.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(Id);
+        output.WriteString(AggregateId);
+      }
+      if (CreatedAt.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(CreatedAt);
+      }
+      if (UpdatedAt.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(UpdatedAt);
+      }
+      if (Code.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(Code);
+      }
+      if (Fullname.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(Fullname);
       }
       if (Cpf.Length != 0) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(50);
         output.WriteString(Cpf);
       }
-      if (Nome.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(Nome);
+      if (Cellphone.Length != 0) {
+        output.WriteRawTag(58);
+        output.WriteString(Cellphone);
       }
-      if (Product != 0) {
-        output.WriteRawTag(32);
-        output.WriteInt32(Product);
+      if (Status.Length != 0) {
+        output.WriteRawTag(66);
+        output.WriteString(Status);
       }
-      if (Status != 0) {
-        output.WriteRawTag(40);
-        output.WriteInt32(Status);
-      }
-      if (ultimaAtualizacao_ != null) {
-        output.WriteRawTag(50);
-        output.WriteMessage(UltimaAtualizacao);
+      if (CreaditLimit.Length != 0) {
+        output.WriteRawTag(74);
+        output.WriteString(CreaditLimit);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -516,23 +585,32 @@ namespace Atividade04.BFF.Protos.Services {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Id.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Id);
+      if (AggregateId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(AggregateId);
+      }
+      if (CreatedAt.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(CreatedAt);
+      }
+      if (UpdatedAt.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(UpdatedAt);
+      }
+      if (Code.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Code);
+      }
+      if (Fullname.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Fullname);
       }
       if (Cpf.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Cpf);
       }
-      if (Nome.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Nome);
+      if (Cellphone.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Cellphone);
       }
-      if (Product != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Product);
+      if (Status.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Status);
       }
-      if (Status != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Status);
-      }
-      if (ultimaAtualizacao_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(UltimaAtualizacao);
+      if (CreaditLimit.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(CreaditLimit);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -546,26 +624,32 @@ namespace Atividade04.BFF.Protos.Services {
       if (other == null) {
         return;
       }
-      if (other.Id.Length != 0) {
-        Id = other.Id;
+      if (other.AggregateId.Length != 0) {
+        AggregateId = other.AggregateId;
+      }
+      if (other.CreatedAt.Length != 0) {
+        CreatedAt = other.CreatedAt;
+      }
+      if (other.UpdatedAt.Length != 0) {
+        UpdatedAt = other.UpdatedAt;
+      }
+      if (other.Code.Length != 0) {
+        Code = other.Code;
+      }
+      if (other.Fullname.Length != 0) {
+        Fullname = other.Fullname;
       }
       if (other.Cpf.Length != 0) {
         Cpf = other.Cpf;
       }
-      if (other.Nome.Length != 0) {
-        Nome = other.Nome;
+      if (other.Cellphone.Length != 0) {
+        Cellphone = other.Cellphone;
       }
-      if (other.Product != 0) {
-        Product = other.Product;
-      }
-      if (other.Status != 0) {
+      if (other.Status.Length != 0) {
         Status = other.Status;
       }
-      if (other.ultimaAtualizacao_ != null) {
-        if (ultimaAtualizacao_ == null) {
-          UltimaAtualizacao = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-        }
-        UltimaAtualizacao.MergeFrom(other.UltimaAtualizacao);
+      if (other.CreaditLimit.Length != 0) {
+        CreaditLimit = other.CreaditLimit;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -583,30 +667,39 @@ namespace Atividade04.BFF.Protos.Services {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            Id = input.ReadString();
+            AggregateId = input.ReadString();
             break;
           }
           case 18: {
-            Cpf = input.ReadString();
+            CreatedAt = input.ReadString();
             break;
           }
           case 26: {
-            Nome = input.ReadString();
+            UpdatedAt = input.ReadString();
             break;
           }
-          case 32: {
-            Product = input.ReadInt32();
+          case 34: {
+            Code = input.ReadString();
             break;
           }
-          case 40: {
-            Status = input.ReadInt32();
+          case 42: {
+            Fullname = input.ReadString();
             break;
           }
           case 50: {
-            if (ultimaAtualizacao_ == null) {
-              UltimaAtualizacao = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-            }
-            input.ReadMessage(UltimaAtualizacao);
+            Cpf = input.ReadString();
+            break;
+          }
+          case 58: {
+            Cellphone = input.ReadString();
+            break;
+          }
+          case 66: {
+            Status = input.ReadString();
+            break;
+          }
+          case 74: {
+            CreaditLimit = input.ReadString();
             break;
           }
         }
@@ -625,30 +718,39 @@ namespace Atividade04.BFF.Protos.Services {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            Id = input.ReadString();
+            AggregateId = input.ReadString();
             break;
           }
           case 18: {
-            Cpf = input.ReadString();
+            CreatedAt = input.ReadString();
             break;
           }
           case 26: {
-            Nome = input.ReadString();
+            UpdatedAt = input.ReadString();
             break;
           }
-          case 32: {
-            Product = input.ReadInt32();
+          case 34: {
+            Code = input.ReadString();
             break;
           }
-          case 40: {
-            Status = input.ReadInt32();
+          case 42: {
+            Fullname = input.ReadString();
             break;
           }
           case 50: {
-            if (ultimaAtualizacao_ == null) {
-              UltimaAtualizacao = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-            }
-            input.ReadMessage(UltimaAtualizacao);
+            Cpf = input.ReadString();
+            break;
+          }
+          case 58: {
+            Cellphone = input.ReadString();
+            break;
+          }
+          case 66: {
+            Status = input.ReadString();
+            break;
+          }
+          case 74: {
+            CreaditLimit = input.ReadString();
             break;
           }
         }

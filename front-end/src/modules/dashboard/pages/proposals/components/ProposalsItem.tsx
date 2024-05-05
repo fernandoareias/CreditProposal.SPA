@@ -1,7 +1,14 @@
 import React, { useState } from 'react'
+import { Proposal } from '../models/Proposa';
 import ProposalDetail from './ProposalDetail';
 
-const ProposalsItem = () => {
+
+
+interface ProposalsItemProps {
+    proposal: Proposal
+  }
+
+const ProposalsItem: React.FC<ProposalsItemProps> = ({ proposal }) => {
 
     const [isModalOpen, setIsModalOpen] = useState(false); 
 
@@ -17,16 +24,16 @@ const ProposalsItem = () => {
     <div className='pt-5 pb-[.15rem] flex'>
         <div className='flex flex-none bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'>
             <div className='text-white '>
-                <p className='text-xs mb-2'>Código: <span>MSS8J2F4G9H1K5</span></p>
-                <span className='flex text-sm mb-2'>142.700.667-92 - Fernando Calheiros Areias</span>
-                <p className='text-sm'>Product:<span>Mastercard</span></p>
+                <p className='text-xs mb-2'>Código: <span>{proposal.code}</span></p>
+                <span className='flex text-sm mb-2'>{proposal.cpf} - {proposal.fullname}</span>
+                <p className='text-sm'>Product:<span>{proposal.product}</span></p>
             </div>
 
             <div className="flex-grow flex items-center justify-center"> 
                 <div className="flex flex-col items-center"> 
-                <span className="mb-1">Analyst: Automático</span>  
-                <span className="mb-2">Approved</span>
-                <span className="mb-2">23/04/2024 20:56:00</span>
+                <span className="mb-1">Analyst: {proposal.analyst}</span>  
+                <span className="mb-2">{proposal.status}</span>
+                <span className="mb-2">{proposal.created_at}</span>
                 </div>
             </div>
 
@@ -37,7 +44,7 @@ const ProposalsItem = () => {
                 </svg>
                 </button>
             </div>
-            <ProposalDetail isOpen={isModalOpen} onClose={() => handleCloseModal()} />
+            <ProposalDetail proposal={proposal} isOpen={isModalOpen} onClose={() => handleCloseModal()} />
         </div>
     </div>
   )

@@ -7,8 +7,7 @@ import { ProposalsContext } from '../../contexts/PropostaContext'
 
 const ProposalsPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false); // Estado para controlar a visibilidade do modal
-  // const [proposals, setProposals] = useContext(ProposalsContext);
-  //  console.log(proposals);
+  const proposals = useContext(ProposalsContext);
 
   // Função para abrir o modal
   const handleOpenModal = () => {
@@ -47,12 +46,13 @@ const ProposalsPage = () => {
 
         <div className='relative pl-3 my-5' style={{ maxHeight: 'calc(100vh - 15rem)', overflowY: 'auto' }}>
           <div className='flex flex-col w-full font-medium'>
-            <ProposalsItem/>
-            <ProposalsItem/>
-            <ProposalsItem/>
-            <ProposalsItem/>
-            <ProposalsItem/>
-            <ProposalsItem/>
+          {proposals.length > 0 ? (
+            proposals.map((proposal, index) => (
+              <ProposalsItem key={index} proposal={proposal} />
+            ))
+          ) : (
+            <p className="text-white text-center">Nenhuma proposta encontrada.</p>
+          )}
           </div>
         </div>
 

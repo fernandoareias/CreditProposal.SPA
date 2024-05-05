@@ -63,15 +63,17 @@ namespace Atividade02.Proposals.Infrastructure.Data.Repositories
 
         public async Task<List<Proposal>> GetLasts(string cnpj)
         {
-            return DbSet
-                    .Find(
-                        x =>
-                            x.CreatedAt >= DateTime.Now.AddDays(-1)
-                            &&
-                            x.Store.CNPJ == cnpj
-                    )
-                    .Limit(10)
-                    .ToList();
+            var options = new FindOptions<Proposal>
+            {
+                MaxTime = TimeSpan.FromSeconds(5) // Defina o tempo limite desejado
+            };
+
+            var filter = Builders<Proposal>.Filter.Eq("Store.cnpj", cnpj);
+
+            var data = await DbSet.FindAsync(filter, _options);
+
+            return await data.ToListAsync();
+
         }
     }
 }

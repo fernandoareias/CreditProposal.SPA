@@ -42,7 +42,7 @@ namespace Atividade04.BFF.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost("session")]
-        public async Task<IActionResult> CreateSession([FromHeader]Guid sessionId, [FromBody] CreateSessionRequest request)
+        public async Task<IActionResult> CreateSession([FromHeader] Guid sessionId, [FromBody] CreateSessionRequest request)
         {
 
             var sessao = await _sessionRepository.GetByAggregateId(sessionId.ToString());
@@ -55,7 +55,7 @@ namespace Atividade04.BFF.Controllers
 
             (string privateKey, string publicKey) = _authenticationServices.GenerateKeys();
 
-            var session = new Session(sessionId, _configuration["Application:Version"], GetIpAddress(HttpContext),  privateKey, publicKey);
+            var session = new Session(sessionId, _configuration["Application:Version"], GetIpAddress(HttpContext), privateKey, publicKey);
 
 
             _sessionRepository.Add(session);
@@ -114,15 +114,23 @@ namespace Atividade04.BFF.Controllers
             var session = await _sessionRepository.GetByAggregateId(sessionId.ToString());
 
             if (session is null)
+            {
+                await Task.Delay(3000);
                 return Unauthorized();
+            }
 
             int index = Authorization.IndexOf("Bearer ") + "Bearer ".Length;
 
             // Extrai o token da string de cabeçalho de autorização
             string token = Authorization.Substring(index);
 
-
             var response = await _authenticationServices.SignIn(session, request, token);
+
+            if (response is null)
+            {
+                await Task.Delay(3000);
+                return Unauthorized();
+            }
 
             await Task.Delay(3000);
             return Ok(response);
@@ -141,7 +149,10 @@ namespace Atividade04.BFF.Controllers
             var session = await _sessionRepository.GetByAggregateId(sessionId.ToString());
 
             if (session is null)
+            {
+                await Task.Delay(3000);
                 return Unauthorized();
+            }
 
             //var requestObject = _authenticationServices.DecryptMessage<SignUpRequest>(request, session.PublicKey, session.PrivateKey);
 
@@ -151,8 +162,12 @@ namespace Atividade04.BFF.Controllers
             var response = await _authenticationServices.SignUp(session, request);
 
             if (response is null)
-                return Unauthorized();
+            {
+                await Task.Delay(3000);
+                return BadRequest("This email is already registered");
+            }
 
+            await Task.Delay(3000);
             return Ok(response);
         }
     }

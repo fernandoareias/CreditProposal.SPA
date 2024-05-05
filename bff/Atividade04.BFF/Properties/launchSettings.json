@@ -12,7 +12,7 @@
     "Atividade04.BFF": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:7222;http://localhost:56216",
+      "applicationUrl": "https://localhost:7222;http://localhost:12243",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

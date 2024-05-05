@@ -1,6 +1,9 @@
 import React, { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { SessionContext } from '../../../../core/contexts/SessionContext';
+import Alert from '../../../../core/components/Alert';
+import Button from '../../../../core/components/Button';
+import { cnpjMask, removeCNPJMask } from '../../../../core/masks/cnpjMask';
 
 const SignUpPage = () => {
     const { privateKey, version, sessionId, setToken } = useContext(SessionContext);
@@ -10,20 +13,28 @@ const SignUpPage = () => {
     const [password, setPassword]  = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [cnpj, setCNPJ]  = useState("");
+    const [submited, setSubmited] = useState(false);
+    const [error, setError] = useState<string | null>(null);
     const navigate = useNavigate();
 
     const handleSubmit = (event: any) => {
         event.preventDefault();
+        setSubmited(true);
+
+        if(password !== confirmPassword){
+          setError("Passwords do not match"); 
+          setSubmited(false);
+          return null;
+        }
 
         const data = JSON.stringify(
           { name : firstName + " " + lastName, 
             email: email,
             password: password,
-            cnpj: cnpj
+            cnpj: removeCNPJMask(cnpj)
           }
         );
 
-        console.log(data);
         const headers = new Headers();
         headers.append('Content-Type', 'application/json'); 
         headers.append('sessionId', sessionId);
@@ -36,30 +47,59 @@ const SignUpPage = () => {
         };
       
         fetch("https://localhost:7222/authentication/sign-up", requestOptions)
-          .then(response => response.json())
-          .then(result => {
-
-            setToken(result.token);
-            console.log(result);
-            sessionStorage.setItem("name", result.name);
-            sessionStorage.setItem("token", result.token);
-            sessionStorage.setItem("role", result.role);
-            sessionStorage.setItem("store", result.store);
-
-            navigate("/dashboard");
-
-          })
-          .catch(error => console.log('error', error));
+        .then(response => {
+          if (!response.ok) {
+            // If the response is not ok (status 200-299), check the specific status
+            if (response.status === 401) {
+              throw new Error("Unauthorized: You are not authorized to access this resource.");
+            } else if (response.status === 400) {
+              // If the status is 400, extract the error message from the response body
+              return response.text().then(errorMessage => {
+                throw new Error(errorMessage);
+              });
+            } else {
+              // For other error statuses, throw a generic error message
+              throw new Error("Something went wrong. Please try again later.");
+            }
+          }
+      
+          return response.json();
+        })
+        .then(result => {
+          console.log(`Result sign-up ${result}`)
+          setToken(result.token);
+          console.log(result);
+          sessionStorage.setItem("name", result.name);
+          sessionStorage.setItem("token", result.token);
+          sessionStorage.setItem("role", result.role);
+          sessionStorage.setItem("store", result.store);
+      
+          navigate("/dashboard");
+        })
+        .catch(error => {
+          // Handle errors
+          setError(error.message); 
+          console.error('Fetch error:', error);
+        })
+        .finally(() => {
+          // Set submited to false after the form submission is complete
+          setSubmited(false);
+        });
     
       }
-    
     
       return (
         <section className="bg-gray-50 dark:bg-gray-900">
           <div>
           <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+          {error && (
+            <div className='w-full rounded-lg shadow  md:mt-0 sm:max-w-md xl:p-0'>
+              <Alert message={error} setError={setError} type="red" />
+            </div>
+          )}
             <div className="w-full max-w-2xl bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
               <div className="p-2 space-y-4 md:space-y-6 sm:p-8">
+              <Link className='text-sm text-slate-200' to="/authentication/login"> ← Back to login</Link>
                       <h1 className="text-left text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                           Sign Up
                       </h1>
@@ -86,7 +126,7 @@ const SignUpPage = () => {
                         <div className='mb-4'>
                             <div className='text-left'>
                                 <label htmlFor="cnpj" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">CNPJ</label>
-                                <input type="cnpj" name="cnpj" id="cnpj" onChange={(e) => {setCNPJ(e.target.value)}} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required/>
+                                <input type="text" name="cnpj" id="cnpj" onChange={(e) => setCNPJ(cnpjMask(e.target.value))} value={cnpj} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="12.345.678/0001-90" required/>
                             </div>
                         </div>
                         <div className=''>
@@ -101,8 +141,9 @@ const SignUpPage = () => {
                             </div>
                         </div>
 
-                        <button type="submit" className="w-full text-white bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 mb-4">Sign in</button>
-                        <Link className='text-sm text-slate-200' to="/authentication/login"> ← Back to login</Link>
+                        <Button loading={submited} disabled={submited}>
+                          Sign in
+                        </Button>
                       </form>
                        
                   </div>

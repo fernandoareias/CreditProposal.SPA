@@ -1,3 +1,10 @@
+/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.API/obj/Debug/net6.0/Atividade02.Proposals.API.csproj.AssemblyReference.cache
+/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.API/obj/Debug/net6.0/Atividade02.Proposals.API.GeneratedMSBuildEditorConfig.editorconfig
+/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.API/obj/Debug/net6.0/Atividade02.Proposals.API.AssemblyInfoInputs.cache
+/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.API/obj/Debug/net6.0/Atividade02.Proposals.API.AssemblyInfo.cs
+/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.API/obj/Debug/net6.0/Atividade02.Proposals.API.csproj.CoreCompileInputs.cache
+/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.API/obj/Debug/net6.0/Atividade02.Proposals.API.MvcApplicationPartsAssemblyInfo.cs
+/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.API/obj/Debug/net6.0/Atividade02.Proposals.API.MvcApplicationPartsAssemblyInfo.cache
 /Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.API/bin/Debug/net6.0/appsettings.Development.json
 /Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.API/bin/Debug/net6.0/appsettings.json
 /Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.API/bin/Debug/net6.0/Atividade02.Proposals.API
@@ -78,13 +85,6 @@
 /Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.API/bin/Debug/net6.0/Atividade02.Proposals.Domain.pdb
 /Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.API/bin/Debug/net6.0/Atividade02.Proposals.Domain.Services.pdb
 /Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.API/bin/Debug/net6.0/Atividade02.Proposals.Infrastructure.ExternalServices.CreditAnalysisEngine.pdb
-/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.API/obj/Debug/net6.0/Atividade02.Proposals.API.csproj.AssemblyReference.cache
-/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.API/obj/Debug/net6.0/Atividade02.Proposals.API.GeneratedMSBuildEditorConfig.editorconfig
-/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.API/obj/Debug/net6.0/Atividade02.Proposals.API.AssemblyInfoInputs.cache
-/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.API/obj/Debug/net6.0/Atividade02.Proposals.API.AssemblyInfo.cs
-/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.API/obj/Debug/net6.0/Atividade02.Proposals.API.csproj.CoreCompileInputs.cache
-/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.API/obj/Debug/net6.0/Atividade02.Proposals.API.MvcApplicationPartsAssemblyInfo.cs
-/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.API/obj/Debug/net6.0/Atividade02.Proposals.API.MvcApplicationPartsAssemblyInfo.cache
 /Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.API/obj/Debug/net6.0/staticwebassets/msbuild.Atividade02.Proposals.API.Microsoft.AspNetCore.StaticWebAssets.props
 /Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.API/obj/Debug/net6.0/staticwebassets/msbuild.build.Atividade02.Proposals.API.props
 /Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.API/obj/Debug/net6.0/staticwebassets/msbuild.buildMultiTargeting.Atividade02.Proposals.API.props

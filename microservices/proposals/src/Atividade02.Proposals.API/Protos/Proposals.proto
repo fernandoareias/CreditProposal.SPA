@@ -1,5 +1,4 @@
 ﻿syntax = "proto3";
-import "google/protobuf/timestamp.proto";
 
 option csharp_namespace = "Atividade04.BFF.Protos.Services";
 
@@ -13,12 +12,15 @@ message ProposalsConsultaQuery {
 }
  
 message ProposalsResponse {
-    string id = 1;
-    string cpf = 2;
-    string nome = 3;
-    int32 product = 4;
-    int32 status = 5;
-    google.protobuf.Timestamp ultima_atualizacao = 6;
+    string aggregate_id = 1;
+    string created_at = 2;
+    string updated_at = 3;
+    string code = 4;
+    string fullname = 5;
+    string cpf = 6;
+    string cellphone = 7;
+    string status = 8;
+    string creadit_limit = 9;
 }
 
 message ProposalsQueryResponse {

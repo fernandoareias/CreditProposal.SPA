@@ -1,59 +1,96 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
-import { ProposalContextType, ProposalsContext } from '../contexts/PropostaContext';
+import { ProposalsContext } from '../contexts/PropostaContext';
 import * as signalR from "@microsoft/signalr";
 import Loading from '../../../core/components/Loading';
+import { Proposal } from './proposals/models/Proposa';
 
 const DashboardPage = () => {
 
-  const [proposals, setProposals] = useState<ProposalContextType[]>([]);
+  const [proposals, setProposals] = useState<Proposal[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [name, setName] = useState("");
   const [role, setRole] = useState("");
+  const [cnpj, setCNPJ] = useState("");
 
   useEffect(() => {
-
     setName(sessionStorage.getItem("name"));
     setRole(sessionStorage.getItem("role"));
+    setCNPJ(sessionStorage.getItem("store")) 
+    console.log(cnpj);
+  }, [name, role, cnpj]);
+ 
+  useEffect(() => {
+    // Verifica se o CNPJ possui valor antes de iniciar a conexão do hub
+    if (cnpj) {
+      const hubConnection = new signalR.HubConnectionBuilder()
+        .withUrl("https://localhost:7222/proposals", {
+          withCredentials: true, // Enviar credenciais
+        })
+        .configureLogging(signalR.LogLevel.Information)
+        .build();
+  
+      hubConnection.on("ReceberPropostas", (receivedProposals) => {
+        const updatedProposals: Proposal[] = [...proposals];
 
-  }, [name, role]);
+        receivedProposals.proposals.forEach((receivedProposal) => {
+          const existingProposalIndex = updatedProposals.findIndex(proposal => proposal.aggregate_id === receivedProposal.aggregateId);
+      
+          if (existingProposalIndex !== -1) {
+              const existingProposal = updatedProposals[existingProposalIndex];
+              existingProposal.aggregate_id = receivedProposal.aggregateId;
+              existingProposal.created_at = receivedProposal.createdAt;
+              existingProposal.updated_at = receivedProposal.updatedAt;
+              existingProposal.code = receivedProposal.code;
+              existingProposal.fullname = receivedProposal.name;
+              existingProposal.cpf = receivedProposal.cpf;
+              existingProposal.cellphone = receivedProposal.cellphone;
+              existingProposal.status = receivedProposal.status;
+              existingProposal.creadit_limit = receivedProposal.creditLimit;
+          } else {
 
-
-  // Criando a conexão do hub
-  const hubConnection = new signalR.HubConnectionBuilder()
-    .withUrl("https://localhost:7222/proposals", {
-      withCredentials: true, // Enviar credenciais
-    })
-    .configureLogging(signalR.LogLevel.Debug)
-    .build();
-
-// Definindo a função para lidar com as novas propostas recebidas
-hubConnection.on("ReceberPropostas", (receivedProposals) => {
-  console.log("Recebendo propostas");
-  console.log(receivedProposals);
-  setProposals(receivedProposals); // Atualize a lista de propostas com as novas propostas recebidas
-});
-
-// Efeito para iniciar a conexão e enviar a mensagem ao estabelecer a conexão
-useEffect(() => {
-  hubConnection
-    .start()
-    .then(() => {
-      console.log("SignalR connection established.");
-
-      hubConnection.send("Streaming", "teste").then((x) => {
-        console.log("Invocou streaming");
-        console.log(x);
+              const newProposal = new Proposal();
+          
+              newProposal.aggregate_id = receivedProposal.aggregateId;
+              newProposal.created_at = receivedProposal.createdAt;
+              newProposal.updated_at = receivedProposal.updatedAt;
+              newProposal.code = receivedProposal.code;
+              newProposal.fullname = receivedProposal.name;
+              newProposal.cpf = receivedProposal.cpf;
+              newProposal.cellphone = receivedProposal.cellphone;
+              newProposal.status = receivedProposal.status;
+              newProposal.creadit_limit = receivedProposal.creaditLimit;
+      
+              updatedProposals.push(newProposal);
+          }
       });
-
-      setLoading(false);
-    })
-    .catch((error) => {
-      console.error("SignalR connection failed: ", error);
-    });
-
-  }, []);
+        
+        setProposals(updatedProposals);
+      });
+  
+      hubConnection
+        .start()
+        .then(() => {
+          console.log("SignalR connection established.");
+  
+          hubConnection.send("Streaming", cnpj).then((x) => {
+            console.log("Invocou streaming");
+            console.log(x);
+          });
+  
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.error("SignalR connection failed: ", error);
+        });
+  
+      // Retornar uma função de limpeza no useEffect para desconectar o hub quando o componente for desmontado
+      return () => {
+        hubConnection.stop();
+      };
+    }
+  }, [cnpj]);
 
   
   return (

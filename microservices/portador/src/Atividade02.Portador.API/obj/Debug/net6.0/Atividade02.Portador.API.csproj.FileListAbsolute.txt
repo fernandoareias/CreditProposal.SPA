@@ -76,9 +76,9 @@
 /Users/f.areias/Documents/faculdade/atividade04/microservices/portador/src/Atividade02.Portador.API/obj/Debug/net6.0/staticwebassets.build.json
 /Users/f.areias/Documents/faculdade/atividade04/microservices/portador/src/Atividade02.Portador.API/obj/Debug/net6.0/staticwebassets.development.json
 /Users/f.areias/Documents/faculdade/atividade04/microservices/portador/src/Atividade02.Portador.API/obj/Debug/net6.0/scopedcss/bundle/Atividade02.Portador.API.styles.css
-/Users/f.areias/Documents/faculdade/atividade04/microservices/portador/src/Atividade02.Portador.API/obj/Debug/net6.0/Atividade02.Portador.API.csproj.CopyComplete
 /Users/f.areias/Documents/faculdade/atividade04/microservices/portador/src/Atividade02.Portador.API/obj/Debug/net6.0/Atividade02.Portador.API.dll
 /Users/f.areias/Documents/faculdade/atividade04/microservices/portador/src/Atividade02.Portador.API/obj/Debug/net6.0/refint/Atividade02.Portador.API.dll
 /Users/f.areias/Documents/faculdade/atividade04/microservices/portador/src/Atividade02.Portador.API/obj/Debug/net6.0/Atividade02.Portador.API.pdb
 /Users/f.areias/Documents/faculdade/atividade04/microservices/portador/src/Atividade02.Portador.API/obj/Debug/net6.0/Atividade02.Portador.API.genruntimeconfig.cache
 /Users/f.areias/Documents/faculdade/atividade04/microservices/portador/src/Atividade02.Portador.API/obj/Debug/net6.0/ref/Atividade02.Portador.API.dll
+/Users/f.areias/Documents/faculdade/atividade04/microservices/portador/src/Atividade02.Portador.API/obj/Debug/net6.0/Atividade02.Portador.API.csproj.CopyComplete

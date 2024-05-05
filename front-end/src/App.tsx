@@ -12,6 +12,7 @@ import CreditCardPage from './modules/dashboard/pages/credit-card/CreditCardPage
 import { SessionContext, generateGUID } from './core/contexts/SessionContext';
 import { JSEncrypt } from "jsencrypt";
 import Loading from './core/components/Loading';
+import PrivateRoute from './core/guards/PrivateRoute';
 
 function App() {
 
@@ -71,9 +72,6 @@ function App() {
           const blocoDescriptografado = crypt.decrypt(blocoCriptografado);
           chavePrivadaOriginal += blocoDescriptografado;
       });
-       
-        //console.log(`ID Sessao ${sessionId}`);
-        //console.log(`Chave privada ${chavePrivadaOriginal}`);
         setPrivateKey(chavePrivadaOriginal);
         setVersion(data.version);
       })
@@ -86,30 +84,45 @@ function App() {
     setToken(newToken);
   };
 
-  return (
-    version ?
-      <>
-      <SessionContext.Provider value={{ privateKey, version, sessionId, token, setToken: updateToken }}>
-        <BrowserRouter>
-              <Routes>
-                <Route path='*' Component={NotExistsPage}/>
-                
-                <Route path="/authentication/login" Component={LoginPage} />
-                <Route path="/authentication/signup" Component={SignUpPage} />
-                <Route path='/authentication/recovery' Component={RecoveryPassword}/>
+  const dashboardRoutes = [
+    <Route key="proposals" path="/dashboard/proposals" element={<ProposalsPage />} />,
+    <Route key="credit-cards" path="/dashboard/credit-cards" element={<CreditCardPage />} />
+    // Outras rotas da dashboard aqui
+  ];
 
-                <Route path='/dashboard' Component={Dashboard}>
-                  <Route path='proposals' Component={ProposalsPage}/>
-                  <Route path='credit-cards' Component={CreditCardPage}/>
-                </Route>
-              </Routes>
-          </BrowserRouter>
-        </SessionContext.Provider>
-      </>
-      :
+  return (
+    sessionId && version?
       <>
-        <Loading/>
-      </>
+        <SessionContext.Provider value={{ privateKey, version, sessionId, token, setToken: updateToken }}>
+          <BrowserRouter>
+                <Routes>
+                  <Route path='*' Component={NotExistsPage}/>
+                  
+                  <Route path="/authentication/login" Component={LoginPage} />
+                  <Route path="/authentication/signup" Component={SignUpPage} />
+                  <Route path='/authentication/recovery' Component={RecoveryPassword}/>
+                  
+                  <Route path="/dashboard/*" element={
+                    <PrivateRoute>
+                      <Route index element={<Dashboard />} />
+                      {/* Renderize as rotas da dashboard dentro do outlet do componente Dashboard */}
+                      <Route element={<Dashboard />}>
+                        <Route path='proposals' element={<ProposalsPage />} />
+                        <Route path='credit-cards' element={<CreditCardPage />} />
+                      </Route>
+                    </PrivateRoute>
+                  } />
+
+
+  
+                </Routes>
+            </BrowserRouter>
+          </SessionContext.Provider>
+        </>
+        :
+        <>
+          <Loading/>
+        </>
      
 
   );
