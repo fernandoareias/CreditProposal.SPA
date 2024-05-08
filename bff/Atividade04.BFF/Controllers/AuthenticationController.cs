@@ -154,11 +154,6 @@ namespace Atividade04.BFF.Controllers
                 return Unauthorized();
             }
 
-            //var requestObject = _authenticationServices.DecryptMessage<SignUpRequest>(request, session.PublicKey, session.PrivateKey);
-
-            //if (requestObject is null)
-            //    return Unauthorized();
-
             var response = await _authenticationServices.SignUp(session, request);
 
             if (response is null)

@@ -26,6 +26,7 @@ namespace Atividade02.Proposals.Domain.Proposals
             Proponent = proponent;
             Store = store;
             Notes = notes;
+            ChangeStatus(EProposalStatus.PROCESSING);
 
             AddEvent(new ProposalSentEvent(AggregateId, Proponent.CPF.Number, Store.CNPJ));
         }
@@ -53,7 +54,7 @@ namespace Atividade02.Proposals.Domain.Proposals
         {
             get;
             private set;
-        } = EProposalStatus.PROCESSING;
+        } 
 
         [BsonElement("Notes")]
         public string? Notes

@@ -57,11 +57,9 @@ const LoginPage = () => {
   .then(response => {
 
     if (!response.ok) {
-      // Se a resposta não estiver ok (status 200-299), verifica o status específico
       if (response.status === 401) {
         throw new Error("Unauthorized");
       } else {
-        // Se for um status de erro diferente de 401, lança um erro genérico
         throw new Error("Something went wrong. Please try again later.");
       }
     }
@@ -71,7 +69,6 @@ const LoginPage = () => {
   .then(result => {
     
     setToken(result.token);
-    console.log(result);
     sessionStorage.setItem("name", result.name);
     sessionStorage.setItem("token", result.token);
     sessionStorage.setItem("role", result.role);

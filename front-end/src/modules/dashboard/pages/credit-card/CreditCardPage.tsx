@@ -16,7 +16,7 @@ const CreditCardPage = () => {
               
             </div>
           </div>
-      <Search placeholder='CPF'/>
+      {/* <Search placeholder='CPF'/> */}
 
       <div className='relative pl-3 my-5' style={{ maxHeight: 'calc(100vh - 15rem)', overflowY: 'auto' }}>
           <div className='flex flex-col w-full font-medium'>

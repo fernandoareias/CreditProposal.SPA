@@ -1,6 +1,7 @@
 using Atividade02.Core.Common.CQRS;
 using Atividade02.BFF.Data.Common.Interfaces;
 using MongoDB.Driver;
+using MongoDB.Bson;
 
 namespace Atividade02.BFF.Data.Repositories;
 
@@ -40,7 +41,7 @@ public abstract class BaseRepository<TEntity> : IRepository<TEntity> where TEnti
         Context.AddCommand(() => DbSet.ReplaceOneAsync(Builders<TEntity>.Filter.Eq("_id", obj._id), obj), obj);
     }
 
-    public virtual void Remove(Guid id)
+    public virtual void Remove(ObjectId id)
     {
         Context.AddCommand(() => DbSet.DeleteOneAsync(Builders<TEntity>.Filter.Eq("_id", id)));
     }

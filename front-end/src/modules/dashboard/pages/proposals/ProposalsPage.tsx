@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import Search from '../../../../core/components/Search'
 import ProposalsItem from './components/ProposalsItem'
@@ -7,19 +7,33 @@ import { ProposalsContext } from '../../contexts/PropostaContext'
 
 const ProposalsPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false); // Estado para controlar a visibilidade do modal
-  const proposals = useContext(ProposalsContext);
-
+  const { proposals, setProposals } = useContext(ProposalsContext);
+  const [displayProposals, setDisplayProposals] = useState(proposals);
+  
+  useEffect(() => {
+    setDisplayProposals(proposals);
+  }, [proposals]);
+  
   // Função para abrir o modal
   const handleOpenModal = () => {
-      console.log("modal aberto");
     setIsModalOpen(true);
   };
 
   const handleCloseModal = () => {
-      console.log("modal fechado");
       setIsModalOpen(false);
     };
   
+    const searchProposal = (query: string) => { 
+      const filteredProposals = displayProposals.filter(proposal => proposal.cpf.includes(query));
+      console.log(`Buscou ${filteredProposals.length} propostas`);
+      setDisplayProposals(filteredProposals);
+    };
+  
+    const clearSearch = () => {
+      console.log("Limpou a busca");
+      setDisplayProposals(proposals);
+    };
+
   return (
     <>
       <section className=''>
@@ -41,14 +55,14 @@ const ProposalsPage = () => {
             </div>
           </div>
 
-        <Search placeholder='CPF'/>
+          <Search placeholder='CPF' search={searchProposal} clear={clearSearch} />
         
 
         <div className='relative pl-3 my-5' style={{ maxHeight: 'calc(100vh - 15rem)', overflowY: 'auto' }}>
           <div className='flex flex-col w-full font-medium'>
-          {proposals.length > 0 ? (
-            proposals.map((proposal, index) => (
-              <ProposalsItem key={index} proposal={proposal} />
+          {displayProposals.length > 0 ? (
+            displayProposals.map((displayProposals, index) => (
+              <ProposalsItem key={index} proposal={displayProposals} />
             ))
           ) : (
             <p className="text-white text-center">Nenhuma proposta encontrada.</p>

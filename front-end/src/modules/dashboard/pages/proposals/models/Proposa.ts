@@ -7,7 +7,7 @@ export class Proposal {
   cpf: string;
   cellphone: string;
   product: string = "Mastercard";
-  analyst: string = "Automático";
+  analyst: string = "Automatic";
   status: string;
   creadit_limit: string;
 }

@@ -66,9 +66,7 @@ const SignUpPage = () => {
           return response.json();
         })
         .then(result => {
-          console.log(`Result sign-up ${result}`)
           setToken(result.token);
-          console.log(result);
           sessionStorage.setItem("name", result.name);
           sessionStorage.setItem("token", result.token);
           sessionStorage.setItem("role", result.role);

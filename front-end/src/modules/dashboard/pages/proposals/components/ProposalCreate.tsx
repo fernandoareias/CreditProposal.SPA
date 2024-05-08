@@ -1,7 +1,9 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { SessionContext, generateGUID } from '../../../../../core/contexts/SessionContext';
 import { cpfMask, removeCPFMask } from '../../../../../core/masks/cpfMasks';
 import { phoneMask, removePhoneMask } from '../../../../../core/masks/phoneMasks';
+import Button from '../../../../../core/components/Button';
+import Alert from '../../../../../core/components/Alert';
 
 
 interface ModalProps {
@@ -15,35 +17,46 @@ const ProposalCreate : React.FC<ModalProps> = ({ isOpen, onClose }) => {
     const [cpf, setCPF]  = useState('');
     const [cellphone, setCellphone] = useState('');
     const [produtoSelecionado, setProdutoSelecionado] = useState('');
+    const [submited, setSubmited] = useState(false);
+    const [error, setError] = useState<string | null>(null);
+
+    useEffect(() => {
+      let timer: NodeJS.Timeout;
+      if (error) {
+          timer = setTimeout(() => {
+              setError(null);
+          }, 5000);
+      }
+      return () => clearTimeout(timer);
+  }, [error]);
     
 
-    const handleChangeProduto = (event: any) => {
-        
-    };
-
-
     const handleClose = () => {
-      //console.log("dentro do details, clicou para fechar");
       onClose();
     }
 
     const handleSubmit = (event: any) => {
         event.preventDefault();
-
-        event.preventDefault();
+        setSubmited(true);
 
         let _celphone = removePhoneMask(cellphone);
+        let _cpf = removeCPFMask(cpf);
+
+        if(!isCPFValid(_cpf))
+        {
+
+          return;
+        }
 
         const data = JSON.stringify(
           { name : fullName, 
-            cpf: removeCPFMask(cpf),
+            cpf: _cpf,
             cnpj: sessionStorage.getItem('store'),
             ddd: _celphone.substring(0, 2),
             cellphone: _celphone.substring(2)
           }
         );
 
-        console.log(data);
         const headers = new Headers();
         headers.append('Content-Type', 'application/json'); 
         headers.append('sessionId', sessionId);
@@ -57,17 +70,39 @@ const ProposalCreate : React.FC<ModalProps> = ({ isOpen, onClose }) => {
         };
       
         fetch("https://localhost:7222/proposals", requestOptions)
-          .then(response => response.json())
-          .then(result => {
-            console.log(result);
-            onClose();
+          .then(response => {
+            if(response.status != 200){
+              setError("Unavailable service"); 
+            }
+
+            response.json()
           })
-          .catch(error => console.log('error', error)); 
+          .then(result => {
+              
+          })
+          .catch(error => setError(error.message))
+          .finally(() => {
+
+            setCPF('');
+            setCellphone('');
+            setFullName('');
+            setProdutoSelecionado('');
+            setToken('');
+
+            setSubmited(false);
+            onClose();
+          }); 
+
     };
 
     return isOpen ? (
         <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none">
             <div className="relative  max-w-3xl mx-auto my-6">
+            {error && (
+              <div className='w-full  md:mt-0 sm:max-w-md xl:p-0'>
+                <Alert message={error} setError={setError} type="red" />
+              </div>
+            )}
               {/* Conteúdo do modal */}
               <div className="relative flex flex-col w-full h-full bg-slate-800 border-0 rounded-lg shadow-lg outline-none focus:outline-none">
                 {/* Cabeçalho do modal */}
@@ -87,7 +122,7 @@ const ProposalCreate : React.FC<ModalProps> = ({ isOpen, onClose }) => {
                     <form onSubmit={(e) => handleSubmit(e)}>
                         <div className='text-left mb-4'>
                             <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Full Name</label>
-                            <input type="text" name="name" id="name" onChange={(e) => setFullName(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Your full name" required/>
+                            <input type="text" name="name" id="name" onChange={(e) => setFullName(e.target.value)} value={fullName} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Your full name" required/>
                         </div>
 
                         <div className='grid grid-cols-2 gap-6'>
@@ -118,9 +153,9 @@ const ProposalCreate : React.FC<ModalProps> = ({ isOpen, onClose }) => {
 
                         </div>
                         <div>
-                            <button type='submit' className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full">
-                                Send
-                            </button>
+                            <Button loading={submited} disabled={submited}>
+                              Send
+                            </Button>
                         </div>
 
                     </form>

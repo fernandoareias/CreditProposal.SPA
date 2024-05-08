@@ -34,7 +34,7 @@ namespace Atividade02.Proposals.API.Protos.Services
                     Cpf = proposal.Proponent.CPF.Number,
                     Cellphone = proposal.Proponent.Cellphone.ToString(),
                     Status = proposal.Status.ToString(),
-                    CreaditLimit = new Random().Next(100, 1001).ToString()
+                    CreaditLimit = proposal.Status == Domain.Proposals.Enums.EProposalStatus.APPROVED ?  new Random().Next(100, 1001).ToString() : ""
                 });
             }
 

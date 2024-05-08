@@ -10,6 +10,7 @@ using Atividade04.BFF.Data.Repositories;
 using Atividade04.BFF.Hubs;
 using Atividade04.BFF.Models.Interfaces;
 using Atividade04.BFF.Models.Interfaces.Repositories;
+using Atividade04.BFF.Models.Interfaces.Services;
 using Atividade04.BFF.Services;
 using Elastic.CommonSchema;
 using Microsoft.AspNetCore.SignalR;
@@ -32,6 +33,7 @@ builder.Services.Configure<AuthenticationConfiguration>(
 builder.Services.Configure<MessageBusConfigs>(
                    builder.Configuration.GetSection(nameof(MessageBusConfigs)));
 
+builder.Services.AddScoped<IRetailerServices, RetailerServices>();
 builder.Services.AddScoped<IRetailerRepository, RetailerRepository>();
 builder.Services.AddScoped<IAuthenticationServices, AuthenticationServices>();
 builder.Services.AddScoped<ISessionRepository, SessionRepository>();

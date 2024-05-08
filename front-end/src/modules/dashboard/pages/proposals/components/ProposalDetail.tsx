@@ -1,5 +1,7 @@
 import React from 'react'
 import { Proposal } from '../models/Proposa';
+import { cpfMask } from '../../../../../core/masks/cpfMasks';
+import { phoneMask } from '../../../../../core/masks/phoneMasks';
 
 interface ModalProps {
     proposal: Proposal;
@@ -11,7 +13,6 @@ const ProposalDetail: React.FC<ModalProps> = ({ proposal, isOpen, onClose }) => 
     if (!isOpen) return null;
 
     const handleClose = () => {
-      //console.log("dentro do details, clicou para fechar");
       onClose();
     }
 
@@ -35,7 +36,7 @@ const ProposalDetail: React.FC<ModalProps> = ({ proposal, isOpen, onClose }) => 
               {/* Corpo do modal */}
               <div className='relative pl-6 pt-2 flex gap-8'>
                 <span>Create at: {proposal.created_at}</span>
-                <span >Updated at: {proposal.updated_at}</span>
+                <span >Updated at: {proposal.created_at}</span>
                 <span>Analyst: {proposal.analyst}</span>
               </div>
               <div className="relative p-6 flex-auto text-white flex gap-4">
@@ -50,12 +51,12 @@ const ProposalDetail: React.FC<ModalProps> = ({ proposal, isOpen, onClose }) => 
                     <div className='grid grid-cols-2 gap-3'>              
                       <div className='text-left mb-4'>
                         <label htmlFor="cpf" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">CPF</label>
-                        <input type="text" name="cpf" id="cpf" onChange={(e) => {}} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder={proposal.cpf} disabled/>
+                        <input type="text" name="cpf" id="cpf"  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder={cpfMask(proposal.cpf)} disabled/>
                       </div>
 
                       <div className='text-left mb-4'>
                         <label htmlFor="cellphone" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cellphone</label>
-                        <input type="text" name="cellphone" id="cellphone" onChange={(e) => {}} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder={proposal.cellphone} disabled/>
+                        <input type="text" name="cellphone" id="cellphone" onChange={(e) => {}} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder={phoneMask(proposal.cellphone)} disabled/>
                       </div>
                   </div>
 
@@ -74,7 +75,7 @@ const ProposalDetail: React.FC<ModalProps> = ({ proposal, isOpen, onClose }) => 
 
                         <div className='text-left mb-4'>
                         <label htmlFor="creditlimit" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Credit limit</label>
-                        <input type="text" name="creditlimit" id="creditlimit" onChange={(e) => {}} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder={proposal.creadit_limit} disabled/>
+                        <input type="text" name="creditlimit" id="creditlimit" onChange={(e) => {}} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder={`R$ ${proposal.creadit_limit}`} disabled/>
                       </div>
                       
                      </div>

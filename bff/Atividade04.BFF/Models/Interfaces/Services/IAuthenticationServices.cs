@@ -13,6 +13,7 @@ namespace Atividade04.BFF.Services
         Task<SignUpResponse> SignUp(Session session, SignUpRequest request);
         string GenerateJwt(Session session, Retailer retailer);
 
+        string? ObterClaim(string token, string claim);
     }
 }
 

@@ -152,6 +152,16 @@ namespace Atividade04.BFF.Services
             return tokenHandler.WriteToken(token);
         }
 
+        public string? ObterClaim(string token, string claim)
+        {
+            var handler = new JwtSecurityTokenHandler();
+            var tokenS = handler.ReadToken(token) as JwtSecurityToken;
+
+            if (tokenS is null) return null;
+
+            return tokenS?.Claims.FirstOrDefault(c => c.Type == claim)?.Value;
+
+        }
     }
     
 }

@@ -57,6 +57,13 @@ namespace Atividade04.BFF.Models
         {
             Sessions.Add(session);
         }
+
+        public void ChangeName(string name)
+        {
+            if (string.IsNullOrWhiteSpace(name)) throw new ArgumentNullException(nameof(name));
+
+            Name = name;
+        }
     }
 }
 

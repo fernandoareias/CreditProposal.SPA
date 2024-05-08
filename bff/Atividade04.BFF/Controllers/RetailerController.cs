@@ -19,11 +19,60 @@ namespace Atividade04.BFF.Controllers
         private readonly ISessionRepository _sessionRepository;
         private readonly IAuthenticationServices _authenticationServices;
 
-        public RetailerController(IMediatorHandler mediatorHandler, IValidatorServices validatorServices, IRetailerServices retailerServices, IAuthenticationServices authenticationServices) : base(mediatorHandler, validatorServices)
+        public RetailerController(IValidatorServices validatorServices, IRetailerServices retailerServices, IAuthenticationServices authenticationServices) : base(validatorServices)
         {
             _retailerServices = retailerServices;
             _authenticationServices = authenticationServices;
         }
+         
+
+        [HttpPatch]
+        public async Task<IActionResult> Update([FromBody] UpdateRetalierRequest request)
+        {
+            try
+            {
+                string token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+
+                if (string.IsNullOrWhiteSpace(token)) return Unauthorized();
+
+                var email = _authenticationServices.ObterClaim(token, "email");
+
+                if (string.IsNullOrWhiteSpace(email)) return Unauthorized();
+
+                await _retailerServices.Update(email, request);
+
+                return Ok();
+            }
+            catch (NullReferenceException)
+            {
+                return Unauthorized();
+            }
+        }
+
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete()
+        {
+            try
+            {
+                string token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+
+                if (string.IsNullOrWhiteSpace(token)) return Unauthorized();
+
+                var email = _authenticationServices.ObterClaim(token, "email");
+
+                if (string.IsNullOrWhiteSpace(email)) return Unauthorized();
+
+                await _retailerServices.Delete(email);
+
+                return Ok();
+            }
+            catch (NullReferenceException)
+            {
+                return Unauthorized();
+            }
+        }
+
 
 
     }

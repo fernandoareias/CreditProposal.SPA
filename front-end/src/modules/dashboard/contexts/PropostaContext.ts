@@ -4,4 +4,10 @@ import { Proposal } from "../pages/proposals/models/Proposa";
 
 let proposals: Proposal[] = [];
 
-export const ProposalsContext = createContext<Proposal[]>(proposals);
+export const ProposalsContext = createContext<{
+  proposals: Proposal[];
+  setProposals: React.Dispatch<React.SetStateAction<Proposal[]>>;
+}>({
+  proposals: proposals,
+  setProposals: () => {}, // Função vazia inicialmente
+});
