@@ -9,5 +9,5 @@ export const ProposalsContext = createContext<{
   setProposals: React.Dispatch<React.SetStateAction<Proposal[]>>;
 }>({
   proposals: proposals,
-  setProposals: () => {}, // Função vazia inicialmente
+  setProposals: () => {},
 });

@@ -16,7 +16,6 @@ import PrivateRoute from './core/guards/PrivateRoute';
 
 function App() {
 
-  // Session
   const [privateKey, setPrivateKey] = useState<string | null>(null);
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [version, setVersion] = useState<string | null>(null);
@@ -52,7 +51,7 @@ function App() {
       var frontprivateKey = PublicPrivateKey.PrivateKey;
 
       fetch(
-        "https://localhost:7222/authentication/session",
+        `${process.env.REACT_APP_BFF_API}authentication/session`,
         {
           method: "POST",
           headers: {
@@ -84,12 +83,6 @@ function App() {
     setToken(newToken);
   };
 
-  const dashboardRoutes = [
-    <Route key="proposals" path="/dashboard/proposals" element={<ProposalsPage />} />,
-    <Route key="credit-cards" path="/dashboard/credit-cards" element={<CreditCardPage />} />
-    // Outras rotas da dashboard aqui
-  ];
-
   return (
     sessionId && version?
       <>
@@ -97,24 +90,18 @@ function App() {
           <BrowserRouter>
                 <Routes>
                   <Route path='*' Component={NotExistsPage}/>
-                  
                   <Route path="/authentication/login" Component={LoginPage} />
                   <Route path="/authentication/signup" Component={SignUpPage} />
                   <Route path='/authentication/recovery' Component={RecoveryPassword}/>
-                  
                   <Route path="/dashboard/*" element={
                     <PrivateRoute>
                       <Route index element={<Dashboard />} />
-                      {/* Renderize as rotas da dashboard dentro do outlet do componente Dashboard */}
                       <Route element={<Dashboard />}>
                         <Route path='proposals' element={<ProposalsPage />} />
                         <Route path='credit-cards' element={<CreditCardPage />} />
                       </Route>
                     </PrivateRoute>
                   } />
-
-
-  
                 </Routes>
             </BrowserRouter>
           </SessionContext.Provider>

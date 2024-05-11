@@ -57,15 +57,12 @@ const bffServices = {
 
 const handleApiError = (error: AxiosError<ErrorDetails>) => {
   if (error.response) {
-    // O servidor retornou um status de erro
     throw new Error(
       `Erro ${error.response.status}: ${error.response.data.message}`
     );
   } else if (error.request) {
-    // A requisição foi feita, mas não houve resposta
     throw new Error("Erro de comunicação com o servidor");
   } else {
-    // Ocorreu um erro durante a configuração da requisição
     throw new Error(`Erro: ${error.message}`);
   }
 };

@@ -7,8 +7,8 @@ import Alert from '../../../core/components/Alert';
 
 
 interface ModalProps {
-    isOpen: boolean; // Defina o tipo de isOpen como boolean
-    onClose: () => void; // Função de fechar o modal
+    isOpen: boolean; 
+    onClose: () => void; 
     name: string;
     setName: React.Dispatch<React.SetStateAction<string>>
   }
@@ -59,9 +59,8 @@ const UserConfigurations: React.FC<ModalProps> = ({ isOpen, onClose, name, setNa
             redirect: 'follow'
         };
 
-        fetch("https://localhost:7222/retailers", requestOptions)
+        fetch(`${process.env.REACT_APP_BFF_API}retailers`, requestOptions)
         .then(response => {
-            console.log(`Atualizando profile response: ${response}`);
             if (response.status === 200) {
                 sessionStorage.setItem("name", tempName);
                 setName(tempName);
@@ -91,10 +90,9 @@ const UserConfigurations: React.FC<ModalProps> = ({ isOpen, onClose, name, setNa
             redirect: 'follow'
         };
                 
-        fetch("https://localhost:7222/retailers", requestOptions)
+        fetch(`${process.env.REACT_APP_BFF_API}retailers`, requestOptions)
         .then(response => {
             if (response.status === 200) {
-                console.log(`Deletando profile response: ${response}`);
                 sessionStorage.clear();
                 navigate("/authentication/login");
             } else if (response.status === 401) {
@@ -119,9 +117,7 @@ const UserConfigurations: React.FC<ModalProps> = ({ isOpen, onClose, name, setNa
               <Alert message={error} setError={setError} type="red" />
             </div>
           )}
-            {/* Conteúdo do modal */}
             <div className="relative flex flex-col w-full h-full bg-slate-800 border-0 rounded-lg shadow-lg outline-none focus:outline-none">
-              {/* Cabeçalho do modal */}
               <div className="flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t">
                 <h3 className="text-3xl font-semibold text-white">
                   Profile
@@ -133,7 +129,6 @@ const UserConfigurations: React.FC<ModalProps> = ({ isOpen, onClose, name, setNa
                   <span className="bg-transparent text-black h-6 w-6 text-2xl block outline-none focus:outline-none">×</span>
                 </button>
               </div>
-              {/* Corpo do modal */}
               <div className="relative p-6 flex-auto text-white flex gap-4">
 
                 <div id='profile'>

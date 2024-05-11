@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { SessionContext } from '../../../../core/contexts/SessionContext';
 import JSEncrypt from 'jsencrypt';
 
-// import jwt from 'jsonwebtoken';
 import CryptoJS from 'crypto-js';
 import Alert from '../../../../core/components/Alert';
 import Button from '../../../../core/components/Button';
@@ -32,7 +31,7 @@ const LoginPage = () => {
   const handleSubmit = (event: any) => {
     event.preventDefault();
     setSubmited(true);
-    // Calcule o hash dos dados
+    
     const encrypt = new JSEncrypt(); 
     encrypt.setPrivateKey(privateKey);
 
@@ -53,7 +52,7 @@ const LoginPage = () => {
       redirect: 'follow'
   };
   
-  fetch("https://localhost:7222/authentication/sign-in", requestOptions)
+  fetch(`${process.env.REACT_APP_BFF_API}authentication/sign-in`, requestOptions)
   .then(response => {
 
     if (!response.ok) {
@@ -74,14 +73,13 @@ const LoginPage = () => {
     sessionStorage.setItem("role", result.role);
     sessionStorage.setItem("store", result.store);
 
-    navigate("/dashboard");
+    navigate("/dashboard/proposals");
 
   })
   .catch(error =>{
     setError(error.message); 
     console.error('Fetch error:', error);
   }).finally(() => {
-    // Definir submited como false após o término do envio do formulário
     setSubmited(false);
   });
   }

@@ -1,14 +1,10 @@
-const isCNPJValid = (cnpj: string): boolean => {
-    // Remover caracteres não numéricos
+export const isCNPJValid = (cnpj: string): boolean => {
     cnpj = cnpj.replace(/\D/g, '');
 
-    // Verificar se o CNPJ tem 14 dígitos
     if (cnpj.length !== 14) return false;
 
-    // Verificar se todos os dígitos são iguais (ex: 00.000.000/0000-00)
     if (/^(\d)\1{13}$/.test(cnpj)) return false;
 
-    // Calcular o primeiro dígito verificador
     let sum = 0;
     let weight = 5;
     for (let i = 0; i < 12; i++) {
@@ -20,7 +16,6 @@ const isCNPJValid = (cnpj: string): boolean => {
 
     if (parseInt(cnpj.charAt(12)) !== digit) return false;
 
-    // Calcular o segundo dígito verificador
     sum = 0;
     weight = 6;
     for (let i = 0; i < 13; i++) {

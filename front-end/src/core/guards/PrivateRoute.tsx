@@ -11,10 +11,9 @@ const PrivateRoute: React.FC<{ children: any }> = ({ children }) => {
     const token = sessionStorage.getItem('token');
     const isAuthenticated = !!token;
     setAuthenticated(isAuthenticated);
-    setLoading(false); // Marcar que a verificação de autenticação foi concluída
+    setLoading(false); 
   }, []);
 
-  // Se ainda estiver carregando, não renderize nada
   if (loading) return <Loading/>;
 
   if (!authenticated) {

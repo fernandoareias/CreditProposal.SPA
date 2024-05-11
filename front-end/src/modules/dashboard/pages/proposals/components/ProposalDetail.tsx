@@ -5,8 +5,8 @@ import { phoneMask } from '../../../../../core/masks/phoneMasks';
 
 interface ModalProps {
     proposal: Proposal;
-    isOpen: boolean; // Defina o tipo de isOpen como boolean
-    onClose: () => void; // Função de fechar o modal
+    isOpen: boolean; 
+    onClose: () => void;
   }
 
 const ProposalDetail: React.FC<ModalProps> = ({ proposal, isOpen, onClose }) => {
@@ -19,9 +19,7 @@ const ProposalDetail: React.FC<ModalProps> = ({ proposal, isOpen, onClose }) => 
     return (
       <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none">
           <div className="relative w-full  max-w-3xl mx-auto my-6">
-            {/* Conteúdo do modal */}
             <div className="relative flex flex-col w-full h-full bg-slate-800 border-0 rounded-lg shadow-lg outline-none focus:outline-none">
-              {/* Cabeçalho do modal */}
               <div className="flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t">
                 <h3 className="text-3xl font-semibold text-white">
                   {proposal.code}
@@ -33,7 +31,6 @@ const ProposalDetail: React.FC<ModalProps> = ({ proposal, isOpen, onClose }) => 
                   <span className="bg-transparent text-black h-6 w-6 text-2xl block outline-none focus:outline-none">×</span>
                 </button>
               </div>
-              {/* Corpo do modal */}
               <div className='relative pl-6 pt-2 flex gap-8'>
                 <span>Create at: {proposal.created_at}</span>
                 <span >Updated at: {proposal.created_at}</span>

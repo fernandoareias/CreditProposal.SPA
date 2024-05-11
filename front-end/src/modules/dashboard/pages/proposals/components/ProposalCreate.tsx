@@ -4,11 +4,12 @@ import { cpfMask, removeCPFMask } from '../../../../../core/masks/cpfMasks';
 import { phoneMask, removePhoneMask } from '../../../../../core/masks/phoneMasks';
 import Button from '../../../../../core/components/Button';
 import Alert from '../../../../../core/components/Alert';
+import { isCPFValid } from '../../../../../core/validators/isCPFValid';
 
 
 interface ModalProps {
-    isOpen: boolean; // Defina o tipo de isOpen como boolean
-    onClose: () => void; // Função de fechar o modal
+    isOpen: boolean; 
+    onClose: () => void; 
   }
 
 const ProposalCreate : React.FC<ModalProps> = ({ isOpen, onClose }) => {
@@ -69,16 +70,12 @@ const ProposalCreate : React.FC<ModalProps> = ({ isOpen, onClose }) => {
           redirect: 'follow'
         };
       
-        fetch("https://localhost:7222/proposals", requestOptions)
+        fetch(`${process.env.REACT_APP_BFF_API}proposals`, requestOptions)
           .then(response => {
-            if(response.status != 200){
+            if(response.status != 202){
               setError("Unavailable service"); 
+              return;
             }
-
-            response.json()
-          })
-          .then(result => {
-              
           })
           .catch(error => setError(error.message))
           .finally(() => {
@@ -103,9 +100,7 @@ const ProposalCreate : React.FC<ModalProps> = ({ isOpen, onClose }) => {
                 <Alert message={error} setError={setError} type="red" />
               </div>
             )}
-              {/* Conteúdo do modal */}
               <div className="relative flex flex-col w-full h-full bg-slate-800 border-0 rounded-lg shadow-lg outline-none focus:outline-none">
-                {/* Cabeçalho do modal */}
                 <div className="flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t">
                   <h3 className="text-3xl font-semibold text-white">
                     Create Proposal
@@ -117,7 +112,6 @@ const ProposalCreate : React.FC<ModalProps> = ({ isOpen, onClose }) => {
                     <span className="bg-transparent text-black h-6 w-6 text-2xl block outline-none focus:outline-none">×</span>
                   </button>
                 </div>
-                {/* Corpo do modal */}
                 <div className="relative p-6 flex-auto text-white flex gap-4">
                     <form onSubmit={(e) => handleSubmit(e)}>
                         <div className='text-left mb-4'>

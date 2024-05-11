@@ -16,9 +16,8 @@ const DashboardPage = () => {
   const [cnpj, setCNPJ] = useState("");
 
 
-  const [isModalOpen, setIsModalOpen] = useState(false); // Estado para controlar a visibilidade do modal
+  const [isModalOpen, setIsModalOpen] = useState(false); 
 
-  // Função para abrir o modal
   const handleOpenModal = () => {
     setIsModalOpen(true);
   };
@@ -36,10 +35,9 @@ const DashboardPage = () => {
   const navigate = useNavigate();
   
   useEffect(() => {
-    // Verifica se o CNPJ possui valor antes de iniciar a conexão do hub
     if (cnpj) {
       const hubConnection = new signalR.HubConnectionBuilder()
-        .withUrl("https://localhost:7222/proposals", {
+        .withUrl(`${process.env.REACT_APP_BFF_API}proposals`, {
           withCredentials: true, // Enviar credenciais
         })
         .configureLogging(signalR.LogLevel.Information)
@@ -53,7 +51,6 @@ const DashboardPage = () => {
       
           if (existingProposalIndex !== -1) {
               const existingProposal = updatedProposals[existingProposalIndex];
-              console.log(`Atualizando proposta com informacao recebida atraves do webhook: `, receivedProposal);
               existingProposal.aggregate_id = receivedProposal.aggregateId;
               existingProposal.created_at = receivedProposal.createdAt;
               existingProposal.updated_at = receivedProposal.updatedAt;
@@ -64,7 +61,6 @@ const DashboardPage = () => {
               existingProposal.status = receivedProposal.status;
               existingProposal.creadit_limit = receivedProposal.creditLimit;
           } else {
-              console.log(`Criando nova proposta com informacao recebida atraves do webhook: `, receivedProposal);
               const newProposal = new Proposal();
           
               newProposal.aggregate_id = receivedProposal.aggregateId;
@@ -84,6 +80,11 @@ const DashboardPage = () => {
         setProposals(updatedProposals);
       });
   
+      hubConnection.onclose((e) => {  
+          sessionStorage.clear();
+          navigate("/authentication/login");
+      });
+      
       hubConnection
         .start()
         .then(() => {
@@ -94,7 +95,6 @@ const DashboardPage = () => {
           setLoading(false);
         })
         .catch((error) => {
-          console.error("SignalR connection failed: ", error);
           sessionStorage.clear();
           navigate("/authentication/login");
         });
@@ -157,12 +157,6 @@ const DashboardPage = () => {
                 <Link to="proposals" className="flex items-center flex-grow text-[1.15rem] dark:text-slate-50 hover:text-slate-300">Proposals</Link>
               </span>
             </div>
-
-            {/* <div>
-              <span className="select-none flex items-center px-4 py-[.775rem] cursor-pointer my-[.4rem] rounded-[.95rem]">
-                <Link to="credit-cards" className="flex items-center flex-grow text-[1.15rem] dark:text-slate-50 hover:text-slate-300">Credit cards</Link>
-              </span>
-            </div> */}
           </div>
         </div>
       </aside>

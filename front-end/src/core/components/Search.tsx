@@ -4,20 +4,21 @@ interface SearchProps {
   placeholder: string;
   search: (query: string) => void;
   clear: () => void;
+  searchSubimit: (query: any) => void;
 }
 
-const Search: React.FC<SearchProps> = ({ placeholder, search, clear }) => {
+const Search: React.FC<SearchProps> = ({ placeholder, search, clear, searchSubimit }) => {
   const [query, setQuery] = useState('');
-
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    search(query);
-  };
 
   const handleClear = () => {
     setQuery('');
     clear();
   };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    searchSubimit(query);
+  }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
@@ -27,16 +28,17 @@ const Search: React.FC<SearchProps> = ({ placeholder, search, clear }) => {
     if (query === '') {
       clear();
     }
-  }, [query, clear]);
+  }, [query]);
 
   useEffect(() => {
     if (query.length >= 11) {
       search(query);
     }
-  }, [query, search]);
+  }, [query]);
+
 
   return (
-    <form onSubmit={handleSearch}>
+    <form onSubmit={handleSubmit}>
       <div className='text-left flex mb-12 relative'>
         <button type="submit" className='btn p-3 text-white'>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">

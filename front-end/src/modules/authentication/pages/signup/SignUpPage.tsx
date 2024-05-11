@@ -4,6 +4,7 @@ import { SessionContext } from '../../../../core/contexts/SessionContext';
 import Alert from '../../../../core/components/Alert';
 import Button from '../../../../core/components/Button';
 import { cnpjMask, removeCNPJMask } from '../../../../core/masks/cnpjMask';
+import { isCNPJValid } from '../../../../core/validators/isCNPJValid';
 
 const SignUpPage = () => {
     const { privateKey, version, sessionId, setToken } = useContext(SessionContext);
@@ -27,6 +28,13 @@ const SignUpPage = () => {
           return null;
         }
 
+        if(!isCNPJValid(cnpj))
+        {
+          setError("CNPJ invalid");
+          setSubmited(false);
+          return null;
+        }
+
         const data = JSON.stringify(
           { name : firstName + " " + lastName, 
             email: email,
@@ -46,19 +54,16 @@ const SignUpPage = () => {
           redirect: 'follow'
         };
       
-        fetch("https://localhost:7222/authentication/sign-up", requestOptions)
+        fetch(`${process.env.REACT_APP_BFF_API}authentication/sign-up`, requestOptions)
         .then(response => {
           if (!response.ok) {
-            // If the response is not ok (status 200-299), check the specific status
             if (response.status === 401) {
               throw new Error("Unauthorized: You are not authorized to access this resource.");
             } else if (response.status === 400) {
-              // If the status is 400, extract the error message from the response body
               return response.text().then(errorMessage => {
                 throw new Error(errorMessage);
               });
             } else {
-              // For other error statuses, throw a generic error message
               throw new Error("Something went wrong. Please try again later.");
             }
           }
@@ -72,15 +77,13 @@ const SignUpPage = () => {
           sessionStorage.setItem("role", result.role);
           sessionStorage.setItem("store", result.store);
       
-          navigate("/dashboard");
+          navigate("/dashboard/proposals");
         })
         .catch(error => {
-          // Handle errors
           setError(error.message); 
           console.error('Fetch error:', error);
         })
         .finally(() => {
-          // Set submited to false after the form submission is complete
           setSubmited(false);
         });
     
