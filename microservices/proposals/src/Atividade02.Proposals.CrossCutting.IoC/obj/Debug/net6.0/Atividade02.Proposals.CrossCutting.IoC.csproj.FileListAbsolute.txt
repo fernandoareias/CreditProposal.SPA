@@ -22,3 +22,15 @@
 /Users/f.areias/Documents/faculdade/Atividade02/proposals/src/Atividade02.Proposals.CrossCutting.IoC/obj/Debug/net6.0/refint/Atividade02.Proposals.CrossCutting.IoC.dll
 /Users/f.areias/Documents/faculdade/Atividade02/proposals/src/Atividade02.Proposals.CrossCutting.IoC/obj/Debug/net6.0/Atividade02.Proposals.CrossCutting.IoC.pdb
 /Users/f.areias/Documents/faculdade/Atividade02/proposals/src/Atividade02.Proposals.CrossCutting.IoC/obj/Debug/net6.0/ref/Atividade02.Proposals.CrossCutting.IoC.dll
+/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.CrossCutting.IoC/bin/Debug/net6.0/Atividade02.Proposals.CrossCutting.IoC.deps.json
+/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.CrossCutting.IoC/bin/Debug/net6.0/Atividade02.Proposals.CrossCutting.IoC.dll
+/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.CrossCutting.IoC/bin/Debug/net6.0/Atividade02.Proposals.CrossCutting.IoC.pdb
+/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.CrossCutting.IoC/obj/Debug/net6.0/Atividade02.Proposals.CrossCutting.IoC.csproj.AssemblyReference.cache
+/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.CrossCutting.IoC/obj/Debug/net6.0/Atividade02.Proposals.CrossCutting.IoC.GeneratedMSBuildEditorConfig.editorconfig
+/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.CrossCutting.IoC/obj/Debug/net6.0/Atividade02.Proposals.CrossCutting.IoC.AssemblyInfoInputs.cache
+/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.CrossCutting.IoC/obj/Debug/net6.0/Atividade02.Proposals.CrossCutting.IoC.AssemblyInfo.cs
+/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.CrossCutting.IoC/obj/Debug/net6.0/Atividade02.Proposals.CrossCutting.IoC.csproj.CoreCompileInputs.cache
+/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.CrossCutting.IoC/obj/Debug/net6.0/Atividade02.Proposals.CrossCutting.IoC.dll
+/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.CrossCutting.IoC/obj/Debug/net6.0/refint/Atividade02.Proposals.CrossCutting.IoC.dll
+/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.CrossCutting.IoC/obj/Debug/net6.0/Atividade02.Proposals.CrossCutting.IoC.pdb
+/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.CrossCutting.IoC/obj/Debug/net6.0/ref/Atividade02.Proposals.CrossCutting.IoC.dll

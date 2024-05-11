@@ -7,16 +7,16 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["portador/src/Atividade02.Portador.API/Atividade02.Portador.API.csproj", "portador/src/Atividade02.Portador.API/"]
-COPY ["BuildingBlocks/Atividade02.Core/Atividade02.Core.csproj", "BuildingBlocks/Atividade02.Core/"]
-COPY ["BuildingBlocks/Atividade02.Core.MessageBus/Atividade02.Core.MessageBus.csproj", "BuildingBlocks/Atividade02.Core.MessageBus/"]
+COPY ["./microservices/portador/src/Atividade02.Portador.API/Atividade02.Portador.API.csproj", "portador/src/Atividade02.Portador.API/"]
+COPY ["./microservices/BuildingBlocks/Atividade02.Core/Atividade02.Core.csproj", "BuildingBlocks/Atividade02.Core/"]
+COPY ["./microservices/BuildingBlocks/Atividade02.Core.MessageBus/Atividade02.Core.MessageBus.csproj", "BuildingBlocks/Atividade02.Core.MessageBus/"]
 RUN dotnet restore "portador/src/Atividade02.Portador.API/Atividade02.Portador.API.csproj"
-COPY . .
-WORKDIR "/src/portador/src/Atividade02.Portador.API"
-RUN dotnet build "Atividade02.Portador.API.csproj" -c Release -o /app/build
+COPY ./microservices/ .
+
+RUN dotnet build "portador/src/Atividade02.Portador.API/Atividade02.Portador.API.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "Atividade02.Portador.API.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "portador/src/Atividade02.Portador.API/Atividade02.Portador.API.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
