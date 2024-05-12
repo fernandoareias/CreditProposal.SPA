@@ -1,6 +1,6 @@
 ﻿<Properties StartupConfiguration="Multiple Projects">
   <MonoDevelop.Ide.ItemProperties.microservices.proposal.src.0_220-_220Apresentation.Atividade02.Proposals.API PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../bff/Atividade04.BFF/Controllers/CommonController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="proposals/src/Atividade02.Proposals.Infrastructure.ExternalServices.CreditAnalysisEngine/Services/CreditAnalysisEngineServices.cs">
     <Files>
       <File FileName="proposals/src/Atividade02.Proposals.API/Controllers/ProposalController.cs" Line="38" Column="1" IsPinned="True" />
       <File FileName="proposals/src/Atividade02.Proposals.Application/Proposals/Commands/Handlers/SendProposalCommandHandlers.cs" Line="43" Column="33" IsPinned="True" />
@@ -11,7 +11,6 @@
       <File FileName="proposals/src/Atividade02.Proposals.Infrastructure/Data/Repositories/StoreRepository.cs" />
       <File FileName="../bff/Atividade04.BFF/Configurations/Serilog/EnricherLog.cs" />
       <File FileName="../bff/Atividade04.BFF/Middlewares/ExceptionMiddleware.cs" />
-      <File FileName="BuildingBlocks/Atividade02.Core.MessageBus/Services/MessageBus.cs" />
       <File FileName="../bff/tests/Atividade04.BFF.Tests/UnitTest1.cs" />
       <File FileName="proposals/src/Atividade02.Proposals.API/Controllers/CommonController.cs" />
       <File FileName="proposals/src/Atividade02.Proposals.API/Program.cs" />
@@ -50,7 +49,7 @@
       <File FileName="proposals/src/Atividade02.Proposals.API/appsettings.json" />
       <File FileName="proposals/src/Atividade02.Proposals.Infrastructure/Data/MongoContext.cs" />
       <File FileName="proposals/src/Atividade02.Proposals.Infrastructure/ProposalsInfrastructureIoC.cs" />
-      <File FileName="proposals/src/Atividade02.Proposals.API/appsettings.Development.json" Line="10" Column="1" />
+      <File FileName="proposals/src/Atividade02.Proposals.API/appsettings.Development.json" />
       <File FileName="proposals/src/Atividade02.Proposals.Application/Proposals/Queries/GetListProposalByFilterQuery.cs" />
       <File FileName="proposals/src/Atividade02.Proposals.API/BackgroundServices/ProposalCreatedEventWorker.cs" />
       <File FileName="proposals/src/Atividade02.Proposals.API/BackgroundServices/ProposalSentEventWorker.cs" />
@@ -63,38 +62,34 @@
       <File FileName="proposals/src/Atividade02.Proposals.Domain/Proposals/Entities/Proponents/ValueObjects/Cellphone.cs" />
       <File FileName="proposals/src/Atividade02.Proposals.API/Protos/Services/ProposalServices.cs" />
       <File FileName="proposals/src/Atividade02.Proposals.Domain/Stores/Store.cs" />
-      <File FileName="proposals/src/Atividade02.Proposals.Infrastructure.ExternalServices.CreditAnalysisEngine/Services/CreditAnalysisEngineServices.cs" />
-      <File FileName="../bff/Atividade04.BFF/Controllers/CommonController.cs" Line="22" Column="35" />
+      <File FileName="proposals/src/Atividade02.Proposals.Infrastructure.ExternalServices.CreditAnalysisEngine/Services/CreditAnalysisEngineServices.cs" Line="29" Column="1" />
+      <File FileName="../bff/Atividade04.BFF/Controllers/CommonController.cs" />
       <File FileName="../bff/Atividade04.BFF/DTOs/Retailer/v1/Requests/UpdateRetalierRequest.cs" />
       <File FileName="../bff/Atividade04.BFF/Services/RetailerServices.cs" />
       <File FileName="../bff/Atividade04.BFF/Data/Repositories/Common/IRepository.cs" />
       <File FileName="../bff/Atividade04.BFF/Controllers/ProposalController.cs" />
       <File FileName="../bff/Atividade04.BFF/Dockerfile" />
       <File FileName="portador/src/Atividade02.Portador.API/appsettings.Development.json" />
+      <File FileName="proposals/src/Atividade02.Proposals.Infrastructure.ExternalServices.CreditAnalysisEngine/CreditAnalysisEngineIoC.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="atividade02">
-            <Node name="bff" expanded="True">
-              <Node name="src" expanded="True">
-                <Node name="Atividade04.BFF" expanded="True">
-                  <Node name="Dependencies" expanded="True">
-                    <Node name="ProjectDependencies" expanded="True" />
-                  </Node>
-                  <Node name="Controllers" expanded="True">
-                    <Node name="CommonController.cs" selected="True" />
-                  </Node>
-                </Node>
-              </Node>
-            </Node>
+          <Node name="atividade02" expanded="True">
+            <Node name="bff" expanded="True" />
+            <Node name="BuildingBlocks" expanded="True" />
             <Node name="microservices" expanded="True">
               <Node name="proposal" expanded="True">
                 <Node name="src" expanded="True">
                   <Node name="0 - Apresentation" expanded="True">
-                    <Node name="Atividade02.Proposals.API" expanded="True">
+                    <Node name="Atividade02.Proposals.API" expanded="True" selected="True">
                       <Node name="Controllers" expanded="True" />
                       <Node name="appsettings.json" expanded="True" />
+                    </Node>
+                  </Node>
+                  <Node name="3 - Infrastructure" expanded="True">
+                    <Node name="Atividade02.Proposals.Infrastructure.ExternalServices.CreditAnalysisEngine" expanded="True">
+                      <Node name="Services" expanded="True" />
                     </Node>
                   </Node>
                 </Node>
@@ -105,9 +100,7 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.microservices.portador.src.Atividade02.Portador.API PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
   <MonoDevelop.Ide.ItemProperties.bff.src.Atividade04.BFF PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/f.areias/Documents/faculdade/atividade04/bff/Atividade04.BFF/Services/AuthenticationServices.cs" line="32" column="1" />
@@ -115,7 +108,7 @@
       <Breakpoint file="/Users/f.areias/Documents/faculdade/atividade04/microservices/proposals/src/Atividade02.Proposals.API/Controllers/ProposalController.cs" relfile="proposals/src/Atividade02.Proposals.API/Controllers/ProposalController.cs" line="34" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.docker-compose PreferredExecutionTarget="MonoDevelop.Default" />
   <MultiItemStartupConfigurations>
     <MultiItemSolutionRunConfiguration Id="Multiple Projects" Name="Multiple Projects">
       <Items>
@@ -125,5 +118,7 @@
       </Items>
     </MultiItemSolutionRunConfiguration>
   </MultiItemStartupConfigurations>
-  <MonoDevelop.Ide.ItemProperties.docker-compose PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.microservices.portador.src.Atividade02.Portador.API PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>
