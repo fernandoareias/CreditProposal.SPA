@@ -50,7 +50,7 @@ const UserConfigurations: React.FC<ModalProps> = ({ isOpen, onClose, name, setNa
         headers.append('Content-Type', 'application/json'); 
         headers.append('Authorization', sessionStorage.getItem("token"));
 
-        const data = JSON.stringify({ Name: name });
+        const data = JSON.stringify({ Name: tempName });
 
         const requestOptions: RequestInit = {
             method: 'PATCH',

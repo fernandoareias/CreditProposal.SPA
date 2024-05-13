@@ -134,7 +134,6 @@ namespace Atividade02.Proposals.Domain.Proposals
             AddEvent(PreAnalysisPolicyExecutedFactory.CreateEvent(this, policy));
 
             PreAnalysis.Add(policy);
-            await Task.Delay(4000);
         }
 
         public async Task Execute(IFraudAnalysisPolicyServices domainService)
@@ -146,7 +145,6 @@ namespace Atividade02.Proposals.Domain.Proposals
 
             FraudAnalysis.Add(policy);
 
-            await Task.Delay(4000);
             AddEvent(FraudAnalysisPolicyExecutedFactory.CreateEvent(this, policy));
 
             ChangeStatus(ProposalValidator.GetStatus(GetLastPreAnalysis(), policy));
@@ -160,7 +158,6 @@ namespace Atividade02.Proposals.Domain.Proposals
             if (policy is null)
                 throw new NullReferenceException(nameof(policy));
 
-            await Task.Delay(4000);
             Formalizations.Add(policy);
             AddEvent(FormalizationExecutedFactory.CreateEvent(this, policy));
         }

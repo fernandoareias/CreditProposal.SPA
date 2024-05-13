@@ -52,8 +52,6 @@ namespace Atividade04.BFF.Controllers
 
             _messageBus.Publish(@event.Exchange, @event.RouterKey, @event);
 
-            await Task.Delay(3000);
-
             return Accepted();
         }
     }
