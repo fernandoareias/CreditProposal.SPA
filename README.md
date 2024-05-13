@@ -21,7 +21,7 @@ Após iniciar o docker-compose crie o banco de dados ProposalsDB e a collection 
 
 ```
 
-Depois disso, você pode rodar as chamadas da collection do postman
+Depois disso acesse `http://localhost:3000/authentication/login`
 
 ## Aplicações
 
@@ -37,8 +37,10 @@ Depois disso, você pode rodar as chamadas da collection do postman
 
 ### Diagramas
 
-`documentacao/Atividade02.drawio.xml`
+`documentacao/Atividade04.xml`
 
 ### Postman collection
 
 `documentacao/Atividade02.postman_collection.json`
+
+![Atividade02 drawio-5-Arquitetura drawio](https://github.com/fernandoareias/atividade04/assets/87771786/22a0cce1-05c4-4bd8-938c-34491aded47f)
